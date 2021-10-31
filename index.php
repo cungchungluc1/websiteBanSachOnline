@@ -8,6 +8,6 @@
 </head>
 <body>
     <?php include("connection.php"); ?>
-    demo
+    demo1
 </body>
 </html>
