@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 31, 2021 lúc 04:11 AM
--- Phiên bản máy phục vụ: 10.4.21-MariaDB
--- Phiên bản PHP: 7.3.30
+-- Thời gian đã tạo: Th10 31, 2021 lúc 09:39 AM
+-- Phiên bản máy phục vụ: 10.4.11-MariaDB
+-- Phiên bản PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -125,6 +126,35 @@ CREATE TABLE `tbl_user` (
   `username` text NOT NULL,
   `password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_use_vouncher`
+--
+
+CREATE TABLE `tbl_use_vouncher` (
+  `id` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `id_vouncher` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `id_user` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `date_user` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_vouncher`
+--
+
+CREATE TABLE `tbl_vouncher` (
+  `id_vouncher` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `name` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `description` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `code` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `sell` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `date_start` date NOT NULL,
+  `date_end` text COLLATE utf8_vietnamese_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
