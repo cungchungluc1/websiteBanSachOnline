@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 31, 2021 lúc 09:39 AM
+-- Thời gian đã tạo: Th10 01, 2021 lúc 08:54 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.3
 
@@ -30,12 +30,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `product` (
   `id_product` text DEFAULT NULL,
+  `id_publishing_company` text NOT NULL,
   `name` text NOT NULL,
   `description` text NOT NULL,
   `price` int(11) NOT NULL,
   `sell` float NOT NULL,
   `id_category` text NOT NULL,
-  `description_detail` text NOT NULL
+  `description_detail` text NOT NULL,
+  `date_publishing` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -96,6 +98,21 @@ CREATE TABLE `tbl_order_detail` (
   `quantity` int(11) NOT NULL,
   `total_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_publishing_company`
+--
+
+CREATE TABLE `tbl_publishing_company` (
+  `id_publishing_company` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `name` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `description` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `phone` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `address` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `email` text COLLATE utf8_vietnamese_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 -- --------------------------------------------------------
 
