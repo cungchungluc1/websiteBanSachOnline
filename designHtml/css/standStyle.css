@@ -15947,7 +15947,7 @@ div.ui-dialog .ui-dialog-title {
   margin: 0px;
 }
 .ty-logo-container img {
-  max-width: 100%;
+  max-width: 70%;
   height: auto !important;
 }
 .top-my-account i {
@@ -19842,7 +19842,7 @@ a.reset-filters:hover {
 .vs-cart-page .ty-cart-content__right-buttons a {
   margin-right: 10px;
 }
-.vs-cart-page.ty-cart-content__right-buttons a: .ty-btn__primary {
+.vs-cart-page.ty-cart-content__right-buttons a.ty-btn__primary {
   margin: 0;
 }
 .vs-cart-page .ty-mainbox-cart__body .ty-table {
