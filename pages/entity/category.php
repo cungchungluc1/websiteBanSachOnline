@@ -1,10 +1,10 @@
 <?php
 class category{
     public $id_category;
-    public $name
+    public $name;
     public $description;
     public $id_parten_category;
-    function add($id_category) {
+    function add($category) {
         include "./././connection.php";
             $sql="INSERT INTO `tbl_category`(`id_category`, `name`, `description`, `id_parten_category`) VALUES (:id_category, :name, :description, :id_parten_category)";
             $query = $dbh->prepare($sql);
@@ -17,12 +17,12 @@ class category{
             if($lastInsertId)
             {
                 $msg="Tạo thành công";
-                header('location:category.php',true,301);
+                header('location:ok.php',true,301);
             }
             else 
             {
                 $error="Thêm thất bại. Hãy thử lại";
-                header('location:category.php',true,301);
+                header('location:err.php',true,301);
             }
         }
         function delete($id_category) {
@@ -32,9 +32,9 @@ class category{
             $query-> bindValue(':id_category', $id_category);
             $query->execute();
         }
-        function update($id_category) {
+        function update($category) {
             include "./././connection.php";
-            $sql="UPDATE `tbl_category` SET `id_category`=:id_category,`name`=:name,`description`=:description,`id_parten_category`=:id_parten_category WHERE `id_category`=:id_category";
+            $sql="UPDATE `tbl_category` SET `name`=:name,`description`=:description,`id_parten_category`=:id_parten_category WHERE `id_category`=:id_category";
             $query = $dbh->prepare($sql);
             $query->bindParam(':id_category',$category->id_category,PDO::PARAM_STR);
             $query->bindParam(':name',$category->name,PDO::PARAM_STR);
@@ -45,12 +45,12 @@ class category{
             if($lastInsertId)
                 {
                     $msg="Tạo thành công";
-                    header('location:category.php',true,301);
+                    header('location:ok.php',true,301);
                 }
                 else 
                 {
                     $error="Thêm thất bại. Hãy thử lại";
-                    header('location:category.php',true,301);
+                    header('location:err.php',true,301);
                 }
         }  
         function getacategory($id_category) {
@@ -64,5 +64,4 @@ class category{
             return null;
         }
 }
-
 ?>
