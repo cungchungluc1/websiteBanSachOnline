@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 01, 2021 lúc 08:54 AM
--- Phiên bản máy phục vụ: 10.4.11-MariaDB
--- Phiên bản PHP: 7.4.3
+-- Thời gian đã tạo: Th10 03, 2021 lúc 07:30 PM
+-- Phiên bản máy phục vụ: 10.4.21-MariaDB
+-- Phiên bản PHP: 7.3.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,20 +24,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `image`
+--
+
+CREATE TABLE `image` (
+  `id` text DEFAULT NULL,
+  `id_use` text DEFAULT NULL,
+  `id_image` text DEFAULT NULL,
+  `name` text DEFAULT NULL,
+  `url` text DEFAULT NULL,
+  `alt` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
   `id_product` text DEFAULT NULL,
-  `id_publishing_company` text NOT NULL,
-  `name` text NOT NULL,
-  `description` text NOT NULL,
-  `price` int(11) NOT NULL,
-  `sell` float NOT NULL,
-  `id_category` text NOT NULL,
-  `description_detail` text NOT NULL,
-  `date_publishing` date NOT NULL
+  `id_publishing_company` text DEFAULT NULL,
+  `name` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `sell` float DEFAULT NULL,
+  `id_category` text DEFAULT NULL,
+  `date_publishing` date DEFAULT NULL,
+  `description_detail` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `product`
+--
+
+INSERT INTO `product` (`id_product`, `id_publishing_company`, `name`, `description`, `price`, `sell`, `id_category`, `date_publishing`, `description_detail`) VALUES
+('xc11', 'h12', 'goicuon', 'xc', 23000, 2563, 'c12', '2020-02-03', 'fgh');
 
 -- --------------------------------------------------------
 
@@ -68,6 +89,13 @@ CREATE TABLE `tbl_category` (
   `description` text NOT NULL,
   `id_parten_category` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_category`
+--
+
+INSERT INTO `tbl_category` (`id_category`, `name`, `description`, `id_parten_category`) VALUES
+('gh1', 'dhy', 'gh', 'bnh');
 
 -- --------------------------------------------------------
 
@@ -126,6 +154,14 @@ CREATE TABLE `tbl_role` (
   `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Đang đổ dữ liệu cho bảng `tbl_role`
+--
+
+INSERT INTO `tbl_role` (`id_role`, `name`, `description`) VALUES
+('a1', 'admin', ''),
+('a2', 'customer', '');
+
 -- --------------------------------------------------------
 
 --
@@ -143,6 +179,14 @@ CREATE TABLE `tbl_user` (
   `username` text NOT NULL,
   `password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`id_user`, `id_role`, `name`, `sex`, `email`, `phone`, `birthday`, `username`, `password`) VALUES
+('a1236', 'a1', 'tam', 'nu', 'avf.email', '09115689785', '1998-02-26', 'ahz', '12345678'),
+('a12', 'a2', 'Hang', 'nu', 'abc12.@gmail.com', '01356897402', '1999-05-01', 'abc', '12345678');
 
 -- --------------------------------------------------------
 
