@@ -1,15 +1,18 @@
 <?php include("pages/entity/user.php"); ?>
 <?php include("pages/entity/product.php"); ?>
+<?php include("pages/entity/category.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
+
 <body>
-    
+
     <?php
     //  $u = new User();
     //  $u->id_user ="009";
@@ -37,21 +40,28 @@
     // $u->update($u);
     
      $p = new Product();
-    //  $p->id_product ="xc11";
-    //  $p->name ="goicuon";
-    //  $p->description="xc";
-    //  $p->price =23000;
-    //  $p->sell =2563;
-    //  $p->id_category ="c12";
-    //  $p->description_detail= "fgh";
-    //  $p->add($p);
+     $p->id_product ="xc11";
+     $p->name ="goicuon";
+     $p->description ="xc";
+     $p->price =23000;
+     $p->sell =2563;
+     $p->id_category ="c12";
+     $p->description_detail ="fgh";
+     $p->date_publishing ="2020-02-03";
+     $p->id_publishing_company ="h12";
+     $p->add($p);
 
-    $p->delete("xc11");
-    
+    // $p->delete("xc11");
 
+    // $c = new category();
+    // $c->id_category ="gh1";
+    // $c->name ="dhy";
+    // $c->description ="gh";
+    // $c->id_parten_category ="bnh";
+    // $c->add($c);
 
-        
-    ?>
+?>
     demo1
 </body>
+
 </html>

@@ -6,7 +6,7 @@ class order{
     public $amount;
     public $status;
     public $date_added;
-    function add($id_order) {
+    function add($order) {
         include "./././connection.php";
             $sql="INSERT INTO `tbl_order`(`id_order`, `id_user`, `id_address`, `amount`,'status', `date_added`) VALUES (:id_order, :id_user, :id_address, :amount, :status, :date_added)";
             $query = $dbh->prepare($sql);
@@ -21,12 +21,12 @@ class order{
             if($lastInsertId)
             {
                 $msg="Tạo thành công";
-                header('location:order.php',true,301);
+                header('location:ok.php',true,301);
             }
             else 
             {
                 $error="Thêm thất bại. Hãy thử lại";
-                header('location:order.php',true,301);
+                header('location:err.php',true,301);
             }
         }
         function delete($id_order) {
@@ -36,9 +36,9 @@ class order{
             $query-> bindValue(':id_order', $id_order);
             $query->execute();
         }
-        function update($id_order) {
+        function update($order) {
             include "./././connection.php";
-            $sql="UPDATE `tbl_order` SET `id_order`=:id_order,`id_user`=:id_user,`id_address`=:id_address,`amount`=:amount,`status`=:status,`date_added`=:date_added WHERE `id_order`=:id_order";
+            $sql="UPDATE `tbl_order` SET `id_user`=:id_user,`id_address`=:id_address,`amount`=:amount,`status`=:status,`date_added`=:date_added WHERE `id_order`=:id_order";
             $query = $dbh->prepare($sql);
             $query->bindParam(':id_order',$order->id_order,PDO::PARAM_STR);
             $query->bindParam(':id_user',$order->id_user,PDO::PARAM_STR);
@@ -51,12 +51,12 @@ class order{
             if($lastInsertId)
                 {
                     $msg="Tạo thành công";
-                    header('location:ordre.php',true,301);
+                    header('location:ok.php',true,301);
                 }
                 else 
                 {
                     $error="Thêm thất bại. Hãy thử lại";
-                    header('location:order.php',true,301);
+                    header('location:err.php',true,301);
                 }
         } 
         function getallordre() {
