@@ -3,15 +3,16 @@
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();
 }
-if (isset($_SESSION['login'])) {
-    if ($_SESSION['role'] == "customer") {
-        header("location:../../customer/home.php");
-        exit(0);
-    } else if ($_SESSION['role'] == "admin") {
-        header("location:../../admin/home.php");
-        exit(0);
-    }
-} else {
+// if (isset($_SESSION['login'])) {
+//     if ($_SESSION['role'] == "customer") {
+//         header("location:../../customer/home.php");
+//         exit(0);
+//     } else if ($_SESSION['role'] == "admin") {
+//         header("location:../../admin/home.php");
+//         exit(0);
+//     }
+// } else 
+{
 ?>
 <!DOCTYPE html>
 <html lang="en">
