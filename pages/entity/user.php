@@ -11,10 +11,12 @@ class User
 	public $birthday;
 	public $username;
 	public $password;
+	public $codeSession;
 
 	function login($username, $password)
 	{
-		include "../../connection.php";
+		
+			include "../../connection.php";
 		$sql = "SELECT `id_user`, r.name as id_role, u.name, `sex`, `email`, `phone`, `birthday`, `username`, `password` FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role where username =:An and password =:Bo order by username and password ";
 		$query = $dbh->prepare($sql);
 		$query->bindValue(':An', $username);
@@ -23,6 +25,31 @@ class User
 		if ($query->rowCount() > 0)
 			return $query->fetchAll(PDO::FETCH_OBJ)[0]->id_role;
 		return null;
+	}
+	function getId($username, $password)
+	{
+		include "../../connection.php";
+		$sql = "SELECT `id_user` FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role where username =:An and r.name =:Bo ";
+		$query = $dbh->prepare($sql);
+		$query->bindValue(':An', $username);
+		$query->bindValue(':Bo', $password);
+		$query->execute();
+		if ($query->rowCount() > 0)
+		return $query->fetchAll(PDO::FETCH_OBJ)[0];
+		return false;
+	}
+	function checklogin($username, $password)
+	{
+		
+			include "../../connection.php";
+		$sql = "SELECT `id_user`, r.name as id_role, u.name, `sex`, `email`, `phone`, `birthday`, `username`, `password` FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role where username =:An and r.name =:Bo ";
+		$query = $dbh->prepare($sql);
+		$query->bindValue(':An', $username);
+		$query->bindValue(':Bo', $password);
+		$query->execute();
+		if ($query->rowCount() > 0)
+			return true;
+		return false;
 	}
 	function add($user)
 	{
@@ -80,6 +107,15 @@ class User
 			$error = "Thêm thất bại. Hãy thử lại";
 			header('location:err.php', true, 301);
 		}
+	}
+	function updateCode($user)
+	{
+		include "../../connection.php";
+		$sql = "UPDATE `tbl_user` SET `codeSession`=:codeSession WHERE `id_user`=:id_user";
+		$query = $dbh->prepare($sql);
+		$query->bindParam(':id_user', $user->id_user, PDO::PARAM_STR);
+		$query->bindParam(':codeSession', $user->codeSession, PDO::PARAM_STR);
+		$query->execute();
 	}
 }
 

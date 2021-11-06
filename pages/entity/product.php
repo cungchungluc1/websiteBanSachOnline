@@ -11,7 +11,8 @@ class Product
     public $date_publishing;
     public $id_publishing_company;
     function add($product){
-        include "./././connection.php";
+        
+        include "../../connection.php";
         $sql = "INSERT INTO `product`(`id_product`, `id_publishing_company`, `name`, `description`, `price`, `sell`, `id_category`, `date_publishing`, `description_detail`) VALUES (:id_product, :id_publishing_company, :name, :description, :price, :sell, :id_category, :date_publishing, :description_detail)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':id_product', $product->id_product, PDO::PARAM_STR);
@@ -25,13 +26,7 @@ class Product
         $query->bindParam(':id_publishing_company', $product->id_publishing_company, PDO::PARAM_STR);
         $query->execute();
         $lastInsertId = $dbh->lastInsertId();
-        if ($lastInsertId) {
-            $msg = "Tạo thành công";
-            header('location:ok.php', true, 301);
-        } else {
-            $error = "Thêm thất bại. Hãy thử lại";
-            header('location:err.php', true, 301);
-        }
+        header('location:../admin/manageproduct.php', true, 301);
     }
     function delete($id)
     {
@@ -54,7 +49,8 @@ class Product
     }
     function getallproduct()
     {
-        include "./././connection.php";
+        
+        include "../../connection.php";
         $sql = "SELECT `id_product`, `id_publishing_company`, `name`, `description`, `price`, `sell`, `id_category`, `date_publishing`, `description_detail` FROM `product`  ";
         $query = $dbh->prepare($sql);
         $query->execute();
@@ -109,4 +105,3 @@ class Product
         }
     }
 }
-?>
