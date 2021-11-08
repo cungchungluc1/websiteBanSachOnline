@@ -1,19 +1,3 @@
-<?php session_start(); ?>
-<?php
-if (!isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = array();
-}
-// if (isset($_SESSION['login'])) {
-//     if ($_SESSION['role'] == "customer") {
-//         header("location:../../customer/home.php");
-//         exit(0);
-//     } else if ($_SESSION['role'] == "admin") {
-//         header("location:../../admin/home.php");
-//         exit(0);
-//     }
-// } else 
-{
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -142,53 +126,54 @@ if (!isset($_SESSION['cart'])) {
     <section class="login-block">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 login-sec">
-                    <h2 class="text-center">Login Now</h2>
-                    <form class="login-form" action="../../controller/checkLogin.php" method="POST">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1" class="text-uppercase">Email Address</label>
-                            <input type="text" class="form-control" placeholder="" name="username" required>
+                <div class="col-md-4 banner-sec">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"
+                        style="height: 100%;">
 
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1" class="text-uppercase">Password</label>
-                            <input type="password" class="form-control" name="password" minlength="8" maxlength="50"
-                                placeholder="" required>
-                        </div>
-
-
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input">
-                                <small>Remember Me</small>
-                            </label>
-                            <button type="submit" class="btn btn-login float-right">Login</button>
-
-                        </div>
-                        <div class="form-check" style="margin-top: 30px;padding-left: 0;"><label
-                                class="form-check-label"></label><small>Don't have an account?</small><a
-                                href="register.php">Register</a></div>
-                    </form>
-                </div>
-                <div class="col-md-8 banner-sec">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
-                        <div class="carousel-item active">
+                        <div class="carousel-item active" style="height: 100%;">
                             <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
-                                alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <div class="banner-text">
+                                alt="First slide" style="height: 100%;">
 
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
 
+                <div class="col-md-8 login-sec">
+                    <h2 class="text-center">Create A New Account</h2>
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label for="exampleInputFullname1" class="text-uppercase">Full Name</label>
+                            <input type="text" maxlength="250" name="name" class="form-control" placeholder="" required>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="text-uppercase">Email Address</label>
+                            <input type="email" name="emailaddress" class="form-control" placeholder="" required>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+                            <input type="password" minlength="8" maxlength="50" class="form-control" name="password" placeholder=""
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1" class="text-uppercase">Confirm Password</label>
+                            <input type="password" minlength="8" maxlength="50" class="form-control" name="confirmpassword" placeholder=""
+                                required>
+                        </div>
+
+                        <div class="form-check">
+                            <button type="submit" class="btn btn-login float-right">Register</button>
+                        </div>
+                        <div class="form-check" style="margin-top: 30px;padding-left: 0;"><label
+                                class="form-check-label"></label><small>You have an account?</small><a
+                                href="login.php">Login</a></div>
+                    </form>
+                </div>
             </div>
+        </div>
         </div>
     </section>
 </body>
 
 </html>
-<?php } ?>

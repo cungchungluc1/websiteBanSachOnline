@@ -9,6 +9,7 @@ $price = "";
 $sellingprice = "";
 $productDescription="";
 $productDescriptionDetail="";
+$date_publishing = "";
 
 $category = $_POST['category'];
 $productname = $_POST['productname'];
@@ -17,6 +18,7 @@ $price = $_POST['price'];
 $sellingprice = $_POST['sellingprice'];
 $productDescription=$_POST['productDescription'];
 $productDescriptionDetail=$_POST['editor1'];
+$date_publishing = $_POST['date_publishing'];
 
 $cate = new Product();
 $cate->id_product = getNewId("product");
@@ -26,7 +28,7 @@ $cate->description = $productDescription;
 $cate->price = $price;
 $cate->sell = $sellingprice ;
 $cate->id_category =$category;
-$cate->date_publishing = "2012-02-05";
+$pro->date_publishing = $date_publishing;
 $cate->description_detail = $productDescriptionDetail;
 $cate->add($cate);
 ?>
