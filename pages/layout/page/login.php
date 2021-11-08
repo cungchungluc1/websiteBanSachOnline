@@ -161,7 +161,7 @@ if(isset($_SESSION['codeSession'])){
                         </div>
                         <div class="form-check" style="margin-top: 30px;padding-left: 0;"><label
                                 class="form-check-label"></label><small>Don't have an account?</small><a
-                                href="./register.html">Register</a></div>
+                                href="register.php">Register</a></div>
                     </form>
                 </div>
                 <div class="col-md-8 banner-sec">

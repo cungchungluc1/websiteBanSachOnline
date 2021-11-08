@@ -9,10 +9,10 @@
     
     <meta name="keywords" content="au theme template" />
 
-    <script src="https://cdn.ckeditor.com/4.16.2/standard-all/ckeditor.js"></script>
     <!-- Title Page-->
     <title>Dashboard</title>
 
+    <script src="https://cdn.ckeditor.com/4.16.2/standard-all/ckeditor.js"></script>
     <!-- Fontfaces CSS-->
     <link href="../layout/css/font-face.css" rel="stylesheet" media="all" />
     <link href="../layout/css/datatable.css" rel="stylesheet" media="all" />
@@ -49,9 +49,9 @@
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <!-- HEADER DESKTOP-->
+            <!-- HEADER MOBILE-->
             <?php include "./component/headerpc.php"; ?>
-            <!-- HEADER DESKTOP-->
+            <!-- HEADER MOBILE-->
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
@@ -59,26 +59,34 @@
                     <div class="container-fluid">
                         <div class="card mb-3">
                             <div class="card-header">
-                                <h3>Insert Product</h3>
+                                <h3>Update Product</h3>
                             </div>
 
                             <div class="card-body">
                                 <div class="table-responsive" style="overflow-x: none !important">
                                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                        <form autocomplete="off" action="../controller/addproduct.php" method="POST" enctype="multipart/form-data">
+                                        <form autocomplete="off" action="../controller/updateproduct.php" method="POST">
+                                        <?php
+                                            include "../entity/product.php";
+                                            $cate  = new Product();
+                                            include '../entity/category.php';
+                                            $c  = new category();
+                                            $list = $c->getallcategory();
+                                            $data = $cate->getaproduct($_GET['id']);?>
+                                            <input type="hidden" name="id_product" value="<?php echo htmlentities($data->id_product); ?>"/>
                                             <div class="form-group row">
                                                 <label for="inputPassword3"
                                                     class="col-sm-3 col-form-label">Category</label>
                                                 <div class="col-sm-9">
                                                     <select id="inputState" name="category" class="form-control">
-                                                        <option value="" selected="">Choose...</option>
+                                                    <option value=""
+                                                            <?php if ($data->id_category == '' || $data->id_category == null) echo htmlentities('selected=""'); ?>>
+                                                            Choose...</option>
                                                         <?php
-                                                        include "../entity/category.php";
-                                                        $cate  = new category();
-                                                        $list = $cate->getallcategory();
+                                                        
                                                         foreach ($list as $item) {
                                                         ?>
-                                                        <option value="<?php echo htmlentities($item->id_category); ?>">
+                                                        <option value="<?php echo htmlentities($item->id_category); ?>" <?php if ($data->id_category == $item->id_category) echo htmlentities('selected=""');?> >
                                                             <?php echo htmlentities($item->name); ?></option>
                                                         <?php
                                                         }
@@ -90,15 +98,14 @@
                                                 <label for="inputPassword3" class="col-sm-3 col-form-label">Product
                                                     Name</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="productname" class="form-control"
-                                                        name="" />
+                                                    <input type="text" name="productname" value="<?php echo htmlentities($data->name); ?>" class="form-control"/>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-sm-3 col-form-label">Product
                                                     Publishing Company</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="productpublishing" class="form-control"
+                                                    <input type="text" name="productpublishing" value=<?php echo htmlentities($data->id_publishing_company); ?> class="form-control"
                                                         name="" />
                                                 </div>
                                             </div>
@@ -106,35 +113,36 @@
                                                 <label for="inputPassword3"
                                                     class="col-sm-3 col-form-label">Price</label>
                                                 <div class="col-sm-9">
-                                                    <input type="number" name="price" class="form-control" name="" />
+                                                    <input type="number" name="price" value=<?php echo htmlentities($data->price); ?> class="form-control" name="" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-sm-3 col-form-label">Selling
                                                     Price</label>
                                                 <div class="col-sm-9">
-                                                    <input type="number" name="sellingprice" class="form-control"
+                                                    <input type="number" name="sellingprice" value=<?php echo htmlentities($data->sell); ?> class="form-control"
                                                         name="" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-sm-3 col-form-label">Date Publishing</label>
                                                 <div class="col-sm-9">
-                                                 <input type="date" name="date_publishing" value="" class="form-control"/>
+                                                    <input type="date" name="date_publishing" value=<?php echo htmlentities($data->date_publishing); ?> class="form-control"
+                                                        />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-sm-3 col-form-label">Product
                                                     Description</label>
                                                 <div class="col-sm-9">
-                                                    <textarea cols="80" class="form-control" name="productDescription" rows="5"></textarea>
+                                                    <textarea cols="80" class="form-control" name="productDescription" rows="5"><?php echo htmlentities($data->description); ?></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-sm-3 col-form-label">Product
                                                     Description Detail</label>
                                                 <div class="col-sm-9">
-                                                    <textarea cols="80" id="editor1" name="editor1" rows="5"></textarea>
+                                                    <textarea cols="80" id="editor1" name="editor1" rows="5"><?php echo htmlentities($data->description_detail); ?></textarea>
                                                     <script>
                                                     CKEDITOR.replace("editor1", {
                                                         fullPage: true,
@@ -149,9 +157,11 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="inputPassword3" class="col-sm-3 col-form-label">Product Image</label>
+                                                <label for="inputPassword3" class="col-sm-3 col-form-label">Product
+                                                    Image</label>
                                                 <div class="col-sm-9">
-                                                    <input class="form-control" type="file" name="fileToUpload" id="fileToUpload"/>
+                                                    <input class="form-control" type="file" id="formFileMultiple"
+                                                        multiple />
                                                 </div>
                                             </div>
 
@@ -203,3 +213,4 @@
 </body>
 
 </html>
+<!-- end document-->

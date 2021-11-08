@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="au theme template" />
-    <meta name="author" content="Hau Nguyen" />
+    
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
@@ -152,7 +152,7 @@
                                                             <td><?php echo htmlentities($item->description); ?></td>
                                                             <td><?php echo htmlentities($item->price); ?></td>
                                                             <td><?php echo htmlentities($item->date_publishing); ?></td>
-                                                            <td><a href="updateproduct.html?id=12334"><i
+                                                            <td><a href="updateproduct.php?id=<?php echo htmlentities($item->id_product); ?>"><i
                                                                         class="fas fa-edit"></i></a> <i
                                                                     class="fas fa-remove"></i></td>
                                                         </tr>
