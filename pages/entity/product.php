@@ -38,13 +38,13 @@ class Product
     }
     function getaproduct($id_product)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "SELECT * FROM `product` WHERE id_product =:idproduct";
         $query = $dbh->prepare($sql);
         $query->bindValue(':idproduct', $id_product);
         $query->execute();
         if ($query->rowCount() > 0)
-            return $query->fetchAll(PDO::FETCH_OBJ);
+            return $query->fetchAll(PDO::FETCH_OBJ)[0];
         return null;
     }
     function getallproduct()
@@ -82,7 +82,7 @@ class Product
     }
     function update($product)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "UPDATE `product` SET `id_publishing_company`=:id_publishing_company,`name`=:name,`description`=:description,`price`=:price,`sell`=:sell,`id_category`=:id_category,`date_publishing`=:date_publishing,`description_detail`=:description_detail WHERE `id_product`=:id_product";
         $query = $dbh->prepare($sql);
         $query->bindParam(':id_product', $product->id_product, PDO::PARAM_STR);
@@ -96,12 +96,6 @@ class Product
         $query->bindParam(':id_publishing_company', $product->id_publishing_company, PDO::PARAM_STR);
         $query->execute();
         $lastInsertId = $dbh->lastInsertId();
-        if ($lastInsertId) {
-            $msg = "Tạo thành công";
-            header('location:ok.php', true, 301);
-        } else {
-            $error = "Thêm thất bại. Hãy thử lại";
-            header('location:err.php', true, 301);
-        }
+        header('location:../admin/manageproduct.php', true, 301);
     }
 }

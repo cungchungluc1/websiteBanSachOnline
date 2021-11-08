@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 03, 2021 lúc 07:30 PM
+-- Thời gian đã tạo: Th10 08, 2021 lúc 03:34 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 7.3.30
 
@@ -59,7 +59,18 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id_product`, `id_publishing_company`, `name`, `description`, `price`, `sell`, `id_category`, `date_publishing`, `description_detail`) VALUES
-('xc11', 'h12', 'goicuon', 'xc', 23000, 2563, 'c12', '2020-02-03', 'fgh');
+('xc11', 'h12', 'goicuon', 'xc', 23000, 2563, 'c12', '2020-02-03', 'fgh'),
+('fsdd', 'tryr5t', 'gtrgtr', '<html>\r\n<head>\r\n	<title></title>\r\n</head>\r\n<body>\r\n<p>trtr</p>\r\n</body>\r\n</html>\r\n', 0, 0, 'Choose...', '2012-02-05', ''),
+('fsdd', 'rtf', 'an', '<html>\r\n<head>\r\n	<title></title>\r\n</head>\r\n<body>\r\n<p>rgrefdrrrfre</p>\r\n</body>\r\n</html>\r\n', 225, 12, 'Choose...', '2012-02-05', ''),
+('fsdd', 'frf', 'frfr', '<html>\r\n<head>\r\n	<title></title>\r\n</head>\r\n<body>\r\n<p>chung</p>\r\n</body>\r\n</html>\r\n', 4516, 12, 'Choose...', '2012-02-05', ''),
+('fsdd', 'ctytn', 'hang', '<html>\r\n<head>\r\n	<title></title>\r\n</head>\r\n<body>\r\n<p>abc</p>\r\n</body>\r\n</html>\r\n', 2385, 13, 'gh1', '2012-02-05', ''),
+('fsdd', '', 'hyu', '<html>\r\n<head>\r\n	<title></title>\r\n</head>\r\n<body>\r\n<p>fdsfsd</p>\r\n</body>\r\n</html>\r\n', 0, 0, '', '2012-02-05', ''),
+('207e9f9f0183df30854d73acac1b4103', 'sdfsd', 'dfd', 'fgdfgdfgd            ', 23, 23, 'gh1', '2012-02-05', '<html>\r\n<head>\r\n	<title></title>\r\n</head>\r\n<body>\r\n<p>fgdfgdfg</p>\r\n</body>\r\n</html>\r\n'),
+('5cb198c0c2a7138854692415ba742d1e', 'huy', 'địa ngục xanh', 'demo585', 345566, 20000, 'fyuuyfuyuy', '2012-02-05', '<html>\r\n<head>\r\n	<title></title>\r\n</head>\r\n<body>\r\n<ul>\r\n	<li>T&ecirc;n Phim:&nbsp;\r\n	<h1><strong>Địa Ngục Xanh</strong></h1>\r\n	</li>\r\n	<li>T&ecirc;n Tiếng Anh:&nbsp;\r\n	<h2><strong>The Green Inferno</strong></h2>\r\n	</li>\r\n	<li>Năm sản xuất:&nbsp;<a href=\"http://hdo.tv/danh-sach/phim-theo-nam/2014.html\" title=\"Phim sản xuất năm 2014\">2014</a></li>\r\n	<li>Thể loại:&nbsp;<strong><a href=\"http://hdo.tv/xem-phim-phieu-luu.html\">Phim Phi&ecirc;u Lưu</a>,&nbsp;<a href=\"http://hdo.tv/xem-phim-kinh-di.html\">Phim Kinh Dị</a></strong></li>\r\n	<li>Quốc gia:&nbsp;<strong><a href=\"http://hdo.tv/quoc-gia-my.html\">Phim Mỹ</a></strong></li>\r\n	<li>Thời lượng: 100 Ph&uacute;t</li>\r\n	<li>Đạo diễn:&nbsp;<a href=\"http://hdo.tv/phim-eli-roth.html\">Eli Roth</a></li>\r\n	<li><img src=\"http://static.hdo.tv/template/frontend/images/imdb.png\" />&nbsp;5.7</li>\r\n</ul>\r\n\r\n<p>8.8</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Của bạn:</p>\r\n\r\n<p>&nbsp;&nbsp;</p>\r\n\r\n<p>0/10</p>\r\n\r\n<p>Đ&aacute;nh gi&aacute;&nbsp;<strong>8.8</strong>&nbsp;từ&nbsp;21&nbsp;th&agrave;nh vi&ecirc;n</p>\r\n\r\n<p><strong>Phim Địa Ngục Xanh -&nbsp;The Green Inferno&nbsp;(2013)</strong>&nbsp;xoay quanh một&nbsp;nh&oacute;m sinh vi&ecirc;n t&igrave;nh nguyện c&ugrave;ng nhau&nbsp;tới v&ugrave;ng Amazon để cứu gi&uacute;p một bộ lạc đang c&oacute; nguy cơ bị x&oacute;a sổ. Nhưng thật kh&ocirc;ng may l&agrave; chiếc m&aacute;y bay chở họ gặp tai nạn v&agrave;&nbsp;rơi xuống rừng. Ch&iacute;nh bộ lạc m&agrave; nh&oacute;m sinh vi&ecirc;n đang muốn cứu gi&uacute;p lại đưa họ tới những trải nghiệm kinh ho&agrave;ng. Phim sẽ diễn biến ra sao, mời c&aacute;c bạn c&ugrave;ng theo d&otilde;i.</p>\r\n</body>\r\n</html>\r\n'),
+('d6a8ccd49b82996c66326354778c126f', 'huy', 'địa ngục xanh', 'demo', 345566, 20000, '10516a889e1811d1224b0565f85d83b1', NULL, '<html>\r\n<head>\r\n	<title></title>\r\n</head>\r\n<body>\r\n<ul>\r\n	<li>T&ecirc;n Phim:&nbsp;\r\n	<h1><strong>Địa Ngục Xanh</strong></h1>\r\n	</li>\r\n	<li>T&ecirc;n Tiếng Anh:&nbsp;\r\n	<h2><strong>The Green Inferno</strong></h2>\r\n	</li>\r\n	<li>Năm sản xuất:&nbsp;<a href=\"http://hdo.tv/danh-sach/phim-theo-nam/2014.html\" title=\"Phim sản xuất năm 2014\">2014</a></li>\r\n	<li>Thể loại:&nbsp;<strong><a href=\"http://hdo.tv/xem-phim-phieu-luu.html\">Phim Phi&ecirc;u Lưu</a>,&nbsp;<a href=\"http://hdo.tv/xem-phim-kinh-di.html\">Phim Kinh Dị</a></strong></li>\r\n	<li>Quốc gia:&nbsp;<strong><a href=\"http://hdo.tv/quoc-gia-my.html\">Phim Mỹ</a></strong></li>\r\n	<li>Thời lượng: 100 Ph&uacute;t</li>\r\n	<li>Đạo diễn:&nbsp;<a href=\"http://hdo.tv/phim-eli-roth.html\">Eli Roth</a></li>\r\n	<li><img src=\"http://static.hdo.tv/template/frontend/images/imdb.png\" />&nbsp;5.7</li>\r\n</ul>\r\n\r\n<p>8.8</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Của bạn:</p>\r\n\r\n<p>&nbsp;&nbsp;</p>\r\n\r\n<p>0/10</p>\r\n\r\n<p>Đ&aacute;nh gi&aacute;&nbsp;<strong>8.8</strong>&nbsp;từ&nbsp;21&nbsp;th&agrave;nh vi&ecirc;n</p>\r\n\r\n<p><strong>Phim Địa Ngục Xanh -&nbsp;The Green Inferno&nbsp;(2013)</strong>&nbsp;xoay quanh một&nbsp;nh&oacute;m sinh vi&ecirc;n t&igrave;nh nguyện c&ugrave;ng nhau&nbsp;tới v&ugrave;ng Amazon để cứu gi&uacute;p một bộ lạc đang c&oacute; nguy cơ bị x&oacute;a sổ. Nhưng thật kh&ocirc;ng may l&agrave; chiếc m&aacute;y bay chở họ gặp tai nạn v&agrave;&nbsp;rơi xuống rừng. Ch&iacute;nh bộ lạc m&agrave; nh&oacute;m sinh vi&ecirc;n đang muốn cứu gi&uacute;p lại đưa họ tới những trải nghiệm kinh ho&agrave;ng. Phim sẽ diễn biến ra sao, mời c&aacute;c bạn c&ugrave;ng theo d&otilde;i.</p>\r\n</body>\r\n</html>\r\n'),
+('fa65a01b0859a6dbce44ffe74ae87e12', 'huy', 'địa ngục xanh', 'demo', 345566, 20000, 'fyuuyfuyuy', NULL, '<html>\r\n<head>\r\n	<title></title>\r\n</head>\r\n<body>\r\n<ul>\r\n	<li>T&ecirc;n Phim:&nbsp;\r\n	<h1><strong>Địa Ngục Xanh</strong></h1>\r\n	</li>\r\n	<li>T&ecirc;n Tiếng Anh:&nbsp;\r\n	<h2><strong>The Green Inferno</strong></h2>\r\n	</li>\r\n	<li>Năm sản xuất:&nbsp;<a href=\"http://hdo.tv/danh-sach/phim-theo-nam/2014.html\" title=\"Phim sản xuất năm 2014\">2014</a></li>\r\n	<li>Thể loại:&nbsp;<strong><a href=\"http://hdo.tv/xem-phim-phieu-luu.html\">Phim Phi&ecirc;u Lưu</a>,&nbsp;<a href=\"http://hdo.tv/xem-phim-kinh-di.html\">Phim Kinh Dị</a></strong></li>\r\n	<li>Quốc gia:&nbsp;<strong><a href=\"http://hdo.tv/quoc-gia-my.html\">Phim Mỹ</a></strong></li>\r\n	<li>Thời lượng: 100 Ph&uacute;t</li>\r\n	<li>Đạo diễn:&nbsp;<a href=\"http://hdo.tv/phim-eli-roth.html\">Eli Roth</a></li>\r\n	<li><img src=\"http://static.hdo.tv/template/frontend/images/imdb.png\" />&nbsp;5.7</li>\r\n</ul>\r\n\r\n<p>8.8</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Của bạn:</p>\r\n\r\n<p>&nbsp;&nbsp;</p>\r\n\r\n<p>0/10</p>\r\n\r\n<p>Đ&aacute;nh gi&aacute;&nbsp;<strong>8.8</strong>&nbsp;từ&nbsp;21&nbsp;th&agrave;nh vi&ecirc;n</p>\r\n\r\n<p><strong>Phim Địa Ngục Xanh -&nbsp;The Green Inferno&nbsp;(2013)</strong>&nbsp;xoay quanh một&nbsp;nh&oacute;m sinh vi&ecirc;n t&igrave;nh nguyện c&ugrave;ng nhau&nbsp;tới v&ugrave;ng Amazon để cứu gi&uacute;p một bộ lạc đang c&oacute; nguy cơ bị x&oacute;a sổ. Nhưng thật kh&ocirc;ng may l&agrave; chiếc m&aacute;y bay chở họ gặp tai nạn v&agrave;&nbsp;rơi xuống rừng. Ch&iacute;nh bộ lạc m&agrave; nh&oacute;m sinh vi&ecirc;n đang muốn cứu gi&uacute;p lại đưa họ tới những trải nghiệm kinh ho&agrave;ng. Phim sẽ diễn biến ra sao, mời c&aacute;c bạn c&ugrave;ng theo d&otilde;i.</p>\r\n</body>\r\n</html>\r\n'),
+('f1bcca215e8bcba5e2d3c0d67ffbef38', 'huy', 'địa ngục xanh', 'demo', 345566, 20000, 'fyuuyfuyuy', NULL, '<html>\r\n<head>\r\n	<title></title>\r\n</head>\r\n<body>\r\n<ul>\r\n	<li>T&ecirc;n Phim:&nbsp;\r\n	<h1><strong>Địa Ngục Xanh</strong></h1>\r\n	</li>\r\n	<li>T&ecirc;n Tiếng Anh:&nbsp;\r\n	<h2><strong>The Green Inferno</strong></h2>\r\n	</li>\r\n	<li>Năm sản xuất:&nbsp;<a href=\"http://hdo.tv/danh-sach/phim-theo-nam/2014.html\" title=\"Phim sản xuất năm 2014\">2014</a></li>\r\n	<li>Thể loại:&nbsp;<strong><a href=\"http://hdo.tv/xem-phim-phieu-luu.html\">Phim Phi&ecirc;u Lưu</a>,&nbsp;<a href=\"http://hdo.tv/xem-phim-kinh-di.html\">Phim Kinh Dị</a></strong></li>\r\n	<li>Quốc gia:&nbsp;<strong><a href=\"http://hdo.tv/quoc-gia-my.html\">Phim Mỹ</a></strong></li>\r\n	<li>Thời lượng: 100 Ph&uacute;t</li>\r\n	<li>Đạo diễn:&nbsp;<a href=\"http://hdo.tv/phim-eli-roth.html\">Eli Roth</a></li>\r\n	<li><img src=\"http://static.hdo.tv/template/frontend/images/imdb.png\" />&nbsp;5.7</li>\r\n</ul>\r\n\r\n<p>8.8</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Của bạn:</p>\r\n\r\n<p>&nbsp;&nbsp;</p>\r\n\r\n<p>0/10</p>\r\n\r\n<p>Đ&aacute;nh gi&aacute;&nbsp;<strong>8.8</strong>&nbsp;từ&nbsp;21&nbsp;th&agrave;nh vi&ecirc;n</p>\r\n\r\n<p><strong>Phim Địa Ngục Xanh -&nbsp;The Green Inferno&nbsp;(2013)</strong>&nbsp;xoay quanh một&nbsp;nh&oacute;m sinh vi&ecirc;n t&igrave;nh nguyện c&ugrave;ng nhau&nbsp;tới v&ugrave;ng Amazon để cứu gi&uacute;p một bộ lạc đang c&oacute; nguy cơ bị x&oacute;a sổ. Nhưng thật kh&ocirc;ng may l&agrave; chiếc m&aacute;y bay chở họ gặp tai nạn v&agrave;&nbsp;rơi xuống rừng. Ch&iacute;nh bộ lạc m&agrave; nh&oacute;m sinh vi&ecirc;n đang muốn cứu gi&uacute;p lại đưa họ tới những trải nghiệm kinh ho&agrave;ng. Phim sẽ diễn biến ra sao, mời c&aacute;c bạn c&ugrave;ng theo d&otilde;i.</p>\r\n</body>\r\n</html>\r\n'),
+('7960e674948ef56b60f07d3a00244bc3', 'text 111111', 'địa ngục xanh', 'demo', 345566, 20000, 'fyuuyfuyuy', NULL, '<html>\r\n<head>\r\n	<title></title>\r\n</head>\r\n<body>\r\n<ul>\r\n	<li>T&ecirc;n Phim:&nbsp;\r\n	<h1><strong>Địa Ngục Xanh</strong></h1>\r\n	</li>\r\n	<li>T&ecirc;n Tiếng Anh:&nbsp;\r\n	<h2><strong>The Green Inferno</strong></h2>\r\n	</li>\r\n	<li>Năm sản xuất:&nbsp;<a href=\"http://hdo.tv/danh-sach/phim-theo-nam/2014.html\" title=\"Phim sản xuất năm 2014\">2014</a></li>\r\n	<li>Thể loại:&nbsp;<strong><a href=\"http://hdo.tv/xem-phim-phieu-luu.html\">Phim Phi&ecirc;u Lưu</a>,&nbsp;<a href=\"http://hdo.tv/xem-phim-kinh-di.html\">Phim Kinh Dị</a></strong></li>\r\n	<li>Quốc gia:&nbsp;<strong><a href=\"http://hdo.tv/quoc-gia-my.html\">Phim Mỹ</a></strong></li>\r\n	<li>Thời lượng: 100 Ph&uacute;t</li>\r\n	<li>Đạo diễn:&nbsp;<a href=\"http://hdo.tv/phim-eli-roth.html\">Eli Roth</a></li>\r\n	<li><img src=\"http://static.hdo.tv/template/frontend/images/imdb.png\" />&nbsp;5.7</li>\r\n</ul>\r\n\r\n<p>8.8</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Của bạn:</p>\r\n\r\n<p>&nbsp;&nbsp;</p>\r\n\r\n<p>0/10</p>\r\n\r\n<p>Đ&aacute;nh gi&aacute;&nbsp;<strong>8.8</strong>&nbsp;từ&nbsp;21&nbsp;th&agrave;nh vi&ecirc;n</p>\r\n\r\n<p><strong>Phim Địa Ngục Xanh -&nbsp;The Green Inferno&nbsp;(2013)</strong>&nbsp;xoay quanh một&nbsp;nh&oacute;m sinh vi&ecirc;n t&igrave;nh nguyện c&ugrave;ng nhau&nbsp;tới v&ugrave;ng Amazon để cứu gi&uacute;p một bộ lạc đang c&oacute; nguy cơ bị x&oacute;a sổ. Nhưng thật kh&ocirc;ng may l&agrave; chiếc m&aacute;y bay chở họ gặp tai nạn v&agrave;&nbsp;rơi xuống rừng. Ch&iacute;nh bộ lạc m&agrave; nh&oacute;m sinh vi&ecirc;n đang muốn cứu gi&uacute;p lại đưa họ tới những trải nghiệm kinh ho&agrave;ng. Phim sẽ diễn biến ra sao, mời c&aacute;c bạn c&ugrave;ng theo d&otilde;i.</p>\r\n</body>\r\n</html>\r\n');
 
 -- --------------------------------------------------------
 
@@ -95,7 +106,12 @@ CREATE TABLE `tbl_category` (
 --
 
 INSERT INTO `tbl_category` (`id_category`, `name`, `description`, `id_parten_category`) VALUES
-('gh1', 'dhy', 'gh', 'bnh');
+('gh1', 'Tiếng Anh', 'Những quyển sách ngôn ngữ anh', '10516a889e1811d1224b0565f85d83b1'),
+('fyuuyfuyuy', 'vfdgtr', '898987979gtrgtr', ''),
+('10aec74fa9b9f301338d8832f9d765be', 'fhfghgfhtyrtytr', 'demo', 'fyuuyfuyuy'),
+('10516a889e1811d1224b0565f85d83b1', 'sách giáo khoa', 'sách giáo khoa', ''),
+('e1de2af8f80bb6d94efc2bd6c5121903', 'lớp 10', 'sách giáo khoa lớp 10', '10516a889e1811d1224b0565f85d83b1'),
+('d97d2f2b7f383b1011bacc4a3ecf4a25', 'lớp 11', '', '10516a889e1811d1224b0565f85d83b1');
 
 -- --------------------------------------------------------
 
@@ -177,16 +193,17 @@ CREATE TABLE `tbl_user` (
   `phone` text NOT NULL,
   `birthday` date NOT NULL,
   `username` text NOT NULL,
-  `password` text NOT NULL
+  `password` text NOT NULL,
+  `codeSession` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`id_user`, `id_role`, `name`, `sex`, `email`, `phone`, `birthday`, `username`, `password`) VALUES
-('a1236', 'a1', 'tam', 'nu', 'avf.email', '09115689785', '1998-02-26', 'ahz', '12345678'),
-('a12', 'a2', 'Hang', 'nu', 'abc12.@gmail.com', '01356897402', '1999-05-01', 'abc', '12345678');
+INSERT INTO `tbl_user` (`id_user`, `id_role`, `name`, `sex`, `email`, `phone`, `birthday`, `username`, `password`, `codeSession`) VALUES
+('a1236', 'a1', 'tam', 'nu', 'avf.email', '09115689785', '1998-02-26', 'ahz', '12345678', ''),
+('a12', 'a2', 'Hang', 'nu', 'abc12.@gmail.com', '01356897402', '1999-05-01', 'abc', '12345678', '');
 
 -- --------------------------------------------------------
 
