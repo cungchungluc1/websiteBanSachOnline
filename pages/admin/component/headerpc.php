@@ -48,7 +48,7 @@
                                     </div>
                                 </div>
                                 <div class="account-dropdown__footer">
-                                    <a href="../controller/logout.php"> <i class="zmdi zmdi-power"></i>Logout</a>
+                                    <a href="../controller/logout.php"><i class="zmdi zmdi-power"></i>Logout</a>
                                 </div>
                             </div>
                         </div>
