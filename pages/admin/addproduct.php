@@ -65,7 +65,7 @@
                             <div class="card-body">
                                 <div class="table-responsive" style="overflow-x: none !important">
                                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                        <form autocomplete="off" action="../controller/addproduct.php" method="POST">
+                                        <form autocomplete="off" action="../controller/addproduct.php" method="POST" enctype="multipart/form-data">
                                             <div class="form-group row">
                                                 <label for="inputPassword3"
                                                     class="col-sm-3 col-form-label">Category</label>
@@ -143,11 +143,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="inputPassword3" class="col-sm-3 col-form-label">Product
-                                                    Image</label>
+                                                <label for="inputPassword3" class="col-sm-3 col-form-label">Product Image</label>
                                                 <div class="col-sm-9">
-                                                    <input class="form-control" type="file" id="formFileMultiple"
-                                                        multiple />
+                                                    <input class="form-control" type="file" name="fileToUpload" id="fileToUpload"/>
                                                 </div>
                                             </div>
 

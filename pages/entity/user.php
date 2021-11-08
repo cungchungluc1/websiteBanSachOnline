@@ -15,41 +15,26 @@ class User
 
 	function login($username, $password)
 	{
-		
-			include "../../connection.php";
-		$sql = "SELECT `id_user`, r.name as id_role, u.name, `sex`, `email`, `phone`, `birthday`, `username`, `password` FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role where username =:An and password =:Bo order by username and password ";
+		include "../../connection.php";
+		$sql = "SELECT `id_user`, r.name as id_role, u.name, `sex`, `email`, `phone`, `birthday`, `username`, `password`, codeSession FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role where username =:An and password =:Bo order by username and password ";
 		$query = $dbh->prepare($sql);
 		$query->bindValue(':An', $username);
 		$query->bindValue(':Bo', $password);
 		$query->execute();
 		if ($query->rowCount() > 0)
-			return $query->fetchAll(PDO::FETCH_OBJ)[0]->id_role;
+			return $query->fetchAll(PDO::FETCH_OBJ)[0];
 		return null;
 	}
-	function getId($username, $password)
+	function checklogin($codeSession)
 	{
 		include "../../connection.php";
-		$sql = "SELECT `id_user` FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role where username =:An and r.name =:Bo ";
+		$sql = "SELECT `id_user`, r.name as id_role, u.name, `sex`, `email`, `phone`, `birthday`, `username`, `password`, codeSession FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role where codeSession =:codeSession";
 		$query = $dbh->prepare($sql);
-		$query->bindValue(':An', $username);
-		$query->bindValue(':Bo', $password);
+		$query->bindValue(':codeSession', $codeSession);
 		$query->execute();
 		if ($query->rowCount() > 0)
 		return $query->fetchAll(PDO::FETCH_OBJ)[0];
-		return false;
-	}
-	function checklogin($username, $password)
-	{
-		
-			include "../../connection.php";
-		$sql = "SELECT `id_user`, r.name as id_role, u.name, `sex`, `email`, `phone`, `birthday`, `username`, `password` FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role where username =:An and r.name =:Bo ";
-		$query = $dbh->prepare($sql);
-		$query->bindValue(':An', $username);
-		$query->bindValue(':Bo', $password);
-		$query->execute();
-		if ($query->rowCount() > 0)
-			return true;
-		return false;
+		return null;
 	}
 	function add($user)
 	{

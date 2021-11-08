@@ -1,7 +1,6 @@
 <?php
-    $_SESSION['username'] = null;
-    $_SESSION["role"] = null;
-    $_SESSION["login"] = false;
+    session_start();
+    $_SESSION['codeSession'] = null;
     header("location:../layout/page/login.php");
     exit(0);
 ?>
