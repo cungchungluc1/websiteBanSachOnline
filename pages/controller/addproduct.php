@@ -2,6 +2,7 @@
 include '../entity/product.php';
 include '../common/common.php';
 include '../common/upload.php';
+include '../entity/image.php';
 session_start();
 $category = "";
 $productname = "";
@@ -11,7 +12,6 @@ $sellingprice = "";
 $productDescription="";
 $productDescriptionDetail="";
 $date_publishing = "";
-
 $category = $_POST['category'];
 $productname = $_POST['productname'];
 $productpublishing = $_POST['productpublishing'];
@@ -31,5 +31,18 @@ $cate->sell = $sellingprice ;
 $cate->id_category =$category;
 $pro->date_publishing = $date_publishing;
 $cate->description_detail = $productDescriptionDetail;
+
+if($uploaded==true){
+    
+    $image = new image();
+    $image->id=getNewId("image");
+    $image->id_use=$cate->id_product;
+    $image->id_image =getNewId("image");
+    $image->name=$name;
+    $image->url=$url;
+    $image->alt=$alt;
+    $image->add($image);
+}
 $cate->add($cate);
+
 ?>

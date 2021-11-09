@@ -9,7 +9,7 @@ class image
     public $alt;
     function add($image)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "INSERT INTO `image`(`id`, `id_use`, `id_image`, `name`, `url`, `alt`) VALUES (:id, :id_use, :id_image, :name, :url, :alt)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':id', $image->id, PDO::PARAM_STR);
@@ -19,14 +19,7 @@ class image
         $query->bindParam(':url', $image->url, PDO::PARAM_STR);
         $query->bindParam(':alt', $image->alt, PDO::PARAM_STR);
         $query->execute();
-        $lastInsertId = $dbh->lastInsertId();
-        if ($lastInsertId) {
-            $msg = "Tạo thành công";
-            header('location:ok.php', true, 301);
-        } else {
-            $error = "Thêm thất bại. Hãy thử lại";
-            header('location:err.php', true, 301);
-        }
+        
     }
     function delete($id)
     {
