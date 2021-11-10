@@ -13,6 +13,18 @@ class User
 	public $password;
 	public $codeSession;
 
+function getRole($role){
+	include "../../connection.php";
+		$sql = "SELECT id_role FROM `tbl_role` where name =:name";
+		$query = $dbh->prepare($sql);
+		$query->bindValue(':name', $role);
+		$query->execute();
+		if ($query->rowCount() > 0)
+			return $query->fetchAll(PDO::FETCH_OBJ)[0]->id_role;
+		return null;
+}
+
+
 	function login($username, $password)
 	{
 		include "../../connection.php";
@@ -38,7 +50,7 @@ class User
 	}
 	function add($user)
 	{
-		include "./././connection.php";
+		include "../../connection.php";
 		$sql = "INSERT INTO `tbl_user`(`id_user`, `id_role`, `name`, `sex`, `email`, `phone`, `birthday`, `username`, `password`) VALUES (:id_user, :id_role, :name, :sex, :email, :phone, :birthday, :username, :password)";
 		$query = $dbh->prepare($sql);
 		$query->bindParam(':id_user', $user->id_user, PDO::PARAM_STR);
@@ -52,13 +64,7 @@ class User
 		$query->bindParam(':password', $user->password, PDO::PARAM_STR);
 		$query->execute();
 		$lastInsertId = $dbh->lastInsertId();
-		if ($lastInsertId) {
-			$msg = "Tạo thành công";
-			header('location:ok.php', true, 301);
-		} else {
-			$error = "Thêm thất bại. Hãy thử lại";
-			header('location:err.php', true, 301);
-		}
+		header("location:../layout/page/login.php");
 	}
 	function delete($id)
 	{

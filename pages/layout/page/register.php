@@ -140,7 +140,7 @@
 
                 <div class="col-md-8 login-sec">
                     <h2 class="text-center">Create A New Account</h2>
-                    <form class="login-form">
+                    <form class="login-form" action="../../controller/newaccount.php" method="POST">
                         <div class="form-group">
                             <label for="exampleInputFullname1" class="text-uppercase">Full Name</label>
                             <input type="text" maxlength="250" name="name" class="form-control" placeholder="" required>
@@ -149,6 +149,11 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="text-uppercase">Email Address</label>
                             <input type="email" name="emailaddress" class="form-control" placeholder="" required>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="text-uppercase">UserName</label>
+                            <input type="text" name="username" class="form-control" placeholder="" required>
 
                         </div>
                         <div class="form-group">
