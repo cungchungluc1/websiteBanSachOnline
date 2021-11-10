@@ -1,6 +1,7 @@
 <?php
 include '../entity/product.php';
 include '../common/common.php';
+include '../entity/image.php';
 session_start();
 $id_product = "";
 $category = "";
@@ -30,5 +31,17 @@ $pro->sell = $sellingprice;
 $pro->id_category = $category;
 $pro->date_publishing = $date_publishing;
 $pro->description_detail = $description_detail;
+if($uploaded==true){
+    
+    $image = new image();
+    $image->id=getNewId("image");
+    $image->id_use=$pro->id_product;
+    $image->id_image =getNewId("image");
+    $image->name=$name;
+    $image->url=$url;
+    $image->alt=$alt;
+    $image->chageimage($image);
+    $image->add($image);
+}
 $pro->update($pro);
 ?>

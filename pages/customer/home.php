@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0019)# -->
@@ -316,25 +317,34 @@
                                             <div id="scroll_list_350" class="owl-carousel owl-theme stopped"
                                                 style="opacity: 1; display: block">
                                                 <div class="owl-wrapper-outer">
-                                                    <div class="owl-wrapper"
-                                                        style="width: 7450px; left: 0px; display: block">
+                                                <div class="owl-wrapper"
+                                                        style="width: 8940px; left: 0px; display: block">
+                                                        <?php
+                                                        include "../entity/product.php";
+                                                        $cate  = new Product();
+                                                        $i = -1;
+                                                        $list = $cate->getallproduct();
+                                                        foreach ($list as $item) {
+                                                            $i++;
+                                                        ?>
+                                                        <?php if($i==4){?></div> <div class="owl-wrapper"
+                                                        style="width: 8940px; left: 0px; display: block"><?php $i =0; }  ?>
                                                         <div class="owl-item active" style="width: 298px">
                                                             <div class="jscroll-item vs-grid et-grid">
                                                                 <input type="hidden" name="sb__stickers_output_side"
                                                                     value="L" />
                                                                 <div class="ty-center scroll-image">
-                                                                    <a
-                                                                        href="#mua-thu-cua-cay-duong-tai-ban-nam-2021.html">
+                                                                    <a href="#ask-a-scientist-vi.html">
                                                                         <img class="ty-pict cm-image"
-                                                                            id="det_img_110470127"
-                                                                            src="../layout/image/mua-thu-cua-cay-duong-tb-2021.jpg"
+                                                                            id="det_img_1746761672"
+                                                                            src="../layout/<?php echo htmlentities($item->url); ?>"
                                                                             alt="" title="" />
                                                                     </a>
                                                                 </div>
                                                                 <div class="center compact">
                                                                     <div class="product-container clearfix">
                                                                         <form action="#" method="post"
-                                                                            name="product_form_350000scr_350000161785"
+                                                                            name="product_form_375000scr_375000158939"
                                                                             enctype="multipart/form-data"
                                                                             class="cm-disable-empty-files cm-ajax cm-ajax-full-render cm-ajax-status-middle cm-processed-form">
                                                                             <input type="hidden" name="result_ids"
@@ -342,23 +352,21 @@
                                                                             <input type="hidden" name="redirect_url"
                                                                                 value="index.php?sl=vi" />
                                                                             <input type="hidden"
-                                                                                name="product_data[scr_350000161785][product_id]"
-                                                                                value="161785" />
+                                                                                name="product_data[scr_375000158939][product_id]"
+                                                                                value="158939" />
                                                                             <div class="title-price-wrapper">
                                                                                 <bdi>
-                                                                                    <a href="#mua-thu-cua-cay-duong-tai-ban-nam-2021.html"
+                                                                                    <a href="#ask-a-scientist-vi.html"
                                                                                         class="product-title"
-                                                                                        title="Mùa Thu Của Cây Dương (Tái bản năm 2021)">Mùa
-                                                                                        Thu Của Cây Dương (Tái bản
-                                                                                        năm 2021)</a>
+                                                                                        title="<?php echo htmlentities($item->name); ?>"><?php echo htmlentities($item->name); ?></a>
                                                                                 </bdi>
                                                                                 <div class="prices-container clearfix">
                                                                                     <div
                                                                                         class="clearfix product-prices">
                                                                                         <div class="ty-float-left">
                                                                                             <span
-                                                                                                class="cm-reload-350000scr_350000161785 ty-price-update"
-                                                                                                id="price_update_350000scr_350000161785">
+                                                                                                class="cm-reload-375000scr_375000158939 ty-price-update"
+                                                                                                id="price_update_375000scr_375000158939">
                                                                                                 <input type="hidden"
                                                                                                     name="appearance[show_price_values]"
                                                                                                     value="1" />
@@ -366,18 +374,18 @@
                                                                                                     name="appearance[show_price]"
                                                                                                     value="1" />
                                                                                                 <span class="ty-price"
-                                                                                                    id="line_discounted_price_350000scr_350000161785"><bdi><span
-                                                                                                            id="sec_discounted_price_350000scr_350000161785"
-                                                                                                            class="ty-price-num">62,000</span>&nbsp;<span
+                                                                                                    id="line_discounted_price_375000scr_375000158939"><bdi><span
+                                                                                                            id="sec_discounted_price_375000scr_375000158939"
+                                                                                                            class="ty-price-num"><?php echo htmlentities($item->price); ?></span>&nbsp;<span
                                                                                                             class="ty-price-num">đ</span></bdi></span>
-                                                                                                <!--price_update_350000scr_350000161785-->
+                                                                                                <!--price_update_375000scr_375000158939-->
                                                                                             </span>
                                                                                         </div>
                                                                                         <div class="ty-float-right">
                                                                                             <span
-                                                                                                class="cm-reload-350000scr_350000161785"
-                                                                                                id="old_price_update_350000scr_350000161785">
-                                                                                                <!--old_price_update_350000scr_350000161785-->
+                                                                                                class="cm-reload-375000scr_375000158939"
+                                                                                                id="old_price_update_375000scr_375000158939">
+                                                                                                <!--old_price_update_375000scr_375000158939-->
                                                                                             </span>
                                                                                         </div>
                                                                                     </div>
@@ -394,234 +402,11 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="owl-item active" style="width: 298px">
-                                                            <div class="jscroll-item vs-grid et-grid">
-                                                                <input type="hidden" name="sb__stickers_output_side"
-                                                                    value="L" />
-                                                                <div class="ty-center scroll-image">
-                                                                    <a href="#rung-na-uy-tai-ban-nam-2021.html">
-                                                                        <img class="ty-pict cm-image"
-                                                                            id="det_img_788448076"
-                                                                            src="../layout/image/rung-nauy-tb-2021.jpg"
-                                                                            alt="" title="" />
-                                                                    </a>
-                                                                </div>
-                                                                <div class="center compact">
-                                                                    <div class="product-container clearfix">
-                                                                        <form action="#" method="post"
-                                                                            name="product_form_350000scr_350000161783"
-                                                                            enctype="multipart/form-data"
-                                                                            class="cm-disable-empty-files cm-ajax cm-ajax-full-render cm-ajax-status-middle cm-processed-form">
-                                                                            <input type="hidden" name="result_ids"
-                                                                                value="cart_status*,wish_list*,checkout*,account_info*" />
-                                                                            <input type="hidden" name="redirect_url"
-                                                                                value="index.php?sl=vi" />
-                                                                            <input type="hidden"
-                                                                                name="product_data[scr_350000161783][product_id]"
-                                                                                value="161783" />
-                                                                            <div class="title-price-wrapper">
-                                                                                <bdi>
-                                                                                    <a href="#rung-na-uy-tai-ban-nam-2021.html"
-                                                                                        class="product-title"
-                                                                                        title="Rừng Na-uy (Tái bản năm 2021)">Rừng
-                                                                                        Na-uy (Tái bản năm 2021)</a>
-                                                                                </bdi>
-                                                                                <div class="prices-container clearfix">
-                                                                                    <div
-                                                                                        class="clearfix product-prices">
-                                                                                        <div class="ty-float-left">
-                                                                                            <span
-                                                                                                class="cm-reload-350000scr_350000161783 ty-price-update"
-                                                                                                id="price_update_350000scr_350000161783">
-                                                                                                <input type="hidden"
-                                                                                                    name="appearance[show_price_values]"
-                                                                                                    value="1" />
-                                                                                                <input type="hidden"
-                                                                                                    name="appearance[show_price]"
-                                                                                                    value="1" />
-                                                                                                <span class="ty-price"
-                                                                                                    id="line_discounted_price_350000scr_350000161783"><bdi><span
-                                                                                                            id="sec_discounted_price_350000scr_350000161783"
-                                                                                                            class="ty-price-num">150,000</span>&nbsp;<span
-                                                                                                            class="ty-price-num">đ</span></bdi></span>
-                                                                                                <!--price_update_350000scr_350000161783-->
-                                                                                            </span>
-                                                                                        </div>
-                                                                                        <div class="ty-float-right">
-                                                                                            <span
-                                                                                                class="cm-reload-350000scr_350000161783"
-                                                                                                id="old_price_update_350000scr_350000161783">
-                                                                                                <!--old_price_update_350000scr_350000161783-->
-                                                                                            </span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="rating-buttons clearfix">
-                                                                                <div class="ty-float-left vs-rating">
-                                                                                </div>
-                                                                                <div
-                                                                                    class="vs-buttons clearfix ty-float-right">
-                                                                                </div>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="owl-item active" style="width: 298px">
-                                                            <div class="jscroll-item vs-grid et-grid">
-                                                                <input type="hidden" name="sb__stickers_output_side"
-                                                                    value="L" />
-                                                                <div class="ty-center scroll-image">
-                                                                    <a
-                                                                        href="#nguoi-thay-hoi-uc-cua-mot-nha-giao-my-tai-ban-nam-2021.html">
-                                                                        <img class="ty-pict cm-image"
-                                                                            id="det_img_1585728970"
-                                                                            src="../layout/image/nguoi-thay-tb-2021.jpg"
-                                                                            alt="" title="" />
-                                                                    </a>
-                                                                </div>
-                                                                <div class="center compact">
-                                                                    <div class="product-container clearfix">
-                                                                        <form action="#" method="post"
-                                                                            name="product_form_350000scr_350000161782"
-                                                                            enctype="multipart/form-data"
-                                                                            class="cm-disable-empty-files cm-ajax cm-ajax-full-render cm-ajax-status-middle cm-processed-form">
-                                                                            <input type="hidden" name="result_ids"
-                                                                                value="cart_status*,wish_list*,checkout*,account_info*" />
-                                                                            <input type="hidden" name="redirect_url"
-                                                                                value="index.php?sl=vi" />
-                                                                            <input type="hidden"
-                                                                                name="product_data[scr_350000161782][product_id]"
-                                                                                value="161782" />
-                                                                            <div class="title-price-wrapper">
-                                                                                <bdi>
-                                                                                    <a href="#nguoi-thay-hoi-uc-cua-mot-nha-giao-my-tai-ban-nam-2021.html"
-                                                                                        class="product-title"
-                                                                                        title="Người Thầy - Hồi Ức Của Một Nhà Giáo Mỹ (Tái bản năm 2021)">Người
-                                                                                        Thầy - Hồi Ức Của Một Nhà
-                                                                                        Giáo Mỹ (...</a>
-                                                                                </bdi>
-                                                                                <div class="prices-container clearfix">
-                                                                                    <div
-                                                                                        class="clearfix product-prices">
-                                                                                        <div class="ty-float-left">
-                                                                                            <span
-                                                                                                class="cm-reload-350000scr_350000161782 ty-price-update"
-                                                                                                id="price_update_350000scr_350000161782">
-                                                                                                <input type="hidden"
-                                                                                                    name="appearance[show_price_values]"
-                                                                                                    value="1" />
-                                                                                                <input type="hidden"
-                                                                                                    name="appearance[show_price]"
-                                                                                                    value="1" />
-                                                                                                <span class="ty-price"
-                                                                                                    id="line_discounted_price_350000scr_350000161782"><bdi><span
-                                                                                                            id="sec_discounted_price_350000scr_350000161782"
-                                                                                                            class="ty-price-num">118,000</span>&nbsp;<span
-                                                                                                            class="ty-price-num">đ</span></bdi></span>
-                                                                                                <!--price_update_350000scr_350000161782-->
-                                                                                            </span>
-                                                                                        </div>
-                                                                                        <div class="ty-float-right">
-                                                                                            <span
-                                                                                                class="cm-reload-350000scr_350000161782"
-                                                                                                id="old_price_update_350000scr_350000161782">
-                                                                                                <!--old_price_update_350000scr_350000161782-->
-                                                                                            </span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="rating-buttons clearfix">
-                                                                                <div class="ty-float-left vs-rating">
-                                                                                </div>
-                                                                                <div
-                                                                                    class="vs-buttons clearfix ty-float-right">
-                                                                                </div>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="owl-item active" style="width: 298px">
-                                                            <div class="jscroll-item vs-grid et-grid">
-                                                                <input type="hidden" name="sb__stickers_output_side"
-                                                                    value="L" />
-                                                                <div class="ty-center scroll-image">
-                                                                    <a href="#dinh-menh-va-cuong-no.html">
-                                                                        <img class="ty-pict cm-image"
-                                                                            id="det_img_1615131270"
-                                                                            src="../layout/image/dinh-menh-va-cuong-no.jpg"
-                                                                            alt="" title="" />
-                                                                    </a>
-                                                                </div>
-                                                                <div class="center compact">
-                                                                    <div class="product-container clearfix">
-                                                                        <form action="#" method="post"
-                                                                            name="product_form_350000scr_350000161780"
-                                                                            enctype="multipart/form-data"
-                                                                            class="cm-disable-empty-files cm-ajax cm-ajax-full-render cm-ajax-status-middle cm-processed-form">
-                                                                            <input type="hidden" name="result_ids"
-                                                                                value="cart_status*,wish_list*,checkout*,account_info*" />
-                                                                            <input type="hidden" name="redirect_url"
-                                                                                value="index.php?sl=vi" />
-                                                                            <input type="hidden"
-                                                                                name="product_data[scr_350000161780][product_id]"
-                                                                                value="161780" />
-                                                                            <div class="title-price-wrapper">
-                                                                                <bdi>
-                                                                                    <a href="#dinh-menh-va-cuong-no.html"
-                                                                                        class="product-title"
-                                                                                        title="Định Mệnh Và Cuồng Nộ">Định
-                                                                                        Mệnh Và Cuồng Nộ</a>
-                                                                                </bdi>
-                                                                                <div class="prices-container clearfix">
-                                                                                    <div
-                                                                                        class="clearfix product-prices">
-                                                                                        <div class="ty-float-left">
-                                                                                            <span
-                                                                                                class="cm-reload-350000scr_350000161780 ty-price-update"
-                                                                                                id="price_update_350000scr_350000161780">
-                                                                                                <input type="hidden"
-                                                                                                    name="appearance[show_price_values]"
-                                                                                                    value="1" />
-                                                                                                <input type="hidden"
-                                                                                                    name="appearance[show_price]"
-                                                                                                    value="1" />
-                                                                                                <span class="ty-price"
-                                                                                                    id="line_discounted_price_350000scr_350000161780"><bdi><span
-                                                                                                            id="sec_discounted_price_350000scr_350000161780"
-                                                                                                            class="ty-price-num">199,000</span>&nbsp;<span
-                                                                                                            class="ty-price-num">đ</span></bdi></span>
-                                                                                                <!--price_update_350000scr_350000161780-->
-                                                                                            </span>
-                                                                                        </div>
-                                                                                        <div class="ty-float-right">
-                                                                                            <span
-                                                                                                class="cm-reload-350000scr_350000161780"
-                                                                                                id="old_price_update_350000scr_350000161780">
-                                                                                                <!--old_price_update_350000scr_350000161780-->
-                                                                                            </span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="rating-buttons clearfix">
-                                                                                <div class="ty-float-left vs-rating">
-                                                                                </div>
-                                                                                <div
-                                                                                    class="vs-buttons clearfix ty-float-right">
-                                                                                </div>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        </div><?php
+                                                        
+                                                        }
+                                                        ?>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -717,6 +502,14 @@
                                                 <div class="owl-wrapper-outer">
                                                     <div class="owl-wrapper"
                                                         style="width: 8940px; left: 0px; display: block">
+                                                        <?php
+                                                        $i = -1;
+                                                        $list = $cate->getallproduct();
+                                                        foreach ($list as $item) {
+                                                            $i++;
+                                                        ?>
+                                                        <?php if($i==4){?></div> <div class="owl-wrapper"
+                                                        style="width: 8940px; left: 0px; display: block"><?php $i =0; }  ?>
                                                         <div class="owl-item active" style="width: 298px">
                                                             <div class="jscroll-item vs-grid et-grid">
                                                                 <input type="hidden" name="sb__stickers_output_side"
@@ -725,7 +518,7 @@
                                                                     <a href="#ask-a-scientist-vi.html">
                                                                         <img class="ty-pict cm-image"
                                                                             id="det_img_1746761672"
-                                                                            src="../layout/image/hinh_wzmw-ai.jpg"
+                                                                            src="../layout/<?php echo htmlentities($item->url); ?>"
                                                                             alt="" title="" />
                                                                     </a>
                                                                 </div>
@@ -746,8 +539,7 @@
                                                                                 <bdi>
                                                                                     <a href="#ask-a-scientist-vi.html"
                                                                                         class="product-title"
-                                                                                        title="Ask A Scientist">Ask A
-                                                                                        Scientist</a>
+                                                                                        title="<?php echo htmlentities($item->name); ?>"><?php echo htmlentities($item->name); ?></a>
                                                                                 </bdi>
                                                                                 <div class="prices-container clearfix">
                                                                                     <div
@@ -765,7 +557,7 @@
                                                                                                 <span class="ty-price"
                                                                                                     id="line_discounted_price_375000scr_375000158939"><bdi><span
                                                                                                             id="sec_discounted_price_375000scr_375000158939"
-                                                                                                            class="ty-price-num">279,000</span>&nbsp;<span
+                                                                                                            class="ty-price-num"><?php echo htmlentities($item->price); ?></span>&nbsp;<span
                                                                                                             class="ty-price-num">đ</span></bdi></span>
                                                                                                 <!--price_update_375000scr_375000158939-->
                                                                                             </span>
@@ -791,235 +583,11 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="owl-item active" style="width: 298px">
-                                                            <div class="jscroll-item vs-grid et-grid">
-                                                                <input type="hidden" name="sb__stickers_output_side"
-                                                                    value="L" />
-                                                                <div class="ty-center scroll-image">
-                                                                    <a href="#kids-activity-box-set-dinosaurs.html">
-                                                                        <img class="ty-pict cm-image"
-                                                                            id="det_img_1240234405"
-                                                                            src="../layout/image/1_bi61-dd.jpg" alt=""
-                                                                            title="" />
-                                                                    </a>
-                                                                </div>
-                                                                <div class="center compact">
-                                                                    <div class="product-container clearfix">
-                                                                        <form action="#" method="post"
-                                                                            name="product_form_375000scr_375000158928"
-                                                                            enctype="multipart/form-data"
-                                                                            class="cm-disable-empty-files cm-ajax cm-ajax-full-render cm-ajax-status-middle cm-processed-form">
-                                                                            <input type="hidden" name="result_ids"
-                                                                                value="cart_status*,wish_list*,checkout*,account_info*" />
-                                                                            <input type="hidden" name="redirect_url"
-                                                                                value="index.php?sl=vi" />
-                                                                            <input type="hidden"
-                                                                                name="product_data[scr_375000158928][product_id]"
-                                                                                value="158928" />
-                                                                            <div class="title-price-wrapper">
-                                                                                <bdi>
-                                                                                    <a href="#kids-activity-box-set-dinosaurs.html"
-                                                                                        class="product-title"
-                                                                                        title="Kids Activity Box Set - Dinosaurs">Kids
-                                                                                        Activity Box Set -
-                                                                                        Dinosaurs</a>
-                                                                                </bdi>
-                                                                                <div class="prices-container clearfix">
-                                                                                    <div
-                                                                                        class="clearfix product-prices">
-                                                                                        <div class="ty-float-left">
-                                                                                            <span
-                                                                                                class="cm-reload-375000scr_375000158928 ty-price-update"
-                                                                                                id="price_update_375000scr_375000158928">
-                                                                                                <input type="hidden"
-                                                                                                    name="appearance[show_price_values]"
-                                                                                                    value="1" />
-                                                                                                <input type="hidden"
-                                                                                                    name="appearance[show_price]"
-                                                                                                    value="1" />
-                                                                                                <span class="ty-price"
-                                                                                                    id="line_discounted_price_375000scr_375000158928"><bdi><span
-                                                                                                            id="sec_discounted_price_375000scr_375000158928"
-                                                                                                            class="ty-price-num">399,000</span>&nbsp;<span
-                                                                                                            class="ty-price-num">đ</span></bdi></span>
-                                                                                                <!--price_update_375000scr_375000158928-->
-                                                                                            </span>
-                                                                                        </div>
-                                                                                        <div class="ty-float-right">
-                                                                                            <span
-                                                                                                class="cm-reload-375000scr_375000158928"
-                                                                                                id="old_price_update_375000scr_375000158928">
-                                                                                                <!--old_price_update_375000scr_375000158928-->
-                                                                                            </span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="rating-buttons clearfix">
-                                                                                <div class="ty-float-left vs-rating">
-                                                                                </div>
-                                                                                <div
-                                                                                    class="vs-buttons clearfix ty-float-right">
-                                                                                </div>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="owl-item active" style="width: 298px">
-                                                            <div class="jscroll-item vs-grid et-grid">
-                                                                <input type="hidden" name="sb__stickers_output_side"
-                                                                    value="L" />
-                                                                <div class="ty-center scroll-image">
-                                                                    <a
-                                                                        href="#disney-the-lion-king-platinum-collection.html">
-                                                                        <img class="ty-pict cm-image"
-                                                                            id="det_img_1977663012"
-                                                                            src="../layout/image/1_zb8y-6m.jpg" alt=""
-                                                                            title="" />
-                                                                    </a>
-                                                                </div>
-                                                                <div class="center compact">
-                                                                    <div class="product-container clearfix">
-                                                                        <form action="#" method="post"
-                                                                            name="product_form_375000scr_375000158924"
-                                                                            enctype="multipart/form-data"
-                                                                            class="cm-disable-empty-files cm-ajax cm-ajax-full-render cm-ajax-status-middle cm-processed-form">
-                                                                            <input type="hidden" name="result_ids"
-                                                                                value="cart_status*,wish_list*,checkout*,account_info*" />
-                                                                            <input type="hidden" name="redirect_url"
-                                                                                value="index.php?sl=vi" />
-                                                                            <input type="hidden"
-                                                                                name="product_data[scr_375000158924][product_id]"
-                                                                                value="158924" />
-                                                                            <div class="title-price-wrapper">
-                                                                                <bdi>
-                                                                                    <a href="#disney-the-lion-king-platinum-collection.html"
-                                                                                        class="product-title"
-                                                                                        title="Disney The Lion King: Platinum Collection">Disney
-                                                                                        The Lion King: Platinum
-                                                                                        Collection</a>
-                                                                                </bdi>
-                                                                                <div class="prices-container clearfix">
-                                                                                    <div
-                                                                                        class="clearfix product-prices">
-                                                                                        <div class="ty-float-left">
-                                                                                            <span
-                                                                                                class="cm-reload-375000scr_375000158924 ty-price-update"
-                                                                                                id="price_update_375000scr_375000158924">
-                                                                                                <input type="hidden"
-                                                                                                    name="appearance[show_price_values]"
-                                                                                                    value="1" />
-                                                                                                <input type="hidden"
-                                                                                                    name="appearance[show_price]"
-                                                                                                    value="1" />
-                                                                                                <span class="ty-price"
-                                                                                                    id="line_discounted_price_375000scr_375000158924"><bdi><span
-                                                                                                            id="sec_discounted_price_375000scr_375000158924"
-                                                                                                            class="ty-price-num">179,000</span>&nbsp;<span
-                                                                                                            class="ty-price-num">đ</span></bdi></span>
-                                                                                                <!--price_update_375000scr_375000158924-->
-                                                                                            </span>
-                                                                                        </div>
-                                                                                        <div class="ty-float-right">
-                                                                                            <span
-                                                                                                class="cm-reload-375000scr_375000158924"
-                                                                                                id="old_price_update_375000scr_375000158924">
-                                                                                                <!--old_price_update_375000scr_375000158924-->
-                                                                                            </span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="rating-buttons clearfix">
-                                                                                <div class="ty-float-left vs-rating">
-                                                                                </div>
-                                                                                <div
-                                                                                    class="vs-buttons clearfix ty-float-right">
-                                                                                </div>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="owl-item active" style="width: 298px">
-                                                            <div class="jscroll-item vs-grid et-grid">
-                                                                <input type="hidden" name="sb__stickers_output_side"
-                                                                    value="L" />
-                                                                <div class="ty-center scroll-image">
-                                                                    <a href="#trailblazers-stephen-hawking.html">
-                                                                        <img class="ty-pict cm-image"
-                                                                            id="det_img_2081887288"
-                                                                            src="../layout/image/1_x628-2g.jpg" alt=""
-                                                                            title="" />
-                                                                    </a>
-                                                                </div>
-                                                                <div class="center compact">
-                                                                    <div class="product-container clearfix">
-                                                                        <form action="#" method="post"
-                                                                            name="product_form_375000scr_375000158921"
-                                                                            enctype="multipart/form-data"
-                                                                            class="cm-disable-empty-files cm-ajax cm-ajax-full-render cm-ajax-status-middle cm-processed-form">
-                                                                            <input type="hidden" name="result_ids"
-                                                                                value="cart_status*,wish_list*,checkout*,account_info*" />
-                                                                            <input type="hidden" name="redirect_url"
-                                                                                value="index.php?sl=vi" />
-                                                                            <input type="hidden"
-                                                                                name="product_data[scr_375000158921][product_id]"
-                                                                                value="158921" />
-                                                                            <div class="title-price-wrapper">
-                                                                                <bdi>
-                                                                                    <a href="#trailblazers-stephen-hawking.html"
-                                                                                        class="product-title"
-                                                                                        title="Trailblazers: Stephen Hawking">Trailblazers:
-                                                                                        Stephen Hawking</a>
-                                                                                </bdi>
-                                                                                <div class="prices-container clearfix">
-                                                                                    <div
-                                                                                        class="clearfix product-prices">
-                                                                                        <div class="ty-float-left">
-                                                                                            <span
-                                                                                                class="cm-reload-375000scr_375000158921 ty-price-update"
-                                                                                                id="price_update_375000scr_375000158921">
-                                                                                                <input type="hidden"
-                                                                                                    name="appearance[show_price_values]"
-                                                                                                    value="1" />
-                                                                                                <input type="hidden"
-                                                                                                    name="appearance[show_price]"
-                                                                                                    value="1" />
-                                                                                                <span class="ty-price"
-                                                                                                    id="line_discounted_price_375000scr_375000158921"><bdi><span
-                                                                                                            id="sec_discounted_price_375000scr_375000158921"
-                                                                                                            class="ty-price-num">189,000</span>&nbsp;<span
-                                                                                                            class="ty-price-num">đ</span></bdi></span>
-                                                                                                <!--price_update_375000scr_375000158921-->
-                                                                                            </span>
-                                                                                        </div>
-                                                                                        <div class="ty-float-right">
-                                                                                            <span
-                                                                                                class="cm-reload-375000scr_375000158921"
-                                                                                                id="old_price_update_375000scr_375000158921">
-                                                                                                <!--old_price_update_375000scr_375000158921-->
-                                                                                            </span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="rating-buttons clearfix">
-                                                                                <div class="ty-float-left vs-rating">
-                                                                                </div>
-                                                                                <div
-                                                                                    class="vs-buttons clearfix ty-float-right">
-                                                                                </div>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        </div><?php
+                                                        
+                                                        }
+                                                        ?>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>

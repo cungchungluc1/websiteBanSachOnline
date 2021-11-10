@@ -65,7 +65,7 @@
                             <div class="card-body">
                                 <div class="table-responsive" style="overflow-x: none !important">
                                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                        <form autocomplete="off" action="../controller/updateproduct.php" method="POST">
+                                        <form autocomplete="off" action="../controller/updateproduct.php" method="POST" enctype="multipart/form-data">
                                         <?php
                                             include "../entity/product.php";
                                             $cate  = new Product();
@@ -160,8 +160,7 @@
                                                 <label for="inputPassword3" class="col-sm-3 col-form-label">Product
                                                     Image</label>
                                                 <div class="col-sm-9">
-                                                    <input class="form-control" type="file" id="formFileMultiple"
-                                                        multiple />
+                                                    <input class="form-control" type="file" name="fileToUpload" id="fileToUpload"/>
                                                 </div>
                                             </div>
 

@@ -29,7 +29,7 @@ $cate->description = $productDescription;
 $cate->price = $price;
 $cate->sell = $sellingprice ;
 $cate->id_category =$category;
-$pro->date_publishing = $date_publishing;
+$cate->date_publishing = $date_publishing;
 $cate->description_detail = $productDescriptionDetail;
 
 if($uploaded==true){

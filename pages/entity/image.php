@@ -7,10 +7,11 @@ class image
     public $name;
     public $url;
     public $alt;
+    public $status = 1;
     function add($image)
     {
         include "../../connection.php";
-        $sql = "INSERT INTO `image`(`id`, `id_use`, `id_image`, `name`, `url`, `alt`) VALUES (:id, :id_use, :id_image, :name, :url, :alt)";
+        $sql = "INSERT INTO `image`(`id`, `id_use`, `id_image`, `name`, `url`, `alt`,status) VALUES (:id, :id_use, :id_image, :name, :url, :alt,:status)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':id', $image->id, PDO::PARAM_STR);
         $query->bindParam(':id_use', $image->id_use, PDO::PARAM_STR);
@@ -18,6 +19,7 @@ class image
         $query->bindParam(':name', $image->name, PDO::PARAM_STR);
         $query->bindParam(':url', $image->url, PDO::PARAM_STR);
         $query->bindParam(':alt', $image->alt, PDO::PARAM_STR);
+        $query->bindParam(':status', $image->status, PDO::PARAM_INT);
         $query->execute();
         
     }
@@ -32,7 +34,7 @@ class image
     function update($image)
     {
         include "./././connection.php";
-        $sql = "UPDATE `image` SET ,`id_use`=:id_use,`id_image`=:id_image,`name`=:name,`url`=:url,`alt`=:alt WHERE `id`=:id";
+        $sql = "UPDATE `image` SET `id_use`=:id_use,`id_image`=:id_image,`name`=:name,`url`=:url,`alt`=:alt WHERE `id`=:id";
         $query = $dbh->prepare($sql);
         $query->bindParam(':id', $image->id, PDO::PARAM_STR);
         $query->bindParam(':id_use', $image->id_use, PDO::PARAM_STR);
@@ -49,6 +51,15 @@ class image
             $error = "Thêm thất bại. Hãy thử lại";
             header('location:err.php', true, 301);
         }
+    }
+    function chageimage($image)
+    {
+        include "../../connection.php";
+        $sql = "UPDATE `image` SET `status`= 0 WHERE `id_use`=:id_use";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':id_use', $image->id_use, PDO::PARAM_STR);
+        $query->execute();
+        
     }
     function getaimage($id)
     {
