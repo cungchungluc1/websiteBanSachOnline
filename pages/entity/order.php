@@ -61,7 +61,7 @@ class order{
         } 
         function getallordre() {
             include "./././connection.php";
-            $sql = "SELECT `id_order`, `id_user`, `id_address`, `amount`, `status`, `date_added` FROM `tbl_order` ";
+            $sql = "SELECT DISTINCT `id_order`, `id_user`, `id_address`, `amount`, `status`, `date_added` FROM `tbl_order` ";
             $query = $dbh->prepare($sql);
             $query->execute();
             if($query->rowCount() > 0) 
@@ -70,7 +70,7 @@ class order{
         }  
         function getallorderwithorder($id_order) {
             include "./././connection.php";
-            $sql = "SELECT * FROM `tbl_order` WHERE id_order =:id_order";
+            $sql = "SELECT DISTINCT * FROM `tbl_order` WHERE id_order =:id_order";
             $query = $dbh->prepare($sql);
             $query-> bindValue(':id_order', $id_order);
             $query->execute();

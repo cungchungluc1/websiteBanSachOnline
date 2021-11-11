@@ -127,6 +127,12 @@
                                                             </th>
                                                             <th class="sorting" tabindex="0" aria-controls="dataTable"
                                                                 rowspan="1" colspan="1"
+                                                                aria-label="Position: activate to sort column ascending"
+                                                                style="width: 282px">
+                                                                Quantity
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="dataTable"
+                                                                rowspan="1" colspan="1"
                                                                 aria-label="Office: activate to sort column ascending"
                                                                 style="width: 135px">
                                                                 Date Publishing
@@ -151,6 +157,7 @@
                                                             <td><?php echo htmlentities($item->id_category); ?></td>
                                                             <td><?php echo htmlentities($item->description); ?></td>
                                                             <td><?php echo htmlentities($item->price); ?></td>
+                                                            <td><?php echo htmlentities($item->quantity); ?></td>
                                                             <td><?php echo htmlentities($item->date_publishing); ?></td>
                                                             <td><a href="updateproduct.php?id=<?php echo htmlentities($item->id_product); ?>"><i
                                                                         class="fas fa-edit"></i></a> <i

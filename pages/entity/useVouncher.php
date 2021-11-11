@@ -54,7 +54,7 @@ class useVouncher
     function getauseVouncher($id)
     {
         include "./././connection.php";
-        $sql = "SELECT * FROM `tbl_use_vouncher` WHERE id =:id";
+        $sql = "SELECT DISTINCT * FROM `tbl_use_vouncher` WHERE id =:id";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id', $id);
         $query->execute();
@@ -65,7 +65,7 @@ class useVouncher
     function getalluseVouncher($id_user)
     {
         include "./././connection.php";
-        $sql = "SELECT * FROM `tbl_use_vouncher` WHERE id_user =:id_user";
+        $sql = "SELECT DISTINCT * FROM `tbl_use_vouncher` WHERE id_user =:id_user";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id_user', $id_user);
         $query->execute();

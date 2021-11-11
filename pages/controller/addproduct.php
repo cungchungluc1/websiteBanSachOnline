@@ -12,6 +12,7 @@ $sellingprice = "";
 $productDescription="";
 $productDescriptionDetail="";
 $date_publishing = "";
+$quantity = 0;
 $category = $_POST['category'];
 $productname = $_POST['productname'];
 $productpublishing = $_POST['productpublishing'];
@@ -20,7 +21,7 @@ $sellingprice = $_POST['sellingprice'];
 $productDescription=$_POST['productDescription'];
 $productDescriptionDetail=$_POST['editor1'];
 $date_publishing = $_POST['date_publishing'];
-
+$quantity = $_POST['quantity'];
 $cate = new Product();
 $cate->id_product = getNewId("product");
 $cate->id_publishing_company = $productpublishing;
@@ -31,7 +32,7 @@ $cate->sell = $sellingprice ;
 $cate->id_category =$category;
 $cate->date_publishing = $date_publishing;
 $cate->description_detail = $productDescriptionDetail;
-
+$cate->quantity = $quantity;
 if($uploaded==true){
     
     $image = new image();

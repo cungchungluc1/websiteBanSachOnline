@@ -15,7 +15,7 @@ class User
 
 function getRole($role){
 	include "../../connection.php";
-		$sql = "SELECT id_role FROM `tbl_role` where name =:name";
+		$sql = "SELECT DISTINCT id_role FROM `tbl_role` where name =:name";
 		$query = $dbh->prepare($sql);
 		$query->bindValue(':name', $role);
 		$query->execute();
@@ -28,7 +28,7 @@ function getRole($role){
 	function login($username, $password)
 	{
 		include "../../connection.php";
-		$sql = "SELECT `id_user`, r.name as id_role, u.name, `sex`, `email`, `phone`, `birthday`, `username`, `password`, codeSession FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role where username =:An and password =:Bo order by username and password ";
+		$sql = "SELECT DISTINCT `id_user`, r.name as id_role, u.name, `sex`, `email`, `phone`, `birthday`, `username`, `password`, codeSession FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role where username =:An and password =:Bo order by username and password ";
 		$query = $dbh->prepare($sql);
 		$query->bindValue(':An', $username);
 		$query->bindValue(':Bo', $password);
@@ -40,7 +40,7 @@ function getRole($role){
 	function checklogin($codeSession)
 	{
 		include "../../connection.php";
-		$sql = "SELECT `id_user`, r.name as id_role, u.name, `sex`, `email`, `phone`, `birthday`, `username`, `password`, codeSession FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role where codeSession =:codeSession";
+		$sql = "SELECT DISTINCT `id_user`, r.name as id_role, u.name, `sex`, `email`, `phone`, `birthday`, `username`, `password`, codeSession FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role where codeSession =:codeSession";
 		$query = $dbh->prepare($sql);
 		$query->bindValue(':codeSession', $codeSession);
 		$query->execute();

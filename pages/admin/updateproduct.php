@@ -102,32 +102,35 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="inputPassword3" class="col-sm-3 col-form-label">Product
-                                                    Publishing Company</label>
+                                                <label for="inputPassword3" class="col-sm-3 col-form-label">Product Publishing Company</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="productpublishing" value=<?php echo htmlentities($data->id_publishing_company); ?> class="form-control"
-                                                        name="" />
+                                                    <input type="text" name="productpublishing" value="<?php echo htmlentities($data->id_publishing_company); ?>" class="form-control"/>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3"
                                                     class="col-sm-3 col-form-label">Price</label>
                                                 <div class="col-sm-9">
-                                                    <input type="number" name="price" value=<?php echo htmlentities($data->price); ?> class="form-control" name="" />
+                                                    <input type="number" name="price" value="<?php echo htmlentities($data->price); ?>" class="form-control" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-sm-3 col-form-label">Selling
                                                     Price</label>
                                                 <div class="col-sm-9">
-                                                    <input type="number" name="sellingprice" value=<?php echo htmlentities($data->sell); ?> class="form-control"
-                                                        name="" />
+                                                    <input type="number" name="sellingprice" value="<?php echo htmlentities($data->sell); ?>" class="form-control"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputPassword3" class="col-sm-3 col-form-label">Quantity</label>
+                                                <div class="col-sm-9">
+                                                    <input type="number" name="quantity" class="form-control" value="<?php echo htmlentities($data->quantity); ?>"/>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-sm-3 col-form-label">Date Publishing</label>
                                                 <div class="col-sm-9">
-                                                    <input type="date" name="date_publishing" value=<?php echo htmlentities($data->date_publishing); ?> class="form-control"
+                                                    <input type="date" name="date_publishing" value="<?php echo htmlentities($data->date_publishing); ?>" class="form-control"
                                                         />
                                                 </div>
                                             </div>

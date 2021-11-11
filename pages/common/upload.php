@@ -25,10 +25,17 @@ if(isset($_POST["submit"])) {
 if (file_exists($target_file)) {
   echo "Sorry, file already exists.";
   $uploadOk = 0;
+  $uploaded=true;
+    $id ="";
+    $id_use = "";
+    $id_image ="";
+    $name=$_FILES["fileToUpload"]["name"];
+    $url="image/".$_FILES["fileToUpload"]["name"];
+    $alt=$_FILES["fileToUpload"]["name"];
 }
 
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 50000000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
 }

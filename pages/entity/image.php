@@ -64,7 +64,7 @@ class image
     function getaimage($id)
     {
         include "./././connection.php";
-        $sql = "SELECT * FROM `image` WHERE id =:id";
+        $sql = "SELECT DISTINCT * FROM `image` WHERE id =:id";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id', $id);
         $query->execute();
@@ -75,7 +75,7 @@ class image
     function getallimage()
     {
         include "./././connection.php";
-        $sql = "SELECT * FROM `image`";
+        $sql = "SELECT DISTINCT * FROM `image`";
         $query = $dbh->prepare($sql);
         $query->execute();
         if ($query->rowCount() > 0)

@@ -23757,6 +23757,13 @@ a.reset-filters:hover {
   border: none;
   text-align: center;
 }
+.vs-multi-scroller-wrapper.home-tabs-new ul {
+  margin: -20px -20px 10px;
+  padding: 0 20px 0 20px;
+  text-align: left;
+  border: none;
+  text-align: center;
+}
 .vs-multi-scroller-wrapper.home-tabs ul li {
   display: inline-block;
   -webkit-transition: all 0.5s ease;

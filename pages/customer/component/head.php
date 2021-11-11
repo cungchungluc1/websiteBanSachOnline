@@ -11,6 +11,7 @@
     <link href="../layout/css/om.base.css" rel="stylesheet" />
     <link href="../layout/css/standStyle.css" rel="stylesheet" />
     <link href="../layout/css/style.css" rel="stylesheet" />
+    <link href="../layout/css/themeCust.css" rel="stylesheet" />
     <link href="../layout/css/lazy-image-style.css" rel="stylesheet" />
     <!-- 
     

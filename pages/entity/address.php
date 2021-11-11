@@ -64,7 +64,7 @@ class address
     function getaddress($id_user)
     {
         include "./././connection.php";
-        $sql = "SELECT * FROM `tbl_address_shipping` WHERE id_user =:id_user";
+        $sql = "SELECT DISTINCT * FROM `tbl_address_shipping` WHERE id_user =:id_user";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id_user', $id_user);
         $query->execute();
@@ -75,7 +75,7 @@ class address
     function getaaddress($id_address)
     {
         include "./././connection.php";
-        $sql = "SELECT * FROM `tbl_address_shipping` WHERE id_address =:id_address";
+        $sql = "SELECT DISTINCT * FROM `tbl_address_shipping` WHERE id_address =:id_address";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id_address', $id_address);
         $query->execute();

@@ -60,7 +60,7 @@ class publishingCompany
     function getapublishingCompany($id_publishing_company)
     {
         include "./././connection.php";
-        $sql = "SELECT * FROM `tbl_publishing_company` WHERE id_publishing_company =:id_publishing_company";
+        $sql = "SELECT DISTINCT * FROM `tbl_publishing_company` WHERE id_publishing_company =:id_publishing_company";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id_publishing_company', $id_publishing_company);
         $query->execute();
@@ -71,7 +71,7 @@ class publishingCompany
     function getallpublishingCompany()
     {
         include "./././connection.php";
-        $sql = "SELECT `id_publishing_company`, `name`, `description`, `phone`, `address`, `email` FROM `tbl_publishing_company` ";
+        $sql = "SELECT DISTINCT `id_publishing_company`, `name`, `description`, `phone`, `address`, `email` FROM `tbl_publishing_company` ";
         $query = $dbh->prepare($sql);
         $query->execute();
         if ($query->rowCount() > 0)

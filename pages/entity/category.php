@@ -43,7 +43,7 @@ class category
     function getacategory($id_category)
     {
         include "../../connection.php";
-        $sql = "SELECT DISTINCT * FROM `tbl_category` WHERE id_category =:id_category";
+        $sql = "SELECT DISTINCT DISTINCT * FROM `tbl_category` WHERE id_category =:id_category";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id_category', $id_category);
         $query->execute();
@@ -54,8 +54,29 @@ class category
     function getallcategory()
     {
         include "../../connection.php";
-        $sql = "SELECT * FROM `tbl_category` ";
+        $sql = "SELECT DISTINCT * FROM `tbl_category` ";
         $query = $dbh->prepare($sql);
+        $query->execute();
+        if ($query->rowCount() > 0)
+            return $query->fetchAll(PDO::FETCH_OBJ);
+        return null;
+    }
+    function getparentcategory()
+    {
+        include "../../connection.php";
+        $sql = "SELECT DISTINCT * FROM `tbl_category` where id_parten_category = null or id_parten_category ='' ";
+        $query = $dbh->prepare($sql);
+        $query->execute();
+        if ($query->rowCount() > 0)
+            return $query->fetchAll(PDO::FETCH_OBJ);
+        return null;
+    }
+    function getsubcategory($id_parten_category)
+    {
+        include "../../connection.php";
+        $sql = "SELECT DISTINCT * FROM `tbl_category` where id_parten_category =:id_parten_category ";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':id_parten_category', $id_parten_category, PDO::PARAM_STR);
         $query->execute();
         if ($query->rowCount() > 0)
             return $query->fetchAll(PDO::FETCH_OBJ);
@@ -65,7 +86,7 @@ class category
     {
         
             include "../../connection.php";
-        $sql = "SELECT c1.`id_category`, c1.`name`, c1.`description`, c2.name as `id_parten_category` FROM `tbl_category` c1 LEFT JOIN `tbl_category` c2 on c1.id_parten_category = c2.id_category";
+        $sql = "SELECT DISTINCT c1.`id_category`, c1.`name`, c1.`description`, c2.name as `id_parten_category` FROM `tbl_category` c1 LEFT JOIN `tbl_category` c2 on c1.id_parten_category = c2.id_category";
         $query = $dbh->prepare($sql);
         $query->execute();
         if ($query->rowCount() > 0)

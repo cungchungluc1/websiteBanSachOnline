@@ -63,7 +63,7 @@ class vouncher
     function getallvouncher()
     {
         include "./././connection.php";
-        $sql = "SELECT `id_vouncher`, `name`, `description`, `code`, `sell`, `date_start`, `date_end` FROM `tbl_vouncher` ";
+        $sql = "SELECT DISTINCT `id_vouncher`, `name`, `description`, `code`, `sell`, `date_start`, `date_end` FROM `tbl_vouncher` ";
         $query = $dbh->prepare($sql);
         $query->execute();
         if ($query->rowCount() > 0)
@@ -73,7 +73,7 @@ class vouncher
     function getaVouncher($id_vouncher)
     {
         include "./././connection.php";
-        $sql = "SELECT * FROM `tbl_vouncher` WHERE id_vouncher =:id_vouncher";
+        $sql = "SELECT DISTINCT * FROM `tbl_vouncher` WHERE id_vouncher =:id_vouncher";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id_vouncher', $id_vouncher);
         $query->execute();

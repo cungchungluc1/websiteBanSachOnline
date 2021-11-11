@@ -61,7 +61,7 @@ class orderDetail{
         } 
         function getallorderwithorderDetail($id_order_detail) {
             include "./././connection.php";
-            $sql = "SELECT * FROM `tbl_order_detail` WHERE id_order_detail =:id_order_detail";
+            $sql = "SELECT DISTINCT * FROM `tbl_order_detail` WHERE id_order_detail =:id_order_detail";
             $query = $dbh->prepare($sql);
             $query-> bindValue(':id_order_detail', $id_order_detail);
             $query->execute();

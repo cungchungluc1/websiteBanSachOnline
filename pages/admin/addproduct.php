@@ -91,7 +91,7 @@
                                                     Name</label>
                                                 <div class="col-sm-9">
                                                     <input type="text" name="productname" class="form-control"
-                                                        name="" />
+                                                         />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -99,14 +99,14 @@
                                                     Publishing Company</label>
                                                 <div class="col-sm-9">
                                                     <input type="text" name="productpublishing" class="form-control"
-                                                        name="" />
+                                                         />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3"
                                                     class="col-sm-3 col-form-label">Price</label>
                                                 <div class="col-sm-9">
-                                                    <input type="number" name="price" class="form-control" name="" />
+                                                    <input type="number" name="price" class="form-control"  />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -114,7 +114,14 @@
                                                     Price</label>
                                                 <div class="col-sm-9">
                                                     <input type="number" name="sellingprice" class="form-control"
-                                                        name="" />
+                                                         />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputPassword3" class="col-sm-3 col-form-label">Quantity</label>
+                                                <div class="col-sm-9">
+                                                    <input type="number" name="quantity" class="form-control"
+                                                         />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
