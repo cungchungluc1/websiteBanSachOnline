@@ -3,6 +3,8 @@ class address
 {
     public $id_address;
     public $id_user;
+    public $name;
+    public $phone;
     public $diachi;
     public $phuong;
     public $quan;
@@ -12,10 +14,12 @@ class address
     function add($address)
     {
         include "./././connection.php";
-        $sql = "INSERT INTO `tbl_address_shipping`(`id_address`, `id_user`, `diachi`, `phuong`, `quan`, `tinh`, `is_defaul`) VALUES (:id_address, :id_user, :diachi, :phuong, :quan, :tinh, :is_defaul)";
+        $sql = "INSERT INTO `tbl_address_shipping`(`id_address`, `id_user`,name,	phone, `diachi`, `phuong`, `quan`, `tinh`, `is_defaul`) VALUES (:id_address, :id_user,:name	,:phone, :diachi, :phuong, :quan, :tinh, :is_defaul)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':id_address', $address->id_address, PDO::PARAM_STR);
         $query->bindParam(':id_user', $address->id_user, PDO::PARAM_STR);
+        $query->bindParam(':name', $address->name, PDO::PARAM_STR);
+        $query->bindParam(':phone', $address->phone, PDO::PARAM_STR);
         $query->bindParam(':diachi', $address->diachi, PDO::PARAM_STR);
         $query->bindParam(':phuong', $address->phuong, PDO::PARAM_STR);
         $query->bindParam(':quan', $address->quan, PDO::PARAM_STR);

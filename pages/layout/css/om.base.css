@@ -1015,8 +1015,11 @@ span.om-flatpickr-weekday {
 .intl-tel-input .v-hide {
   visibility: hidden;
 }
-.intl-tel-input input,
-.intl-tel-input input[type="text"],
+.intl-tel-input input.intl-tel-input 
+.intl-tel-input input[type="text"], 
+.intl-tel-input input[type="email"],
+.intl-tel-input input[type="date"],
+input[type="file"],
 .intl-tel-input input[type="tel"] {
   position: relative;
   z-index: 0;
@@ -1104,10 +1107,16 @@ span.om-flatpickr-weekday {
   margin-right: 6px;
 }
 .intl-tel-input.allow-dropdown input,
-.intl-tel-input.allow-dropdown input[type="text"],
+.intl-tel-input.allow-dropdown input[type="text"], 
+.intl-tel-input.allow-dropdown input[type="email"],
+.intl-tel-input.allow-dropdown input[type="date"],
+.intl-tel-input.allow-dropdown input[type="file"],
 .intl-tel-input.allow-dropdown input[type="tel"],
 .intl-tel-input.separate-dial-code input,
-.intl-tel-input.separate-dial-code input[type="text"],
+.intl-tel-input.separate-dial-code input[type="text"], 
+.intl-tel-input.separate-dial-code input[type="email"],
+.intl-tel-input.separate-dial-code input[type="date"],
+.intl-tel-input.separate-dial-code input[type="file"],
 .intl-tel-input.separate-dial-code input[type="tel"] {
   padding-right: 6px;
   padding-left: 52px;

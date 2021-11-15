@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="account-dropdown__body">
                                     <div class="account-dropdown__item">
-                                        <a href="#">
+                                        <a href="./profileUser.php">
                                             <i class="zmdi zmdi-account"></i>Account</a>
                                     </div>
                                     <div class="account-dropdown__item">
@@ -149,7 +149,7 @@
                                 <a class="ty-menu__item-toggle visible-phone visible-tablet cm-responsive-menu-toggle"><i
                                         class="ty-menu__icon-open ty-icon-down-open"></i><i
                                         class="ty-menu__icon-hide ty-icon-up-open"></i></a><a
-                                    href="<?php if($subparent == null) echo "./category.php?id=".htmlentities($item->id_category); else echo "#"; ?>" class="ty-menu__item-link"><?php echo htmlentities($item->name); ?></a>
+                                    href="<?php  echo "./category.php?id=".htmlentities($item->id_category); ?>" class="ty-menu__item-link"><?php echo htmlentities($item->name); ?></a>
                                 <?php if($subparent != null)?>
                                 <div class="ty-menu__submenu no-dd-img"
                                     id="topmenu_52_c1345d85b656198ccd7166c284200808">

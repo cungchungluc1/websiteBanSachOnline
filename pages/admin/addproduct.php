@@ -73,6 +73,10 @@
                                                     <select id="inputState" name="category" class="form-control">
                                                         <option value="" selected="">Choose...</option>
                                                         <?php
+                                                                    
+                                                        include '../entity/publishingCompany.php';
+                                                        $pc = new publishingCompany();
+                                                        $listPC = $pc->getallpublishingCompany();
                                                         include "../entity/category.php";
                                                         $cate  = new category();
                                                         $list = $cate->getallcategory();
@@ -98,8 +102,18 @@
                                                 <label for="inputPassword3" class="col-sm-3 col-form-label">Product
                                                     Publishing Company</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="productpublishing" class="form-control"
-                                                         />
+                                                <select id="productpublishing" name="productpublishing" class="form-control">
+                                                    <option value="">Choose...</option>
+                                                        <?php                                                        
+                                                        foreach ($listPC as $item) {
+                                                        ?>
+                                                        <option value="<?php echo htmlentities($item->id_publishing_company); ?>">
+                                                            <?php echo htmlentities($item->name); ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>   
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row">

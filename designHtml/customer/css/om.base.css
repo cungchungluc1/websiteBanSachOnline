@@ -1016,7 +1016,10 @@ span.om-flatpickr-weekday {
   visibility: hidden;
 }
 .intl-tel-input input,
-.intl-tel-input input[type="text"],
+.intl-tel-input input[type="text"], 
+input[type="email"],
+input[type="date"],
+input[type="file"],
 .intl-tel-input input[type="tel"] {
   position: relative;
   z-index: 0;
@@ -1104,10 +1107,16 @@ span.om-flatpickr-weekday {
   margin-right: 6px;
 }
 .intl-tel-input.allow-dropdown input,
-.intl-tel-input.allow-dropdown input[type="text"],
+.intl-tel-input.allow-dropdown input[type="text"], 
+input[type="email"],
+input[type="date"],
+input[type="file"],
 .intl-tel-input.allow-dropdown input[type="tel"],
 .intl-tel-input.separate-dial-code input,
-.intl-tel-input.separate-dial-code input[type="text"],
+.intl-tel-input.separate-dial-code input[type="text"], 
+input[type="email"],
+input[type="date"],
+input[type="file"],
 .intl-tel-input.separate-dial-code input[type="tel"] {
   padding-right: 6px;
   padding-left: 52px;

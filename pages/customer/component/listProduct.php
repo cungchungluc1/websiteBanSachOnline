@@ -2,9 +2,11 @@
 
 function getListProductHtmlwithcategory($id, $limit){
     include "../entity/product.php";
-        $cate  = new Product();
-        $i = -1;
-        $list = $cate->getallproductwithcategory($id);
+    $cate  = new Product();
+    $i = -1;
+    $list = $cate->getallproductwithcategory($id);
+    $cates  = new Category();
+    $itemCate = $cates->getacategory($id);
     echo '<div class="row">
     <div class="span16">
         <div class="row">
@@ -15,8 +17,8 @@ function getListProductHtmlwithcategory($id, $limit){
                         <div class="vs-mainbox-general clearfix">
                             <h1 class="vs-mainbox-title clearfix">
                                 <span>
-                                    <a href="/vi/sach-tieng-viet.html">
-                                        <span>Sách Tiếng Việt</span>
+                                    <a href="'."./category.php?id=".htmlentities($itemCate->id_category).'">
+                                        <span>'.htmlentities($itemCate->name).'</span>
                                     </a>
                                 </span>
                             </h1>

@@ -34,7 +34,11 @@
                     <a href="category.php">
                         <i class="fas fa-table"></i>Create category</a>
                 </li>
-
+                
+                <li>
+                    <a href="publishingCompany.php">
+                        <i class="fas fa-calendar-alt"></i>Publishing Company</a>
+                </li>
                 <li>
                     <a href="addproduct.php">
                         <i class="fas fa-calendar-alt"></i>Insert product</a>

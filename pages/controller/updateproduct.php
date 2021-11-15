@@ -44,6 +44,7 @@ if($uploaded==true){
     $image->name=$name;
     $image->url=$url;
     $image->alt=$alt;
+    $image->tbl_table="product";
     $image->chageimage($image);
     $image->add($image);
 }

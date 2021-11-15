@@ -69,10 +69,18 @@
                                         <?php
                                             include "../entity/product.php";
                                             $cate  = new Product();
+                                            $data = $cate->getaproduct($_GET['id']);
                                             include '../entity/category.php';
                                             $c  = new category();
                                             $list = $c->getallcategory();
-                                            $data = $cate->getaproduct($_GET['id']);?>
+                                            include '../entity/publishingCompany.php';
+                                            $pc = new publishingCompany();
+                                            $listPC = $pc->getallpublishingCompany();
+                                            
+                                            
+                                            
+                                            ?>
+                                            
                                             <input type="hidden" name="id_product" value="<?php echo htmlentities($data->id_product); ?>"/>
                                             <div class="form-group row">
                                                 <label for="inputPassword3"
@@ -102,9 +110,22 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="inputPassword3" class="col-sm-3 col-form-label">Product Publishing Company</label>
+                                                <label for="productpublishing" class="col-sm-3 col-form-label">Product Publishing Company</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="productpublishing" value="<?php echo htmlentities($data->id_publishing_company); ?>" class="form-control"/>
+                                                <select id="productpublishing" name="productpublishing" class="form-control">
+                                                    <option value=""
+                                                            <?php if ($data->id_publishing_company == '' || $data->id_publishing_company == null) echo htmlentities('selected=""'); ?>>
+                                                            Choose...</option>
+                                                        <?php
+                                                        
+                                                        foreach ($listPC as $item) {
+                                                        ?>
+                                                        <option value="<?php echo htmlentities($item->id_publishing_company); ?>" <?php if ($data->id_publishing_company == $item->id_publishing_company) echo htmlentities('selected=""');?> >
+                                                            <?php echo htmlentities($item->name); ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>   
                                                 </div>
                                             </div>
                                             <div class="form-group row">
