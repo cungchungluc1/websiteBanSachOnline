@@ -1,4 +1,5 @@
 <?php include "../entity/category.php"; ?>
+
 <div class="container et-header et-full-grid">
     <div class="row">
         <div class="span16 et-fw-wrap et-top-header">
@@ -8,7 +9,7 @@
                         <div class="ty-logo-container">
                             <a href="./home.php" title="">
                                 <img class="ty-pict ty-logo-container__image cm-image" id="det_img_1653948118"
-                                    src="../layout/image/logoBook.png" style="" data-src="" width="290" height="56"
+                                    src="../layout/image/logoBook.png"  data-src="" width="290" height="56"
                                     alt="" title="">
                             </a>
                         </div>
@@ -79,11 +80,15 @@
                                 </div>
                             </a>
                     <?php } else { ?>
-
+                        <?php
+                                            include "../entity/image.php";
+                                            $img = new image();
+                                            $imgs=$img->getaimage($data->id_user);
+                                            ?>
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
-                                <img src="images/icon/avatar-01.jpg" alt="<?php echo htmlentities($data->name);?>">
+                                <img src=" <?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/cha15843577768538.png"; ?>" alt="<?php echo htmlentities($data->name);?>">
                             </div>
                             <div class="content">
                                 <a class="js-acc-btn" href="#"><?php echo htmlentities($data->name);  ?></a>
@@ -92,7 +97,7 @@
                                 <div class="info clearfix">
                                     <div class="image">
                                         <a href="#">
-                                            <img src="images/icon/avatar-01.jpg" alt="<?php echo htmlentities($data->name);  ?>">
+                                            <img src= "<?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/cha15843577768538.png"; ?>" alt="<?php echo htmlentities($data->name);  ?>">
                                         </a>
                                     </div>
                                     <div class="content">
@@ -153,7 +158,7 @@
                                 <?php if($subparent != null)?>
                                 <div class="ty-menu__submenu no-dd-img"
                                     id="topmenu_52_c1345d85b656198ccd7166c284200808">
-                                    <ul class="ty-menu__submenu-items cm-responsive-menu-submenu" style="">
+                                    <ul class="ty-menu__submenu-items cm-responsive-menu-submenu" >
                                 <?php
                                 foreach ($subparent as $itemsub){ ?>
                                         <li class="ty-top-mine__submenu-col">

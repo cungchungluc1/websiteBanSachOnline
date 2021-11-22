@@ -7,7 +7,7 @@ $uploaded=false;
 $id ="";
 $id_use = "";
 $id_image ="";
-$name="";
+$name_image="";
 $url="";
 $alt="";
 // Check if image file is a actual image or fake image
@@ -29,7 +29,7 @@ if (file_exists($target_file)) {
     $id ="";
     $id_use = "";
     $id_image ="";
-    $name=$_FILES["fileToUpload"]["name"];
+    $name_image=$_FILES["fileToUpload"]["name"];
     $url="image/".$_FILES["fileToUpload"]["name"];
     $alt=$_FILES["fileToUpload"]["name"];
 }
@@ -58,7 +58,7 @@ if ($uploadOk == 0) {
     $id ="";
     $id_use = "";
     $id_image ="";
-    $name=$_FILES["fileToUpload"]["name"];
+    $name_image=$_FILES["fileToUpload"]["name"];
     $url="image/".$_FILES["fileToUpload"]["name"];
     $alt=$_FILES["fileToUpload"]["name"];
   } else {
