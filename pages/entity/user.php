@@ -101,6 +101,20 @@ function getRole($role){
 			header('location:err.php', true, 301);
 		}
 	}
+	function updateuser($user)
+	{
+		include "../../connection.php";
+		$sql = "UPDATE `tbl_user` SET `name`=:name,`sex`=:sex,`email`=:email,`phone`=:phone,`birthday`=:birthday WHERE `codeSession`=:codeSession";
+		$query = $dbh->prepare($sql);
+		$query->bindParam(':name', $user->name, PDO::PARAM_STR);
+		$query->bindParam(':sex', $user->sex, PDO::PARAM_STR);
+		$query->bindParam(':email', $user->email, PDO::PARAM_STR);
+		$query->bindParam(':phone', $user->phone, PDO::PARAM_STR);
+		$query->bindParam(':birthday', $user->birthday, PDO::PARAM_STR);
+		$query->bindParam(':codeSession', $user->codeSession, PDO::PARAM_STR);
+		$query->execute();
+		
+	}
 	function updateCode($user)
 	{
 		include "../../connection.php";

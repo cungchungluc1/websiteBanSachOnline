@@ -74,13 +74,14 @@ class image
     }
     function getaimage($id)
     {
-        include "./././connection.php";
-        $sql = "SELECT DISTINCT * FROM `image` WHERE id =:id";
+        include "../../connection.php";
+        $sql = "SELECT DISTINCT * FROM `image` WHERE ( id =:id or id_use=:id_use ) and status = 1";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id', $id);
+        $query->bindValue(':id_use', $id);
         $query->execute();
         if ($query->rowCount() > 0)
-            return $query->fetchAll(PDO::FETCH_OBJ);
+            return $query->fetchAll(PDO::FETCH_OBJ)[0];
         return null;
     }
     function getallimage()

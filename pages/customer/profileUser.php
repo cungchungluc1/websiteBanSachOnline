@@ -1,6 +1,5 @@
 <?php session_start(); 
 
-include "./component/listProduct.php";
 ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -9,7 +8,7 @@ include "./component/listProduct.php";
 
 <?php include "component/head.php"; ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<body class="screen--lg" style="">
+<body class="screen--lg" >
     <div class="ty-tygh bp-tygh-container" id="tygh_container">
         <div class="ty-helper-container no-touch" id="tygh_main_container">
             <div class="tygh-header clearfix front_page">
@@ -17,15 +16,33 @@ include "./component/listProduct.php";
             </div>
             <div class="tygh-content clearfix">
                 <div class="container">
+                <div class="row">
+                  <div class="span16">
+                    <div class="hidden-phone">
+                      <div id="breadcrumbs_10">
+                        <div class="ty-breadcrumbs clearfix">
+                          <a
+                            href="home.php"
+                            class="ty-breadcrumbs__a"
+                            >Trang chủ</a
+                          ><i class="vs-icon-arrow-right"></i
+                          ><a class="ty-breadcrumbs__a" >profile</a>
+                        </div>
+                        <!--breadcrumbs_10-->
+                      </div>
+                    </div>
+                  </div>
+                </div>
                     <div class="row">
                         <div class="span16">
-                            <form>
+                            <form  autocomplete="off" action="../controller/updateuser.php" method="POST" enctype="multipart/form-data">
                             <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputEmail4">
+                                        <label for="inputEmail4"> 
+                                            
                                             <img class="ty-pict cm-image"
                                                         id="det_img_1746761672"
-                                                        src="../layout/image/cha15843577768538.png"
+                                                        src=" <?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/cha15843577768538.png"; ?>"
                                                         alt="" title="" style="height: 213px; width: auto;" /></label>
                                         <input class="form-control" type="file" name="fileToUpload" id="fileToUpload"/>
                                     </div>
@@ -33,17 +50,24 @@ include "./component/listProduct.php";
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                     <label for="inputEmail4">Full Name</label>
-                                    <input type="text" class="form-control" id="inputEmail4" placeholder="Email">
+                                    <input type="text" name="name" value="<?php echo htmlentities($data->name); ?>" class="form-control" id="inputEmail4" placeholder="Email">
                                     </div>
                                     <div class="form-group col-md-6">
                                     <label for="inputEmail4">Birthday</label>
-                                    <input type="date" class="form-control" id="inputEmail4" placeholder="Email">
+                                    <input type="date" name="birthday" value="<?php echo htmlentities($data->birthday); ?>" class="form-control" id="inputEmail4" placeholder="Email">
+                                    </div>
+                                
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Phone</label>
+                                    <input type="text" name="phone" value="<?php echo htmlentities($data->phone); ?>" class="form-control" id="inputEmail4" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                     <label for="inputEmail4">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                    <input type="email" name="email" value="<?php echo htmlentities($data->email); ?>" class="form-control" id="inputEmail4" placeholder="Email">
                                     </div>
                                     <div class="form-group col-md-6">
                                     <label for="inputPassword4">Password</label>
@@ -51,39 +75,12 @@ include "./component/listProduct.php";
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputAddress">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                    <label for="inputAddress">sex</label>
+                                    <input type="radio" name="sex" value="nam" <?php if ($data->sex == "nam") echo htmlentities('checked="checked"');?>  > nam 
+                                    <input type="radio" name="sex" value="nu"  <?php if ($data->sex == "nu") echo htmlentities('checked="checked"');?> > nu
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputAddress2">Address 2</label>
-                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                    <label for="inputCity">City</label>
-                                    <input type="text" class="form-control" id="inputCity">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                    <label for="inputState">State</label>
-                                    <select id="inputState" class="form-control">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
-                                    </select>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                    <label for="inputZip">Zip</label>
-                                    <input type="text" class="form-control" id="inputZip">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                                    <label class="form-check-label" for="gridCheck">
-                                        Check me out
-                                    </label>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Sign in</button>
+                                
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </form>
                         </div>
                     </div>

@@ -39,7 +39,7 @@ if($uploaded==true){
     $image->id=getNewId("image");
     $image->id_use=$cate->id_product;
     $image->id_image =getNewId("image");
-    $image->name=$name;
+    $image->name=$name_image;
     $image->url=$url;
     $image->alt=$alt;
     $image->tbl_table="product";

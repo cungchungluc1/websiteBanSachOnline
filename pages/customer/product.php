@@ -13,7 +13,7 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
 
 <?php include "component/head.php"; ?>
 
-<body class="screen--lg" style="">
+<body class="screen--lg" >
     <div class="ty-tygh bp-tygh-container" id="tygh_container">
         <div class="ty-helper-container no-touch" id="tygh_main_container">
             <div class="tygh-header clearfix front_page">

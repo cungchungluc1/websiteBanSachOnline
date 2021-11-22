@@ -27,7 +27,7 @@ if($uploaded==true){
     $image->id=getNewId("image");
     $image->id_use=$pc->id_publishing_company;
     $image->id_image =getNewId("image");
-    $image->name=$name;
+    $image->name=$name_image;
     $image->url=$url;
     $image->alt=$alt;
     $image->tbl_table="publishing_company";

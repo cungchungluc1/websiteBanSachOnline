@@ -35,13 +35,13 @@ $pro->id_category = $category;
 $pro->date_publishing = $date_publishing;
 $pro->description_detail = $description_detail;
 $pro->quantity = $quantity;
-if($uploaded==true){
-    
+
+    if($uploaded==true){
     $image = new image();
     $image->id=getNewId("image");
     $image->id_use=$pro->id_product;
     $image->id_image =getNewId("image");
-    $image->name=$name;
+    $image->name=$name_image;
     $image->url=$url;
     $image->alt=$alt;
     $image->tbl_table="product";
