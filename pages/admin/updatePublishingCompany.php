@@ -1,4 +1,4 @@
-<?php include "../entity/publishingCompany.php"; ?>
+<?php include_once "../entity/publishingCompany.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,17 +40,17 @@
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        <?php include "./component/headermobie.php"; ?>
+        <?php include_once "./component/headermobie.php"; ?>
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
-        <?php include "./component/navbar.php"; ?>
+        <?php include_once "./component/navbar.php"; ?>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
-            <?php include "./component/headerpc.php"; ?>
+            <?php include_once "./component/headerpc.php"; ?>
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
@@ -70,7 +70,7 @@
                                         $apc = new publishingCompany();
                                         $dataapublishingCompany = $apc->getapublishingCompany($_GET["id"]);
                                         ?>
-                                        <form autocomplete="off" action="../controller/updatePublishingCompany.php" method="POST">
+                                        <form autocomplete="off" action="../controller/updatePublishingCompany.php" method="POST"  enctype="multipart/form-data">
                                         <input type="hidden" name="id_publishing_company" value="<?php echo htmlentities($dataapublishingCompany->id_publishing_company); ?>"/>
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-3 col-form-label">Publishing Company
@@ -83,7 +83,7 @@
                                                 <div class="row">
                                                     <label class="col-sm-2 col-form-label">Description</label>
                                                     <div class="col-sm-9">
-                                                    <textarea cols="80" id="editor1" name="description" rows="5"> value="<?php echo htmlentities($dataapublishingCompany->description); ?>"</textarea>
+                                                    <textarea cols="80" id="editor1" name="description" rows="5"> <?php echo htmlentities($dataapublishingCompany->description); ?></textarea>
                                                     <script>
                                                     CKEDITOR.replace("editor1", {
                                                         fullPage: true,

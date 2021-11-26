@@ -64,39 +64,21 @@
                             <div class="card-body">
                                 <div class="table-responsive" style="overflow-x: none !important">
                                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                        <form autocomplete="off" action="../controller/updateCategory.php" method="POST">
+                                        <?php
+                                            include_once '../entity/vouncher.php';
+                                            $v  = new vouncher();
+                                            $data = $v->getaVouncher($_GET['id']);
+                                            include_once "../entity/image.php";
+                                            $img = new image();
+                                            $imgs=$img->getaimage($data->id_vouncher);
+                                        ?>
+                                        <form autocomplete="off" action="../controller/updateVouncher.php" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="id_vouncher" class="form-control" value = "<?php echo htmlentities($data->id_vouncher); ?>" />                                            
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Parent
-                                                    Category</label>
-                                                <?php
-                                                include '../entity/category.php';
-                                                $cate  = new category();
-                                                $list = $cate->getallcategory();
-                                                $data = $cate->getacategory($_GET['id']);
-                                                ?>
-                                                <div class="col-sm-9">
-                                                    <input type="hidden" name="id_category" value="<?php echo htmlentities($data->id_category); ?>"/>
-                                                    <select id="inputState" name="parentCategory" class="form-control">
-                                                        <option value=""
-                                                            <?php if ($data->id_parten_category == '' || $data->id_parten_category == null) echo htmlentities('selected=""'); ?>>
-                                                            Choose...</option>
-                                                        <?php
-                                                        foreach ($list as $item) {
-                                                        ?>
-                                                        <option value="<?php echo htmlentities($item->id_category); ?>"
-                                                            <?php if ($data->id_parten_category == $item->id_category) echo htmlentities('selected=""'); ?>>
-                                                            <?php echo htmlentities($item->name); ?></option>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Category
+                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Vouncher
                                                     Name</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="nameCategory" value="<?php echo htmlentities($data->name); ?>" class="form-control" />
+                                                    <input type="text" name="name" class="form-control" value = "<?php echo htmlentities($data->name); ?>" />
                                                 </div>
                                             </div>
                                             <fieldset class="form-group">
@@ -108,6 +90,42 @@
                                                     </div>
                                                 </div>
                                             </fieldset>
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Vouncher
+                                                    code</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="code" class="form-control"value = "<?php echo htmlentities($data->code); ?>" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Vouncher
+                                                    sell</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="sell" class="form-control" value = "<?php echo htmlentities($data->sell); ?>" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Vouncher
+                                                date start</label>
+                                                <div class="col-sm-9">
+                                                    <input type="date" name="date_start" class="form-control" value = "<?php echo htmlentities($data->date_start); ?>" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Vouncher
+                                                date end</label>
+                                                <div class="col-sm-9">
+                                                    <input type="date" name="date_end" class="form-control" value = "<?php echo htmlentities($data->date_end); ?>"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputPassword3" class="col-sm-2 col-form-label">Product
+                                                    Image</label>
+                                                <div class="col-sm-9">
+                                                    <img src="<?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/cha15843577768538.png"; ?>" style="height: 213px; width: auto;"/>
+                                                    <input class="form-control" type="file" name="fileToUpload" id="fileToUpload"/>
+                                                </div>
+                                            </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
                                                 <div class="col-sm-9">

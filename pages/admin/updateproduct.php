@@ -40,17 +40,17 @@
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        <?php include "./component/headermobie.php"; ?>
+        <?php include_once "./component/headermobie.php"; ?>
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
-        <?php include "./component/navbar.php"; ?>
+        <?php include_once "./component/navbar.php"; ?>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER MOBILE-->
-            <?php include "./component/headerpc.php"; ?>
+            <?php include_once "./component/headerpc.php"; ?>
             <!-- HEADER MOBILE-->
 
             <!-- MAIN CONTENT-->
@@ -67,7 +67,7 @@
                                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                                         <form autocomplete="off" action="../controller/updateproduct.php" method="POST" enctype="multipart/form-data">
                                         <?php
-                                            include "../entity/product.php";
+                                            include_once "../entity/product.php";
                                             $cate  = new Product();
                                             $data = $cate->getaproduct($_GET['id']);
                                             include '../entity/category.php';
@@ -192,7 +192,7 @@
                                                 <label for="inputPassword3" class="col-sm-3 col-form-label"></label>
                                                 <div class="col-sm-9">
                                                     <button type="submit" class="btn btn-success btn-sm">
-                                                        <i class="fa fa-dot-circle-o"></i> Add
+                                                        <i class="fa fa-dot-circle-o"></i>Update
                                                     </button>
 
                                                 </div>

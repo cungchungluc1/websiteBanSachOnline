@@ -1,5 +1,4 @@
-<?php include "../entity/category.php"; ?>
-
+<?php include_once "../entity/category.php"; ?>
 <div class="container et-header et-full-grid">
     <div class="row">
         <div class="span16 et-fw-wrap et-top-header">
@@ -18,22 +17,13 @@
                 <div class="span7 search-block-grid top-block-grid">
                     <div class="top-search">
                         <div class="ty-search-block">
-                            <form action="#" name="search_form" method="get" class="cm-processed-form">
-                                <input type="hidden" name="match" value="all">
-                                <input type="hidden" name="subcats" value="Y">
-                                <input type="hidden" name="pcode_from_q" value="Y">
-                                <input type="hidden" name="pshort" value="N">
-                                <input type="hidden" name="pfull" value="N">
-                                <input type="hidden" name="pname" value="Y">
-                                <input type="hidden" name="pkeywords" value="Y">
-                                <input type="hidden" name="search_performed" value="Y">
-                                <input type="text" name="hint_q" value="" id="search_input"
+                            <form action="./search.php" name="search_form" method="get" class="cm-processed-form">
+                                <input type="text" name="search" value="" id="search_input"
                                     title="Thử tìm &quot;Nếu Biết Trăm Năm Là Hữu Hạn&quot;..."
                                     class="ty-search-block__input cm-hint"><button title="Tìm kiếm"
                                     class="ty-search-magnifier" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
-                                <input type="hidden" name="dispatch" value="products.search">
                             </form>
                         </div>
                     </div>
@@ -41,17 +31,37 @@
                 <div class="span2 top-block-grid et-cart-account">      
                     <div class="top-cart-content et-cart ty-float-right">
                         <div class="ty-dropdown-box" id="cart_status_773">
-                            <a href="#checkout-cart/" id="sw_dropdown_773"
+                            <a href="./cart.php" id="sw_dropdown_773"
                                 class="ty-dropdown-box__title cm-combination clearfix">
                                 <i class="fa fa-shopping-cart"></i>
                                 <div class="ty-float-right et-cart-right">
                                     <div class="minicart-title empty-cart hand">
                                         Giỏ hàng
                                     </div>
-                                    <div class="et-items">0&nbsp;sản phẩm</div>
+                                    <?php
+                                        include_once "../entity/cart.php";
+                                        include_once "../entity/user.php";
+                                        $listCart=null;
+                                        if(!!session_id()){
+                                            $id_code=$_SESSION["codeSession"];
+                                            $u = new User();
+                                            $data = $u->checkLogin($id_code);
+                                            $c = new cart();
+                                            $now = getdate();
+                                            $listCart=$c->getallcart($data->id_user);
+                                        }
+                                        
+                                        $total=0;
+                                        if($listCart!=null){
+                                            foreach ($listCart as $item) {
+                                                $total += $item->quantity;
+                                            }
+                                        }
+                                    ?>
+                                    <div class="et-items"><?php echo htmlentities($total); ?>&nbsp;sản phẩm</div>
                                 </div>
                                 <div class="et-cart-content hidden-desktop">
-                                    <span>0</span>
+                                    <span><?php echo htmlentities($total); ?></span>
                                 </div>
                             </a>
 
@@ -63,13 +73,9 @@
                     <div class="top-cart-content et-cart ty-float-right">
                         <div class="ty-dropdown-box" id="cart_status_773">
                         <?php
-                        include "../entity/user.php";
-                        $id_code=$_SESSION["codeSession"];
-                        $u = new User();
-                        $data = $u->checkLogin($id_code);
-                        if(!isset($data)){
+                        include_once "../entity/user.php";
+                        if(!session_id()||!isset($_SESSION["codeSession"])){
                         ?>
-
                             <a href="../layout/page/login.php" id="sw_dropdown_773"
                                 class="ty-dropdown-box__title cm-combination clearfix">
                                 <i class="fa fa-user"></i>
@@ -79,12 +85,26 @@
                                     </div>
                                 </div>
                             </a>
-                    <?php } else { ?>
-                        <?php
-                                            include "../entity/image.php";
-                                            $img = new image();
-                                            $imgs=$img->getaimage($data->id_user);
-                                            ?>
+                    <?php }  else { 
+                        $id_code=$_SESSION["codeSession"];
+                        $u = new User();
+                        $data = $u->checkLogin($id_code); 
+                        include_once "../entity/image.php";
+                        $img = new image();
+                        $imgs=$img->getaimage($data->id_user);
+                        if(!isset($data)){
+                            ?>
+    
+                                <a href="../layout/page/login.php" id="sw_dropdown_773"
+                                    class="ty-dropdown-box__title cm-combination clearfix">
+                                    <i class="fa fa-user"></i>
+                                    <div class="ty-float-right et-cart-right">
+                                        <div class="minicart-title empty-cart hand">
+                                            Login
+                                        </div>
+                                    </div>
+                                </a>
+                        <?php } else { ?> 
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
@@ -112,10 +132,6 @@
                                         <a href="./profileUser.php">
                                             <i class="zmdi zmdi-account"></i>Account</a>
                                     </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-settings"></i>Setting</a>
-                                    </div>
                                 </div>
                                 <div class="account-dropdown__footer">
                                     <a href="../controller/logout.php"><i class="zmdi zmdi-power"></i>Logout</a>
@@ -123,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php } }?>
                         </div>
                     </div>
                     

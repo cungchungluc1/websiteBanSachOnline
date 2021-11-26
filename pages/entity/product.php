@@ -32,7 +32,7 @@ class Product
     }
     function delete($id)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "DELETE FROM `product` WHERE  id_product =:id  ";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id', $id);
@@ -71,9 +71,38 @@ class Product
             return $query->fetchAll(PDO::FETCH_OBJ);
         return null;
     }
+    function getallproductwithParentCategory($id_category)
+    {
+        include "../../connection.php";
+        $sql = "SELECT DISTINCT `id_product`, `id_publishing_company`, p.name, p.`description`, `price`, `sell`, c.`id_category`, `date_publishing`, `description_detail`,p.quantity, i.url, i.alt FROM product p inner join (SELECT `id_category`, `name`, `description`, `id_parten_category` FROM `tbl_category` WHERE `id_category` =:id_category UNION SELECT `id_category`, `name`, `description`, `id_parten_category` FROM `tbl_category` WHERE `id_parten_category` =:id_parten_category) as c on p.id_category = c.id_category LEFT JOIN image i ON p.id_product = i.id_use";
+        $query = $dbh->prepare($sql);
+        $query->bindValue(':id_category', $id_category);
+        $query->bindValue(':id_parten_category', $id_category);
+        $query->execute();
+        if ($query->rowCount() > 0)
+            return $query->fetchAll(PDO::FETCH_OBJ);
+        return null;
+    }
+    function getSearchListProductHtml($search)
+    {
+        include "../../connection.php";
+        $sql = "SELECT DISTINCT `id_product`, p.`id_publishing_company`, p.name, p.`description`, `price`, `sell`, c.`id_category`, `date_publishing`, `description_detail`,p.quantity, i.url, i.alt FROM product p LEFT JOIN `tbl_category` c on p.id_category = c.id_category LEFT JOIN tbl_publishing_company pc on pc.id_publishing_company = p.id_publishing_company  LEFT JOIN image i ON p.id_product = i.id_use WHERE p.name  like :search1 or p.description like :search2 or p.description_detail like :search3 or c.name like :search4 or c.description like :search5 or pc.name  like :search6 or pc.description like :search7";
+        $query = $dbh->prepare($sql);
+        $query->bindValue(':search1', "%".$search."%");
+        $query->bindValue(':search2', "%".$search."%");
+        $query->bindValue(':search3', "%".$search."%");
+        $query->bindValue(':search4', "%".$search."%");
+        $query->bindValue(':search5', "%".$search."%");
+        $query->bindValue(':search6', "%".$search."%");
+        $query->bindValue(':search7', "%".$search."%");
+        $query->execute();
+        if ($query->rowCount() > 0)
+            return $query->fetchAll(PDO::FETCH_OBJ);
+        return null;
+    }
     function getallproductwithpublishingcompany($id_publishing_company)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "SELECT DISTINCT * FROM `product` WHERE id_publishing_company =:idpublishingcompany";
         $query = $dbh->prepare($sql);
         $query->bindValue(':idpublishingcompany', $id_publishing_company);

@@ -10,15 +10,18 @@
                         <div class="noti__item js-item-menu"></div>
                     </div>
                     <?php
-                        // include "../entity/user.php";
+                        // include_once "../entity/user.php";
                         $id_code=$_SESSION["codeSession"];
                         $u = new User();
                         $data = $u->checkLogin($id_code);
+                        include_once "../entity/image.php";
+                        $img = new image();
+                        $imgs=$img->getaimage($data->id_user);
                     ?>
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
-                                <img src="images/icon/avatar-01.jpg" alt="<?php echo htmlentities($data->name);?>">
+                                <img src=" <?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/cha15843577768538.png"; ?>" alt="<?php echo htmlentities($data->name);?>" alt="<?php echo htmlentities($data->name);?>">
                             </div>
                             <div class="content">
                                 <a class="js-acc-btn" href="#"><?php echo htmlentities($data->name);  ?></a>
@@ -27,7 +30,7 @@
                                 <div class="info clearfix">
                                     <div class="image">
                                         <a href="#">
-                                            <img src="images/icon/avatar-01.jpg" alt="<?php echo htmlentities($data->name);  ?>">
+                                            <img src=" <?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/cha15843577768538.png"; ?>" alt="<?php echo htmlentities($data->name);?>" alt="<?php echo htmlentities($data->name);  ?>">
                                         </a>
                                     </div>
                                     <div class="content">
@@ -35,16 +38,6 @@
                                             <a href="#"><?php echo htmlentities($data->name);  ?></a>
                                         </h5>
                                         <span class="email"><?php echo htmlentities($data->email);  ?></span>
-                                    </div>
-                                </div>
-                                <div class="account-dropdown__body">
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-account"></i>Account</a>
-                                    </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-settings"></i>Setting</a>
                                     </div>
                                 </div>
                                 <div class="account-dropdown__footer">
@@ -58,3 +51,9 @@
         </div>
     </div>
 </header>
+
+<script>
+    $(document).ready(function() {
+    $('#dataTable').DataTable();
+    } );
+</script>

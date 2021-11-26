@@ -1,4 +1,4 @@
-<?php include "../entity/category.php"; ?>
+<?php include_once "../entity/category.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +12,10 @@
 
     <!-- Title Page-->
     <title>Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" media="all" />
+    <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet" media="all" />
 
     <!-- Fontfaces CSS-->
     <link href="../layout/css/font-face.css" rel="stylesheet" media="all" />
@@ -40,17 +44,17 @@
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        <?php include "./component/headermobie.php"; ?>
+        <?php include_once "./component/headermobie.php"; ?>
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
-        <?php include "./component/navbar.php"; ?>
+        <?php include_once "./component/navbar.php"; ?>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
-            <?php include "./component/headerpc.php"; ?>
+            <?php include_once "./component/headerpc.php"; ?>
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
@@ -123,32 +127,7 @@
 
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="dataTables_length" id="dataTable_length">
-                                                    <label>Show
-                                                        <select name="dataTable_length" aria-controls="dataTable"
-                                                            class="custom-select custom-select-sm form-control form-control-sm">
-                                                            <option value="10">10</option>
-                                                            <option value="25">25</option>
-                                                            <option value="50">50</option>
-                                                            <option value="100">100</option>
-                                                        </select>
-                                                        entries</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <div id="dataTable_filter" class="dataTables_filter">
-                                                    <label>Search:<input type="search"
-                                                            class="form-control form-control-sm" placeholder=""
-                                                            aria-controls="dataTable" /></label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <table id="dataTable"
+                                <table id="dataTable"
                                                     class="table table-bordered table-hover display dataTable no-footer"
                                                     style="width: 100%" role="grid" aria-describedby="dataTable_info">
                                                     <thead>
@@ -207,49 +186,6 @@
 
                                                     </tbody>
                                                 </table>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-5">
-                                                <div class="dataTables_info" id="dataTable_info" role="status"
-                                                    aria-live="polite">
-                                                    Showing 1 to 5 of 5 entries
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-7">
-                                                <div class="dataTables_paginate paging_simple_numbers"
-                                                    id="dataTable_paginate">
-                                                    <ul class="pagination">
-                                                        <li class="paginate_button page-item previous disabled"
-                                                            id="dataTable_previous">
-                                                            <a href="#" aria-controls="dataTable" data-dt-idx="0"
-                                                                tabindex="0" class="page-link">Previous</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item active">
-                                                            <a href="#" aria-controls="dataTable" data-dt-idx="1"
-                                                                tabindex="0" class="page-link">1</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item">
-                                                            <a href="#" aria-controls="dataTable" data-dt-idx="2"
-                                                                tabindex="0" class="page-link">2</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item">
-                                                            <a href="#" aria-controls="dataTable" data-dt-idx="3"
-                                                                tabindex="0" class="page-link">3</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item">
-                                                            <a href="#" aria-controls="dataTable" data-dt-idx="4"
-                                                                tabindex="0" class="page-link">4</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item next" id="dataTable_next">
-                                                            <a href="#" aria-controls="dataTable" data-dt-idx="5"
-                                                                tabindex="0" class="page-link">Next</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                                 <!-- end table-responsive-->
                             </div>

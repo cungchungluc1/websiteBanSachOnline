@@ -1,4 +1,4 @@
-<?php include_once "../entity/publishingCompany.php"; ?>
+<?php include_once "../entity/vouncher.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +23,7 @@
     <link href="../layout/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all" />
     <link href="../layout/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all" />
     <link href="../layout/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all" />
-    <script src="https://cdn.ckeditor.com/4.16.2/standard-all/ckeditor.js"></script>
+
     <!-- Bootstrap CSS-->
     <link href="../layout/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all" />
 
@@ -63,17 +63,18 @@
                     <div class="container-fluid">
                         <div class="card mb-3">
                             <div class="card-header">
-                                <h3>Create Publishing Company</h3>
+                                <h3>Create vouncher</h3>
                             </div>
 
                             <div class="card-body">
                                 <div class="table-responsive" style="overflow-x: none !important">
                                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                        <form autocomplete="off" action="../controller/addPublishingCompany.php" method="POST"  enctype="multipart/form-data">
+                                        <form autocomplete="off" action="../controller/addVouncher.php" method="POST" enctype="multipart/form-data">
+                                            
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Publishing Company
+                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Vouncher
                                                     Name</label>
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-9">
                                                     <input type="text" name="name" class="form-control" />
                                                 </div>
                                             </div>
@@ -81,43 +82,44 @@
                                                 <div class="row">
                                                     <label class="col-sm-2 col-form-label">Description</label>
                                                     <div class="col-sm-9">
-                                                    <textarea cols="80" id="editor1" name="description" rows="5"></textarea>
-                                                    <script>
-                                                    CKEDITOR.replace("editor1", {
-                                                        fullPage: true,
-                                                        extraPlugins: "docprops",
-                                                        // Disable content filtering because if you use full page mode, you probably
-                                                        // want to  freely enter any HTML content in source mode without any limitations.
-                                                        allowedContent: true,
-                                                        height: 220,
-                                                        removeButtons: "PasteFromWord",
-                                                    });
-                                                    </script>
+                                                        <textarea class="form-control" name="description" rows="5"
+                                                            id="comment"></textarea>
                                                     </div>
                                                 </div>
                                             </fieldset>
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Phone</label>
+                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Voucher
+                                                    code</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="phone" class="form-control" />
+                                                    <input type="text" name="code" class="form-control" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Address</label>
+                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Voucher
+                                                    sell</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="address" class="form-control" />
+                                                    <input type="text" name="sell" class="form-control" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Voucher
+                                                date start</label>
                                                 <div class="col-sm-9">
-                                                    <input type="email" name="email" class="form-control" />
+                                                    <input type="date" name="date_start" class="form-control" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Image</label>
+                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Voucher
+                                                date end</label>
                                                 <div class="col-sm-9">
-                                                <input class="form-control" type="file" name="fileToUpload" id="fileToUpload"/>
+                                                    <input type="date" name="date_end" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputPassword3" class="col-sm-2 col-form-label">Product
+                                                    Image</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="file" name="fileToUpload" id="fileToUpload"/>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -137,7 +139,7 @@
                         </div>
                         <div class="card mb-3">
                             <div class="card-header">
-                                <h3>Manage Publishing Company</h3>
+                                <h3>Manage Vouncher</h3>
                             </div>
 
                             <div class="card-body">
@@ -156,7 +158,7 @@
                                                                 aria-sort="ascending"
                                                                 aria-label="Name: activate to sort column descending"
                                                                 style="width: 285px">
-                                                                Name
+                                                                name
                                                             </th>
                                                             <th class="sorting" tabindex="0" aria-controls="dataTable"
                                                                 rowspan="1" colspan="1"
@@ -168,19 +170,25 @@
                                                                 rowspan="1" colspan="1"
                                                                 aria-label="Office: activate to sort column ascending"
                                                                 style="width: 135px">
-                                                                Phone
+                                                                Code
                                                             </th>
                                                             <th class="sorting" tabindex="0" aria-controls="dataTable"
                                                                 rowspan="1" colspan="1"
                                                                 aria-label="Office: activate to sort column ascending"
                                                                 style="width: 135px">
-                                                                Address
+                                                                Sell
                                                             </th>
                                                             <th class="sorting" tabindex="0" aria-controls="dataTable"
                                                                 rowspan="1" colspan="1"
                                                                 aria-label="Office: activate to sort column ascending"
                                                                 style="width: 135px">
-                                                                Email
+                                                                Date start
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="dataTable"
+                                                                rowspan="1" colspan="1"
+                                                                aria-label="Office: activate to sort column ascending"
+                                                                style="width: 135px">
+                                                                Date end
                                                             </th>
                                                             <th tabindex="0" aria-controls="dataTable" rowspan="1"
                                                                 colspan="1" style="width: 107px">
@@ -190,8 +198,8 @@
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        $pc  = new publishingCompany();
-                                                        $list = $pc->getallpublishingCompany();
+                                                        $v  = new vouncher();
+                                                        $list = $v->getallvouncher();
                                                         $i = 1;
                                                         if($list!=null)
                                                         foreach ($list as $item) {
@@ -199,13 +207,13 @@
                                                         <tr role="row" class="odd">
                                                             <td class="sorting_1"><?php echo htmlentities($i++); ?></td>
                                                             <td><?php echo htmlentities($item->name); ?></td>
-                                                            <td><?php echo ($item->description); ?></td>
-                                                            <td><?php echo htmlentities($item->phone); ?>
-                                                            <td><?php echo htmlentities($item->address); ?>
-                                                            <td><?php echo htmlentities($item->email); ?>
-                                                            </td>
+                                                            <td><?php echo htmlentities($item->description); ?></td>
+                                                            <td><?php echo htmlentities($item->code); ?></td>
+                                                            <td><?php echo htmlentities($item->sell); ?></td>
+                                                            <td><?php echo htmlentities($item->date_start); ?></td>
+                                                            <td><?php echo htmlentities($item->date_end); ?></td>
                                                             <td><a
-                                                                    href="updatePublishingCompany.php?id=<?php echo htmlentities($item->id_publishing_company); ?>"><i
+                                                                    href="updateVouncher.php?id=<?php echo htmlentities($item->id_vouncher); ?>"><i
                                                                         class="fas fa-edit"></i></a> <i
                                                                     class="fas fa-remove"></i></td>
                                                         </tr>

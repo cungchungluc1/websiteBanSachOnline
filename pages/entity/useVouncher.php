@@ -7,7 +7,7 @@ class useVouncher
     public $date_user;
     function add($useVouncher)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "INSERT INTO `tbl_use_vouncher`(`id`, `id_vouncher`, `id_user`, `date_user`) VALUES (:id, :id_vouncher, :id_user, :date_user)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':id', $useVouncher->id, PDO::PARAM_STR);
@@ -26,7 +26,7 @@ class useVouncher
     }
     function delete($id)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "DELETE FROM `tbl_use_vouncher` WHERE  id =:id  ";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id', $id);
@@ -34,7 +34,7 @@ class useVouncher
     }
     function update($useVouncher)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "UPDATE `tbl_use_vouncher` SET `id_vouncher`=:id_vouncher,`id_user`=:id_user,`date_user`=:date_user WHERE `id`=:id";
         $query = $dbh->prepare($sql);
         $query->bindParam(':id', $useVouncher->id, PDO::PARAM_STR);
@@ -53,7 +53,7 @@ class useVouncher
     }
     function getauseVouncher($id)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "SELECT DISTINCT * FROM `tbl_use_vouncher` WHERE id =:id";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id', $id);
@@ -64,7 +64,7 @@ class useVouncher
     }
     function getalluseVouncher($id_user)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "SELECT DISTINCT * FROM `tbl_use_vouncher` WHERE id_user =:id_user";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id_user', $id_user);

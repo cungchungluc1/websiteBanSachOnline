@@ -30,7 +30,7 @@ class image
     }
     function delete($id)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "DELETE FROM `image` WHERE  id =:id  ";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id', $id);
@@ -39,7 +39,7 @@ class image
     function update($image)
     {
         if($image->name!=""){
-            include "./././connection.php";
+            include "../../connection.php";
             $sql = "UPDATE `image` SET `id_use`=:id_use,`id_image`=:id_image,`name`=:name,`url`=:url,`alt`=:alt WHERE `id`=:id";
             $query = $dbh->prepare($sql);
             $query->bindParam(':id', $image->id, PDO::PARAM_STR);
@@ -75,7 +75,7 @@ class image
     function getaimage($id)
     {
         include "../../connection.php";
-        $sql = "SELECT DISTINCT * FROM `image` WHERE ( id =:id or id_use=:id_use ) and status = 1";
+        $sql = "SELECT DISTINCT * FROM `image` WHERE id =:id or id_use =:id_use ORDER BY status DESC";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id', $id);
         $query->bindValue(':id_use', $id);
@@ -86,8 +86,8 @@ class image
     }
     function getallimage()
     {
-        include "./././connection.php";
-        $sql = "SELECT DISTINCT * FROM `image`";
+        include "../../connection.php";
+        $sql = "SELECT DISTINCT * FROM `image`  ORDER BY status DESC";
         $query = $dbh->prepare($sql);
         $query->execute();
         if ($query->rowCount() > 0)

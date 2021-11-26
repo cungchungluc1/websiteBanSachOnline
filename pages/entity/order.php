@@ -7,7 +7,7 @@ class order{
     public $status;
     public $date_added;
     function add($order) {
-        include "./././connection.php";
+        include "../../connection.php";
             $sql="INSERT INTO `tbl_order`(`id_order`, `id_user`, `id_address`, `amount`,'status', `date_added`) VALUES (:id_order, :id_user, :id_address, :amount, :status, :date_added)";
             $query = $dbh->prepare($sql);
             $query->bindParam(':id_order',$order->id_order,PDO::PARAM_STR);
@@ -30,14 +30,14 @@ class order{
             }
         }
         function delete($id_order) {
-            include "./././connection.php";
+            include "../../connection.php";
             $sql = "DELETE FROM `tbl_order` WHERE  id_order =id_order  ";
             $query = $dbh->prepare($sql);
             $query-> bindValue(':id_order', $id_order);
             $query->execute();
         }
         function update($order) {
-            include "./././connection.php";
+            include "../../connection.php";
             $sql="UPDATE `tbl_order` SET `id_user`=:id_user,`id_address`=:id_address,`amount`=:amount,`status`=:status,`date_added`=:date_added WHERE `id_order`=:id_order";
             $query = $dbh->prepare($sql);
             $query->bindParam(':id_order',$order->id_order,PDO::PARAM_STR);
@@ -60,7 +60,7 @@ class order{
                 }
         } 
         function getallordre() {
-            include "./././connection.php";
+            include "../../connection.php";
             $sql = "SELECT DISTINCT `id_order`, `id_user`, `id_address`, `amount`, `status`, `date_added` FROM `tbl_order` ";
             $query = $dbh->prepare($sql);
             $query->execute();
@@ -69,7 +69,7 @@ class order{
             return null;
         }  
         function getallorderwithorder($id_order) {
-            include "./././connection.php";
+            include "../../connection.php";
             $sql = "SELECT DISTINCT * FROM `tbl_order` WHERE id_order =:id_order";
             $query = $dbh->prepare($sql);
             $query-> bindValue(':id_order', $id_order);

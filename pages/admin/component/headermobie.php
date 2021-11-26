@@ -1,4 +1,4 @@
-<?php include "checkRole.php"; ?>
+<?php include_once "checkRole.php"; ?>
 <header class="header-mobile d-block d-lg-none">
     <div class="header-mobile__bar">
         <div class="container-fluid">

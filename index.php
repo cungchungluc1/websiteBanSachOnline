@@ -1,6 +1,6 @@
-<?php include("pages/entity/user.php"); ?>
-<?php include("pages/entity/product.php"); ?>
-<?php include("pages/entity/category.php"); ?>
+<?php include("pages/entity/user.php"; ?>
+<?php include("pages/entity/product.php"; ?>
+<?php include("pages/entity/category.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 

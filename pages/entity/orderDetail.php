@@ -7,7 +7,7 @@ class orderDetail{
     public $quantity;
     public $total_price;
     function add($orderDetail) {
-        include "./././connection.php";
+        include "../../connection.php";
             $sql="INSERT INTO `tbl_order_detail`(`id_order_detail`, `id_product`, `description`, `price`, `quantity`, `total_price`) VALUES (:id_order_detail, :id_product, :description, :price, :quantity, :total_price)";
             $query = $dbh->prepare($sql);
             $query->bindParam(':id_order_detail',$orderDetail->id_order_detail,PDO::PARAM_STR);
@@ -30,14 +30,14 @@ class orderDetail{
             }
         }
         function delete($id_order_detail) {
-            include "./././connection.php";
+            include "../../connection.php";
             $sql = "DELETE FROM `tbl_order_detail` WHERE  id_order_detail =:id_order_detail  ";
             $query = $dbh->prepare($sql);
             $query-> bindValue(':id_order_detail', $id_order_detail);
             $query->execute();
         }
         function update($orderDetail) {
-            include "./././connection.php";
+            include "../../connection.php";
             $sql="UPDATE `tbl_order_detail` SET `id_product`=:id_product,`description`=:description,`price`=:price,`quantity`=:quantity,`total_price`=:total_price WHERE `id_order_detail`=:id_order_detail";
             $query = $dbh->prepare($sql);
             $query->bindParam(':id_order_detail',$orderDetail->id_order_detail,PDO::PARAM_STR);
@@ -60,7 +60,7 @@ class orderDetail{
                 }
         } 
         function getallorderwithorderDetail($id_order_detail) {
-            include "./././connection.php";
+            include "../../connection.php";
             $sql = "SELECT DISTINCT * FROM `tbl_order_detail` WHERE id_order_detail =:id_order_detail";
             $query = $dbh->prepare($sql);
             $query-> bindValue(':id_order_detail', $id_order_detail);

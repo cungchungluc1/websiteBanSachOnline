@@ -13,17 +13,40 @@ class User
 	public $password;
 	public $codeSession;
 
-function getRole($role){
-	include "../../connection.php";
-		$sql = "SELECT DISTINCT id_role FROM `tbl_role` where name =:name";
-		$query = $dbh->prepare($sql);
-		$query->bindValue(':name', $role);
-		$query->execute();
-		if ($query->rowCount() > 0)
-			return $query->fetchAll(PDO::FETCH_OBJ)[0]->id_role;
-		return null;
-}
-
+	function getRole($role){
+		include "../../connection.php";
+			$sql = "SELECT DISTINCT id_role FROM `tbl_role` where name =:name";
+			$query = $dbh->prepare($sql);
+			$query->bindValue(':name', $role);
+			$query->execute();
+			if ($query->rowCount() > 0)
+				return $query->fetchAll(PDO::FETCH_OBJ)[0]->id_role;
+			return null;
+	}
+	function getAllRole(){
+		include "../../connection.php";
+			$sql = "SELECT DISTINCT id_role, name FROM `tbl_role`";
+			$query = $dbh->prepare($sql);
+			
+			$query->execute();
+			if ($query->rowCount() > 0)
+				return $query->fetchAll(PDO::FETCH_OBJ);
+			return null;
+	}
+	function getUser($codeSession, $id_user){
+		$data = $this->checklogin($codeSession);
+		if($data->id_role == 'admin'){
+			include "../../connection.php";
+			$sql = "SELECT `id_user`, `id_role`, `name`, `sex`, `email`, `phone`, `birthday`, `username`, `password`, `codeSession` FROM `tbl_user` WHERE id_user=:id_user";
+			$query = $dbh->prepare($sql);
+			$query->bindValue(':id_user', $id_user);
+			$query->execute();
+			if ($query->rowCount() > 0)
+				return $query->fetchAll(PDO::FETCH_OBJ)[0];
+			return null;
+		}else header("location:../layout/page/logout.php");
+		
+	}
 
 	function login($username, $password)
 	{
@@ -50,6 +73,18 @@ function getRole($role){
 		return $query->fetchAll(PDO::FETCH_OBJ)[0];
 		return null;
 	}
+	function showallUser($codeSession){
+		$data = $this->checklogin($codeSession);
+		if($data->id_role == 'admin'){
+			include "../../connection.php";
+			$sql = "SELECT DISTINCT `id_user`, r.name as role, u.name, `sex`, `email`, `phone` FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role ";
+			$query = $dbh->prepare($sql);
+			$query->execute();
+			if ($query->rowCount() > 0)
+			return $query->fetchAll(PDO::FETCH_OBJ);
+			return null;
+		}else header("location:../layout/page/logout.php");
+	}
 	function add($user)
 	{
 		include "../../connection.php";
@@ -70,7 +105,7 @@ function getRole($role){
 	}
 	function delete($id)
 	{
-		include "./././connection.php";
+		include "../../connection.php";
 		$sql = "DELETE FROM `tbl_user` WHERE  id_user =:id  ";
 		$query = $dbh->prepare($sql);
 		$query->bindValue(':id', $id);
@@ -79,7 +114,7 @@ function getRole($role){
 
 	function update($user)
 	{
-		include "./././connection.php";
+		include "../../connection.php";
 		$sql = "UPDATE `tbl_user` SET `id_role`=:id_role,`name`=:name,`sex`=:sex,`email`=:email,`phone`=:phone,`birthday`=:birthday,`username`=:username,`password`=:password WHERE `id_user`=:id_user";
 		$query = $dbh->prepare($sql);
 		$query->bindParam(':id_user', $user->id_user, PDO::PARAM_STR);
@@ -100,6 +135,18 @@ function getRole($role){
 			$error = "Thêm thất bại. Hãy thử lại";
 			header('location:err.php', true, 301);
 		}
+	}
+	function updateRole($codeSession, $user)
+	{
+		$data = $this->checklogin($codeSession);
+		if($data->id_role == 'admin'){
+			include "../../connection.php";
+			$sql = "UPDATE `tbl_user` SET `id_role`=:id_role WHERE `id_user`=:id_user";
+			$query = $dbh->prepare($sql);
+			$query->bindParam(':id_user', $user->id_user, PDO::PARAM_STR);
+			$query->bindParam(':id_role', $user->id_role, PDO::PARAM_STR);
+			$query->execute();
+		}else header("location:../layout/page/logout.php");
 	}
 	function updateuser($user)
 	{

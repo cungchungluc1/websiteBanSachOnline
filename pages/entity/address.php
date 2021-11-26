@@ -13,7 +13,7 @@ class address
 
     function add($address)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "INSERT INTO `tbl_address_shipping`(`id_address`, `id_user`,name,	phone, `diachi`, `phuong`, `quan`, `tinh`, `is_defaul`) VALUES (:id_address, :id_user,:name	,:phone, :diachi, :phuong, :quan, :tinh, :is_defaul)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':id_address', $address->id_address, PDO::PARAM_STR);
@@ -37,7 +37,7 @@ class address
     }
     function delete($id_address)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "DELETE FROM `tbl_address_shipping` WHERE 0  id_address=:id  ";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id', $id_address);
@@ -45,7 +45,7 @@ class address
     }
     function update($address)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "UPDATE `tbl_address_shipping` SET `id_user`=:id_user,`diachi`=:diachi,`phuong`=:phuong,`quan`=:quan,`tinh`=:tinh,`is_defaul`=:is_defaul WHERE `id_address`=:id_address";
         $query = $dbh->prepare($sql);
         $query->bindParam(':id_addressr', $address->id_address, PDO::PARAM_STR);
@@ -67,7 +67,7 @@ class address
     }
     function getaddress($id_user)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "SELECT DISTINCT * FROM `tbl_address_shipping` WHERE id_user =:id_user";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id_user', $id_user);
@@ -78,7 +78,7 @@ class address
     }
     function getaaddress($id_address)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "SELECT DISTINCT * FROM `tbl_address_shipping` WHERE id_address =:id_address";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id_address', $id_address);

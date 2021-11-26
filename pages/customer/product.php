@@ -1,5 +1,5 @@
 <?php session_start(); 
-include "../entity/product.php";
+include_once "../entity/product.php";
 // include '../entity/category.php';
 $pro  = new Product();
 // $c  = new category();
@@ -11,13 +11,13 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
 <!-- saved from url=(0019)# -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
 
-<?php include "component/head.php"; ?>
+<?php include_once "component/head.php"; ?>
 
 <body class="screen--lg" >
     <div class="ty-tygh bp-tygh-container" id="tygh_container">
         <div class="ty-helper-container no-touch" id="tygh_main_container">
             <div class="tygh-header clearfix front_page">
-                <?php include "component/header.php"; ?>
+                <?php include_once "component/header.php"; ?>
             </div>
             <div class="tygh-content clearfix">
               <div class="container">
@@ -62,7 +62,7 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                         >
                           <div class="clearfix">
                             <form
-                              action="home.html"
+                              action="../controller/addCart.php"
                               method="post"
                               name="product_form_161920"
                               enctype="multipart/form-data"
@@ -225,9 +225,12 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                                         <label class="ty-control-group__label"
                                           >Nhà xuất bản:</label
                                         >
+                                        <?php include_once "../entity/publishingCompany.php";
+                                        $pc1 = new publishingCompany();
+                                        $detalPc = $pc1->getapublishingCompany($dataaproduct->id_publishing_company);  ?>
                                         <span
                                           class="ty-control-group__item ty-company-name"
-                                          ><a href="#">Phương Ân</a></span
+                                          ><a href="#"><?php if($detalPc!=null) echo htmlentities($detalPc->name); ?></a></span
                                         >
                                       </div>
                                       <!--advanced_options_update_161920-->
@@ -286,7 +289,7 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                                             size="5"
                                             class="ty-value-changer__input cm-amount"
                                             id="qty_count_161920"
-                                            name="product_data[161920][amount]"
+                                            name="product_quantity"
                                             value="1"
                                             data-ca-min-qty="1"
                                           />
@@ -372,7 +375,7 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                 </div>
               </div>
             </div>
-            <?php include "component/footer.php"; ?>
+            <?php include_once "component/footer.php"; ?>
             <!--tygh_main_container-->
         </div>
         <a href="#" id="scroll-up" class="hidden" style="display: none">

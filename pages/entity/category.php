@@ -20,7 +20,7 @@ class category
     }
     function delete($id_category)
     {
-        include "./././connection.php";
+        include "../../connection.php";
         $sql = "DELETE FROM `tbl_category` WHERE  id_category =:id_category  ";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id_category', $id_category);

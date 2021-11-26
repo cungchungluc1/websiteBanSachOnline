@@ -1,3 +1,9 @@
+<?php include_once "../entity/user.php";
+ if(!session_id()){
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,51 +64,70 @@
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
-                <div class="section__content">
+                <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <div class="card mb-3">
+                        <div class="card mb-1">
                             <div class="card-header">
-                                <h3>Manage Product</h3>
-
+                                <h3>Manage User</h3>
                             </div>
 
                             <div class="card-body">
-                            <div class="table-responsive">
-                            <table id="dataTable"
+                                <div class="table-responsive">
+                                <table id="dataTable"
                                                     class="table table-bordered table-hover display dataTable no-footer"
-                                                     role="grid" aria-describedby="dataTable_info">
+                                                    style="width: 100%">
                                                     <thead>
                                                         <tr>
-                                                            <th>#</th>
-                                                            <th>Product Name</th>
-                                                            <th>Category</th>
-                                                            <th>Publishing Company</th>
-                                                            <th>Price</th>
-                                                            <th>Quantity</th>
-                                                            <th>Date Publishing</th>
-                                                            <th>Voucher</th>
-                                                            <th>Action</th>
+                                                            <th>
+                                                                #
+                                                            </th>
+                                                            <th>
+                                                                Name
+                                                            </th>
+                                                            <th>
+                                                                Sex
+                                                            </th>
+                                                            <th>
+                                                                Email
+                                                            </th>
+                                                            <th >
+                                                                Phone
+                                                            </th>
+                                                            <th>
+                                                                Role
+                                                            </th>
+                                                            <th>
+                                                                Voucher
+                                                            </th>
+                                                            <th>
+                                                                Action
+                                                            </th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        include_once "../entity/product.php";
-                                                        $cate  = new Product();
-                                                        $i = 1;
-                                                        $list = $cate->getallproduct();
-                                                        foreach ($list as $item) {
+                                                            $list = null;
+                                                            if(!!session_id()){
+                                                                $id_code=$_SESSION["codeSession"];
+                                                                $u = new User();
+                                                                $list = $u->showallUser($id_code);
+                                                            }
+                                                            $i = 1;
+                                                            foreach ($list as $item) {
                                                         ?>
                                                         <tr role="row" class="odd">
                                                             <td class="sorting_1"><?php echo htmlentities($i++); ?></td>
                                                             <td><?php echo htmlentities($item->name); ?></td>
-                                                            <td><?php echo htmlentities($item->id_category); ?></td>
-                                                            <td><?php echo htmlentities($item->id_publishing_company); ?></td>
-                                                            <td><?php echo htmlentities($item->price); ?></td>
-                                                            <td><?php echo htmlentities($item->quantity); ?></td>
-                                                            <td><?php echo htmlentities($item->date_publishing); ?></td>
-                                                            <td><a href="vouncherProduct.php?id=<?php echo htmlentities($item->id_product); ?>"><i
-                                                                        class="fas fa-edit"></i>Voucher</a></td>
-                                                            <td><a href="updateproduct.php?id=<?php echo htmlentities($item->id_product); ?>"><i
+                                                            <td><?php echo htmlentities($item->sex); ?></td>
+                                                            <td><?php echo htmlentities($item->email); ?></td>
+                                                            <td><?php echo htmlentities($item->phone); ?></td>
+                                                            <td><?php echo htmlentities($item->role); ?></td>
+                                                            <td><a href="vouncherUser.php?id=<?php echo htmlentities($item->id_user); ?>"><i
+                                                                        class="fas fa-edit"></i> Voucher
+                                                                </a>
+                                                            </td>
+                                                            <td><a
+                                                                    href="updateuser.php?id=<?php echo htmlentities($item->id_user); ?>"><i
                                                                         class="fas fa-edit"></i></a> <i
                                                                     class="fas fa-remove"></i></td>
                                                         </tr>
@@ -110,10 +135,11 @@
                                                         }
                                                         ?>
 
+
                                                     </tbody>
                                                 </table>
+                                </div>
                                 <!-- end table-responsive-->
-                            </div>
                             </div>
                             <!-- end card-body-->
                         </div>
@@ -122,7 +148,6 @@
             </div>
         </div>
         <!-- END MAIN CONTENT-->
-        
         <!-- END PAGE CONTAINER-->
     </div>
     </div>
@@ -144,9 +169,9 @@
     <script src="../layout/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="../layout/vendor/chartjs/Chart.bundle.min.js"></script>
     <script src="../layout/vendor/select2/select2.min.js"></script>
+
     <!-- Main JS-->
     <script src="../layout/js/main.js"></script>
 </body>
 
 </html>
-<!-- end document-->

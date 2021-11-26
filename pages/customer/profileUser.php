@@ -1,18 +1,19 @@
 <?php session_start(); 
 
+include_once "./component/listProduct.php";
 ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0019)# -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
 
-<?php include "component/head.php"; ?>
+<?php include_once "component/head.php"; ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <body class="screen--lg" >
     <div class="ty-tygh bp-tygh-container" id="tygh_container">
         <div class="ty-helper-container no-touch" id="tygh_main_container">
             <div class="tygh-header clearfix front_page">
-                <?php include "component/header.php"; ?>
+                <?php include_once "component/header.php"; ?>
             </div>
             <div class="tygh-content clearfix">
                 <div class="container">
@@ -88,7 +89,7 @@
                     
                 </div>
             </div>
-            <?php include "component/footer.php"; ?>
+            <?php include_once "component/footer.php"; ?>
             <!--tygh_main_container-->
         </div>
         <a href="#" id="scroll-up" class="hidden" style="display: none">

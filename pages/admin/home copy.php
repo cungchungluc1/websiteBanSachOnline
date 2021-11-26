@@ -39,17 +39,17 @@
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        <?php include "./component/headermobie.php"; ?>
+        <?php include_once "./component/headermobie.php"; ?>
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
-        <?php include "./component/navbar.php"; ?>
+        <?php include_once "./component/navbar.php"; ?>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
-            <?php include "./component/headerpc.php"; ?>
+            <?php include_once "./component/headerpc.php"; ?>
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->

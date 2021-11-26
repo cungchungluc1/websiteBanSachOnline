@@ -1,6 +1,6 @@
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
-        <a href="#">
+        <a href="home.php">
             <h4>Dashboard Admin</h4>
         </a>
     </div>
@@ -8,7 +8,7 @@
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
                 <li class="active has-sub">
-                    <a class="js-arrow" href="index.html">
+                    <a class="js-arrow" href="home.php">
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                 </li>
                 <li class="has-sub">
@@ -27,7 +27,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="manageuser.html">
+                    <a href="manageuser.php">
                         <i class="fas fa-chart-bar"></i>Manage user</a>
                 </li>
                 <li>
@@ -46,6 +46,10 @@
                 <li>
                     <a href="manageproduct.php">
                         <i class="fas fa-map-marker-alt"></i>Manage product</a>
+                </li>
+                <li>
+                    <a href="vouncher.php">
+                        <i class="fas fa-map-marker-alt"></i>Manage Vouncher</a>
                 </li>
             </ul>
         </nav>
