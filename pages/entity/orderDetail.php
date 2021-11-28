@@ -17,17 +17,6 @@ class orderDetail{
             $query->bindParam(':quantity',$orderDetail->quantity,PDO::PARAM_STR);
             $query->bindParam(':total_price',$orderDetail->total_price,PDO::PARAM_STR);
             $query->execute();
-            $lastInsertId = $dbh->lastInsertId();
-            if($lastInsertId)
-            {
-                $msg="Tạo thành công";
-                header('location:ok.php',true,301);
-            }
-            else 
-            {
-                $error="Thêm thất bại. Hãy thử lại";
-                header('location:err.php',true,301);
-            }
         }
         function delete($id_order_detail) {
             include "../../connection.php";

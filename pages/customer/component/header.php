@@ -42,7 +42,7 @@
                                         include_once "../entity/cart.php";
                                         include_once "../entity/user.php";
                                         $listCart=null;
-                                        if(!!session_id()){
+                                        if(!!session_id() && isset($_SESSION["codeSession"])){
                                             $id_code=$_SESSION["codeSession"];
                                             $u = new User();
                                             $data = $u->checkLogin($id_code);
@@ -111,18 +111,18 @@
                                 <img src=" <?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/cha15843577768538.png"; ?>" alt="<?php echo htmlentities($data->name);?>">
                             </div>
                             <div class="content">
-                                <a class="js-acc-btn" href="#"><?php echo htmlentities($data->name);  ?></a>
+                                <a class="js-acc-btn" alt=""><?php echo htmlentities($data->name);  ?></a>
                             </div>
-                            <div class="account-dropdown js-dropdown">
+                            <div class="account-dropdown js-dropdown" style="z-index: 1000;">
                                 <div class="info clearfix">
                                     <div class="image">
-                                        <a href="#">
+                                        <a href="./profileUser.php">
                                             <img src= "<?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/cha15843577768538.png"; ?>" alt="<?php echo htmlentities($data->name);  ?>">
                                         </a>
                                     </div>
                                     <div class="content">
                                         <h5 class="name">
-                                            <a href="#"><?php echo htmlentities($data->name);  ?></a>
+                                            <a href="./profileUser.php"><?php echo htmlentities($data->name);  ?></a>
                                         </h5>
                                         <span class="email"><?php echo htmlentities($data->email);  ?></span>
                                     </div>
@@ -130,11 +130,27 @@
                                 <div class="account-dropdown__body">
                                     <div class="account-dropdown__item">
                                         <a href="./profileUser.php">
-                                            <i class="zmdi zmdi-account"></i>Account</a>
+                                            <i class="zmdi zmdi-account"></i>Thông tin cá nhân
+                                        </a>
+                                    </div>
+                                    <div class="account-dropdown__item">
+                                        <a href="./changePass.php">
+                                            <i class="zmdi zmdi-account"></i>Thay đổi mật khẩu
+                                        </a>
+                                    </div>
+                                    <div class="account-dropdown__item">
+                                        <a href="./likeProduct.php">
+                                            <i class="zmdi zmdi-account"></i>Danh Sách Yêu Thích
+                                        </a>
+                                    </div>
+                                    <div class="account-dropdown__item">
+                                        <a href="./myOrder.php">
+                                            <i class="zmdi zmdi-account"></i>Đơn hàng của tôi
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="account-dropdown__footer">
-                                    <a href="../controller/logout.php"><i class="zmdi zmdi-power"></i>Logout</a>
+                                    <a href="../controller/logout.php"><i class="zmdi zmdi-power"></i>Đăng xuất</a>
                                 </div>
                             </div>
                         </div>
@@ -181,6 +197,20 @@
                                             <div class="ty-menu__submenu-item-header">
                                                 <a href="<?php echo "./category.php?id=".htmlentities($itemsub->id_category); ?>" class="ty-menu__submenu-link"><?php echo htmlentities($itemsub->name); ?></a>
                                             </div>
+                                            <?php 
+                                                $subparent1 = $cate->getsubcategory($itemsub->id_category);
+                                                if($subparent1 != null){                                                    
+                                            ?>
+                                            <div class="ty-menu__submenu">
+                                                <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+                                                <?php foreach ($subparent1 as $itemsub1){ ?>
+                                                    <li class="ty-menu__submenu-item">
+                                                        <a href="<?php echo "./category.php?id=".htmlentities($itemsub1->id_category); ?>" class="ty-menu__submenu-link"><?php echo htmlentities($itemsub1->name); ?></a>
+                                                    </li>
+                                                <?php }?>
+                                                </ul>
+                                            </div>
+                                            <?php }?>
                                         </li>
                                    
                                 <?php } ?>

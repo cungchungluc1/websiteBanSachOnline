@@ -1,6 +1,9 @@
 <?php session_start(); 
 
 include_once "./component/listProduct.php";
+$set_voucher = "";
+if(isset($_GET["voucher"]))
+$set_voucher = $_GET["voucher"];
 ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -9,7 +12,7 @@ include_once "./component/listProduct.php";
 
 <?php include_once "component/head.php"; ?>
 
-<body class="screen--lg" style="">
+<body class="screen--lg" >
     <div class="ty-tygh bp-tygh-container" id="tygh_container">
         <div class="ty-helper-container no-touch" id="tygh_main_container">
             <div class="tygh-header clearfix front_page">
@@ -46,7 +49,7 @@ include_once "./component/listProduct.php";
                   enctype="multipart/form-data"
                   id="checkout_form"
                 >
-                  <input type="hidden" name="redirect_mode" value="cart" />
+                  
                   
                   <h1 class="ty-mainbox-title">
                     <span>Chi tiết giỏ hàng</span>
@@ -62,7 +65,7 @@ include_once "./component/listProduct.php";
                       >
                       <a
                         class="ty-btn nobg vs-clear-cart ty-cart-content__clear-button text-button"
-                        href="#"
+                        href="../controller/deleteCart.php"
                         >Xóa giỏ hàng</a
                       >
                     </div>
@@ -77,7 +80,7 @@ include_once "./component/listProduct.php";
                       </button>
                       <a
                         class="cm-dialog-opener cm-dialog-auto-size ty-btn ty-btn__primary"
-                        href="#"
+                        alt=""
                         data-ca-dialog-title="Đăng nhập"
                         data-ca-target-id="checkout_login_form"
                         rel="nofollow"
@@ -142,7 +145,7 @@ include_once "./component/listProduct.php";
                                   id="product_image_update_4160822667"
                                 >
                                   <a
-                                    href="#"
+                                    alt=""
                                   >
                                     <img
                                       class="ty-pict cm-image"
@@ -167,7 +170,7 @@ include_once "./component/listProduct.php";
                                   ><?php echo htmlentities($dataaproduct->name); ?></a
                                 ><a
                                   class="ty-cart-content__product-delete ty-delete-big"
-                                  href="#"
+                                  alt=""
                                   data-ca-target-id="cart_items,checkout_totals,cart_status*,checkout_steps,checkout_cart"
                                   title="Loại bỏ"
                                   ><i class="vs-icon-delete"></i
@@ -307,18 +310,9 @@ include_once "./component/listProduct.php";
                           class="cm-ajax cm-ajax-force cm-ajax-full-render cm-processed-form"
                           name="coupon_code_form"
                           action="#"
-                          method="post"
+                          method="get"
                         >
-                          <input
-                            type="hidden"
-                            name="result_ids"
-                            value="checkout*,cart_status*,cart_items,payment-methods,litecheckout_form"
-                          />
-                          <input
-                            type="hidden"
-                            name="redirect_url"
-                            value="index.php?sl=vi&amp;dispatch=checkout.cart"
-                          />
+                         
                           <div
                             class="ty-gift-certificate-coupon ty-discount-coupon__control-group ty-input-append"
                           >
@@ -337,18 +331,26 @@ include_once "./component/listProduct.php";
                                         $listVc=$v->getUseVouncher($dataUser->id_user);
                                         $listVc=$v->getUseVouncher($dataUser->id_user);
                                         if($listVc!=null){
-                                            echo '<select id="inputState" name="id_vouncher" class="form-control ty-input-text cm-hint">
-                                            <option value="">Thẻ quà tặng hoặc mã giảm giá</option>';
+                                            echo '<select id="inputState" name="voucher" class="form-control ty-input-text cm-hint">
+                                            <option value=""';
+                                            if ($set_voucher == "") 
+                                            echo htmlentities('selected=""'); 
+                                            echo '>Thẻ quà tặng hoặc mã giảm giá</option>';
+                                            if($listCart!=null)
                                             foreach ($listVc as $item){
-                                                echo '<option value="'.htmlentities($item->id_vouncher).'">'
-                                                .htmlentities($item->name).'</option>';
+                                                echo '<option value="'.htmlentities($item->id_vouncher).'"';
+                                                if ($set_voucher == $item->id_vouncher) 
+                                                  echo htmlentities('selected=""'); 
+                                                echo ">".htmlentities($item->name).'</option>';
                                             }
                                             if($listCart!=null)
                                             foreach ($listCart as $item){
                                               $listVc=$v->getUseVouncher($item->product_id);
                                               foreach ($listVc as $item){
-                                                echo '<option value="'.htmlentities($item->id_vouncher).'">'
-                                                .htmlentities($item->name).'</option>';
+                                                echo '<option value="'.htmlentities($item->id_vouncher).'"';
+                                                if ($set_voucher == $item->id_vouncher) 
+                                                  echo htmlentities('selected=""'); 
+                                                echo ">".htmlentities($item->name).'</option>';
                                               }
                                             }
                                               
@@ -363,11 +365,7 @@ include_once "./component/listProduct.php";
                             >
                               Áp dụng
                             </button>
-                            <input
-                              type="hidden"
-                              name="dispatch"
-                              value="checkout.apply_coupon"
-                            />
+                            
                           </div>
                         </form>
                       </div>
@@ -375,7 +373,17 @@ include_once "./component/listProduct.php";
                     <ul class="ty-cart-statistic ty-statistic-list">
                       <li
                         class="ty-cart-statistic__item ty-statistic-list-subtotal"
-                      >
+                      > <?php 
+                      $sell = 0;
+                      if(isset($_GET["voucher"])){
+                        include_once "../entity/vouncher.php";
+                        $v1=new vouncher(); 
+                        $datavoucher = $v1->getaVouncher($_GET["voucher"]);
+                        $sell = $datavoucher->sell;
+                        ?>
+                        <input type="hidden" name="voucher" value="<?php echo htmlentities($set_voucher); ?>" />
+                        <span class="ty-cart-statistic__title">Giảm: <?php echo htmlentities($sell); ?></span>
+                      <?php }?>
                         <span class="ty-cart-statistic__title">Tạm tính</span>
                         <span class="ty-cart-statistic__value"
                           ><bdi><span><?php echo htmlentities($total); ?> </span>&nbsp;đ</bdi></span
@@ -393,7 +401,7 @@ include_once "./component/listProduct.php";
                         <span class="ty-cart-statistic__total-value">
                           <bdi
                             ><span id="sec_cart_total" class="ty-price"
-                              ><span><?php echo htmlentities($total); ?> </span
+                              ><span><?php echo htmlentities($total-$sell); ?> </span
                             >&nbsp;<span class="ty-price">đ</span></bdi
                           >
                         </span>
@@ -413,15 +421,24 @@ include_once "./component/listProduct.php";
                     >
                   </div>
                   <div class="ty-float-right ty-cart-content__right-buttons">
-                    <a
-                      class="cm-dialog-opener cm-dialog-auto-size ty-btn ty-btn__primary"
-                      href="#"
-                      data-ca-dialog-title="Đăng nhập"
-                      data-ca-target-id="checkout_login_form"
-                      rel="nofollow"
-                    >
-                      Thanh toán
-                    </a>
+                    <form action="../controller/payment.php" method="post">
+                      <?php
+                        if(isset($_GET["voucher"])){
+                            ?>
+                            <input type="hidden" name="voucher" value="<?php echo htmlentities($set_voucher); ?>" />
+                            
+                          <?php }?>
+                      <button
+                        class="cm-dialog-opener cm-dialog-auto-size ty-btn ty-btn__primary"
+                        
+                        data-ca-dialog-title="Đăng nhập"
+                        data-ca-target-id="checkout_login_form"
+                        rel="nofollow"
+                        type = "submit"
+                      >
+                        Thanh toán
+                      </button>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -431,7 +448,7 @@ include_once "./component/listProduct.php";
             <?php include_once "component/footer.php"; ?>
             <!--tygh_main_container-->
         </div>
-        <a href="#" id="scroll-up" class="hidden" style="display: none">
+        <a alt="" id="scroll-up" class="hidden" style="display: none">
             <i class="et-icon-scroll-up"></i>
         </a>
         <!--tygh_container-->
@@ -442,7 +459,7 @@ include_once "./component/listProduct.php";
     <script src="../layout/js/preload-base.js"></script>
     <script nomodule="" src="../layout/js/load.js"></script>
     <script type="module" src="../layout/js/load.esm/index.js"></script>
-    <iframe style="display: none"></iframe>
+    
     <script src="../layout/js/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous" data-no-defer=""></script>
     <script src="../layout/js/jquery-migrate-3.0.1.min.js"

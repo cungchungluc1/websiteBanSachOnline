@@ -16,13 +16,16 @@
                         <i class="fas fa-copy"></i>Order Management</a>
                     <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                         <li>
-                            <a href="displaystodayorder.html">displays today’s order</a>
+                            <a href="displaystodayorder.php">displays today’s order</a>
                         </li>
                         <li>
-                            <a href="pendingorder.html">pending order</a>
+                            <a href="pendingorder.php">pending order</a>
                         </li>
                         <li>
-                            <a href="deliveredorder.html">delivered order</a>
+                            <a href="beingdeliveredorder.php">Orders are being delivered</a>
+                        </li>
+                        <li>
+                            <a href="deliveredorder.php">delivered order</a>
                         </li>
                     </ul>
                 </li>
@@ -34,7 +37,7 @@
                     <a href="category.php">
                         <i class="fas fa-table"></i>Create category</a>
                 </li>
-                
+
                 <li>
                     <a href="publishingCompany.php">
                         <i class="fas fa-calendar-alt"></i>Publishing Company</a>

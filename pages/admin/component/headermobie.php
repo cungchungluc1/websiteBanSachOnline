@@ -22,7 +22,7 @@
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                 </li>
                 <li class="has-sub">
-                    <a class="js-arrow" href="#">
+                    <a class="js-arrow" alt="">
                         <i class="fas fa-copy"></i>Order Management</a>
                     <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                         <li>

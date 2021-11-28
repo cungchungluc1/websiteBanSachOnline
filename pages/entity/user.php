@@ -136,6 +136,15 @@ class User
 			header('location:err.php', true, 301);
 		}
 	}
+	function updatePass($user)
+	{
+		include "../../connection.php";
+		$sql = "UPDATE `tbl_user` SET `password`=:password WHERE `id_user`=:id_user";
+		$query = $dbh->prepare($sql);
+		$query->bindParam(':id_user', $user->id_user, PDO::PARAM_STR);
+		$query->bindParam(':password', $user->password, PDO::PARAM_STR);
+		$query->execute();
+	}
 	function updateRole($codeSession, $user)
 	{
 		$data = $this->checklogin($codeSession);

@@ -53,46 +53,48 @@ include_once "./component/listProduct.php";
                                     <label for="inputEmail4">Full Name</label>
                                     <input type="text" name="name" value="<?php echo htmlentities($data->name); ?>" class="form-control" id="inputEmail4" placeholder="Email">
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-3">
                                     <label for="inputEmail4">Birthday</label>
                                     <input type="date" name="birthday" value="<?php echo htmlentities($data->birthday); ?>" class="form-control" id="inputEmail4" placeholder="Email">
                                     </div>
-                                
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Phone</label>
-                                    <input type="text" name="phone" value="<?php echo htmlentities($data->phone); ?>" class="form-control" id="inputEmail4" placeholder="Email">
+                                    
+                                    <div class="form-group col-md-3">
+                                        <label for="inputAddress">Sex</label>
+                                        <div class="form-control" style="border:none;">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="nam" <?php if ($data->sex == "nam") echo htmlentities('checked="checked"');?>>
+                                                <label class="form-check-label" for="inlineRadio1">nam</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="sex" id="inlineRadio2" value="nu" <?php if ($data->sex == "nu") echo htmlentities('checked="checked"');?>>
+                                                <label class="form-check-label" for="inlineRadio2">nu</label>
+                                            </div>
+                                        </div>
+                                    
                                     </div>
                                 </div>
                                 <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                    <label for="inputEmail4">Phone</label>
+                                    <input type="text" name="phone" value="<?php echo htmlentities($data->phone); ?>" class="form-control" id="inputEmail4" placeholder="Email">
+                                    </div>
                                     <div class="form-group col-md-6">
                                     <label for="inputEmail4">Email</label>
                                     <input type="email" name="email" value="<?php echo htmlentities($data->email); ?>" class="form-control" id="inputEmail4" placeholder="Email">
                                     </div>
-                                    <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Password</label>
-                                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputAddress">sex</label>
-                                    <input type="radio" name="sex" value="nam" <?php if ($data->sex == "nam") echo htmlentities('checked="checked"');?>  > nam 
-                                    <input type="radio" name="sex" value="nu"  <?php if ($data->sex == "nu") echo htmlentities('checked="checked"');?> > nu
                                 </div>
                                 
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>
                         </div>
-                    </div>
-                    
-                    
-                </div>
+                    </div>                    
             </div>
             <?php include_once "component/footer.php"; ?>
             <!--tygh_main_container-->
         </div>
-        <a href="#" id="scroll-up" class="hidden" style="display: none">
+        <a alt="" id="scroll-up" class="hidden" style="display: none">
             <i class="et-icon-scroll-up"></i>
         </a>
         <!--tygh_container-->
@@ -103,7 +105,7 @@ include_once "./component/listProduct.php";
     <script src="../layout/js/preload-base.js"></script>
     <script nomodule="" src="../layout/js/load.js"></script>
     <script type="module" src="../layout/js/load.esm/index.js"></script>
-    <iframe style="display: none"></iframe>
+    
     <script src="../layout/js/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous" data-no-defer=""></script>
     <script src="../layout/js/jquery-migrate-3.0.1.min.js"

@@ -9,7 +9,7 @@ include_once "./component/listProduct.php";
 
 <?php include_once "component/head.php"; ?>
 
-<body class="screen--lg" style="">
+<body class="screen--lg" >
     <div class="ty-tygh bp-tygh-container" id="tygh_container">
         <div class="ty-helper-container no-touch" id="tygh_main_container">
             <div class="tygh-header clearfix front_page">
@@ -30,7 +30,7 @@ include_once "./component/listProduct.php";
             <?php include_once "component/footer.php"; ?>
             <!--tygh_main_container-->
         </div>
-        <a href="#" id="scroll-up" class="hidden" style="display: none">
+        <a alt="" id="scroll-up" class="hidden" style="display: none">
             <i class="et-icon-scroll-up"></i>
         </a>
         <!--tygh_container-->
@@ -41,7 +41,7 @@ include_once "./component/listProduct.php";
     <script src="../layout/js/preload-base.js"></script>
     <script nomodule="" src="../layout/js/load.js"></script>
     <script type="module" src="../layout/js/load.esm/index.js"></script>
-    <iframe style="display: none"></iframe>
+    
     <script src="../layout/js/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous" data-no-defer=""></script>
     <script src="../layout/js/jquery-migrate-3.0.1.min.js"

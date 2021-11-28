@@ -18,10 +18,10 @@
                                                 data-ca-live-editor-object-type="">
                                                 <ul id="about_cs_cart_links">
                                                     <li class="ty-footer-menu__item">
-                                                        <a href="#gioi-thieu-ve-nha-sach.html">Giới Thiệu</a>
+                                                        <a alt="gioi-thieu-ve-nha-sach.html">Giới Thiệu</a>
                                                     </li>
                                                     <li class="ty-footer-menu__item">
-                                                        <a href="#he-thong-nha-sach.html">Hệ Thống</a>
+                                                        <a alt="he-thong-nha-sach.html">Hệ Thống</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -41,10 +41,10 @@
                                         <div class="vs-footerbox-body vs-toggle-body clearfix" id="vs_box_86">
                                             <ul id="account_info_links_779">
                                                 <li class="ty-footer-menu__item">
-                                                    <a href="#auth-loginform/" rel="nofollow">Đăng nhập</a>
+                                                    <a alt="auth-loginform/" rel="nofollow">Đăng nhập</a>
                                                 </li>
                                                 <li class="ty-footer-menu__item">
-                                                    <a href="#profiles-add-vi/" rel="nofollow">Tạo tài khoản</a>
+                                                    <a alt="profiles-add-vi/" rel="nofollow">Tạo tài khoản</a>
                                                 </li>
                                                 <!--account_info_links_779-->
                                             </ul>
@@ -66,12 +66,12 @@
                                                 data-ca-live-editor-object-type="">
                                                 <ul id="about_cs_cart_links">
                                                     <li class="ty-footer-menu__item">
-                                                        <a href="#cac-cau-hoi-thuong-gap.html">Các Câu Hỏi Thường
+                                                        <a alt="cac-cau-hoi-thuong-gap.html">Các Câu Hỏi Thường
                                                             Gặp</a>
                                                     </li>
                                                 </ul>
                                                 <li class="ty-footer-menu__item">
-                                                    <a href="#quy-dinh-viet-binh-luan.html">Quy Định Viết Bình Luận</a>
+                                                    <a alt="quy-dinh-viet-binh-luan.html">Quy Định Viết Bình Luận</a>
                                                 </li>
                                             </div>
                                         </div>

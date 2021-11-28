@@ -9,8 +9,8 @@ $confirmPassword = "";
 $UserName = "";
 $name = ($_POST['name']);
 $emailAddress = $_POST['emailaddress'];
-$password = $_POST['password'];
-$confirmPassword = ($_POST['confirmpassword']);
+$password = md5($_POST['password']);
+$confirmPassword = md5($_POST['confirmpassword']);
 $UserName = ($_POST['username']);
 if($password==$confirmPassword){
     $user = new User();

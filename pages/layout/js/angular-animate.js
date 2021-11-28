@@ -3603,7 +3603,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  * </div>
  *
  * <!-- home.html -->
- * <a href="#/banner-page">
+ * <a alt="/banner-page">
  *   <img src="./banner.jpg" class="banner" ng-animate-ref="banner">
  * </a>
  *
@@ -3691,7 +3691,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
            deps="angular-animate.js;angular-route.js"
            animations="true">
     <file name="index.html">
-      <a href="#/">Home</a>
+      <a alt="/">Home</a>
       <hr />
       <div class="view-container">
         <div ng-view class="view"></div>
@@ -3738,7 +3738,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
       <h2>Welcome to the home page</h1>
       <p>Please click on an element</p>
       <a class="record"
-         ng-href="#/profile/{{ record.id }}"
+         ng-alt="/profile/{{ record.id }}"
          ng-animate-ref="{{ record.id }}"
          ng-repeat="record in records">
         {{ record.title }}

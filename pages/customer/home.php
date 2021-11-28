@@ -9,7 +9,7 @@ include_once "./component/listProduct.php";
 
 <?php include_once "component/head.php"; ?>
 
-<body class="screen--lg" style="">
+<body class="screen--lg">
     <div class="ty-tygh bp-tygh-container" id="tygh_container">
         <div class="ty-helper-container no-touch" id="tygh_main_container">
             <div class="tygh-header clearfix front_page">
@@ -27,7 +27,7 @@ include_once "./component/listProduct.php";
                                             <div class="owl-item active" style="width: 890px">
                                                 <div class="item ty-banner__image-item">
                                                     <a class="banner-link banner__link"
-                                                        href="#sach-phuong-nam-book-vi.html">
+                                                        alt="sach-phuong-nam-book-vi.html">
                                                         <img class="ty-pict lazyOwl cm-image" id="det_img_1075847014"
                                                             src="../layout/image/PNB_50__890x396.jpg" alt="" title="" />
                                                     </a>
@@ -36,7 +36,7 @@ include_once "./component/listProduct.php";
                                             <div class="owl-item" style="width: 890px">
                                                 <div class="item ty-banner__image-item">
                                                     <a class="banner-link banner__link"
-                                                        href="#12-tua-sach-phuong-nam-book-dang-doc.html">
+                                                        alt="12-tua-sach-phuong-nam-book-dang-doc.html">
                                                         <img class="ty-pict lazyOwl vs_lazy_mobile cm-image"
                                                             id="det_img_1968629951" src="../layout/image/vs-empty.png"
                                                             style="
@@ -44,8 +44,7 @@ include_once "./component/listProduct.php";
                                   width: 890px;
                                   height: 0 !important;
                                   opacity: 0.5;
-                                " data-src="https://nhasachphuongnam.com/images/promo/220/Sách_PNB_đoạt_giải_890x396_2.jpg"
-                                                            alt="" title="" />
+                                " data-src="/promo/220/Sách_PNB_đoạt_giải_890x396_2.jpg" alt="" title="" />
                                                     </a>
                                                 </div>
                                             </div>
@@ -57,7 +56,7 @@ include_once "./component/listProduct.php";
                         <div class="span4 home-slider">
                             <div class="hidden-phone">
                                 <div class="center ty-banner__image-wrapper">
-                                    <a href="#sach-phuong-nam-books.html">
+                                    <a alt="sach-phuong-nam-books.html">
                                         <img class="ty-pict cm-image" id="det_img_828420007"
                                             src="../layout/image/01.jpg" alt="" title="" /><noscript><img
                                                 class="cm-image" src="../layout/image/01.jpg" width="290" height="198"
@@ -67,7 +66,7 @@ include_once "./component/listProduct.php";
                             </div>
                             <div class="hidden-phone">
                                 <div class="center ty-banner__image-wrapper already-visible">
-                                    <a href="#business-and-economics-vi.html" target="_blank">
+                                    <a alt="business-and-economics-vi.html" target="_blank">
                                         <img class="ty-pict cm-image" id="det_img_911236266"
                                             src="../layout/image/02.jpg" alt="" title="" /><noscript><img
                                                 class="cm-image" src="../layout/image/02.jpg" width="290" height="198"
@@ -86,7 +85,7 @@ include_once "./component/listProduct.php";
                                     include_once "../entity/user.php"; 
                                     $v=new vouncher();
                                     $listVc=null;
-                                    if(session_id()){
+                                    if(session_id()&& isset($_SESSION["codeSession"])){
                                         $id_code=$_SESSION["codeSession"];
                                         $u = new User();
                                         $dataUser = $u->checklogin($id_code);
@@ -118,9 +117,9 @@ include_once "./component/listProduct.php";
                                         }
                                     }    
                                 ?>
-                                    
-                                
-                                
+
+
+
                             </div>
                             <div class="row">
                                 <div class="span16">
@@ -154,12 +153,17 @@ include_once "./component/listProduct.php";
                                                 <div class="span2 ty-center">
                                                     <div class="ty-center">
                                                         <div class="center ty-banner__image-wrapper">
-                                                            <a href="#sach-tieng-viet.html" target="_blank">
+                                                            <a href="./publishingCompany.php?id=<?php echo htmlentities($item->id_publishing_company); ?>"
+                                                                target="_blank">
                                                                 <img class="ty-pict cm-image" id="det_img_1843956858"
-                                                                    src="<?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/Icon_phan_loai_135x135px_hinh_that-01.png"; ?>" alt="<?php echo htmlentities($data->name);?>"
-                                                                    alt="" title="" style ="width:135px; height:135px" /><noscript><img class="cm-image"
-                                                                        src="<?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/Icon_phan_loai_135x135px_hinh_that-01.png"; ?>" alt="<?php echo htmlentities($data->name);?>"
-                                                                        style ="width:135px; height:135px" alt=""
+                                                                    src="<?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/Icon_phan_loai_135x135px_hinh_that-01.png"; ?>"
+                                                                    alt="<?php echo htmlentities($data->name);?>" alt=""
+                                                                    title=""
+                                                                    style="width:135px; height:135px" /><noscript><img
+                                                                        class="cm-image"
+                                                                        src="<?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/Icon_phan_loai_135x135px_hinh_that-01.png"; ?>"
+                                                                        alt="<?php echo htmlentities($data->name);?>"
+                                                                        style="width:135px; height:135px" alt=""
                                                                         title="" /></noscript>
                                                             </a>
                                                         </div>
@@ -171,9 +175,9 @@ include_once "./component/listProduct.php";
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <?php } ?>
-                                    
+
                                     </div>
                                 </div>
                             </div>
@@ -182,7 +186,7 @@ include_once "./component/listProduct.php";
                     <?php  
                     if($listparent != null)
                     foreach ($listparent as $item) {
-                        getListProductHtmlwithParentCategory($item->id_category,10);
+                        getListProductHtmlwithParentCategory($item->id_category,12);
                     }
                     
                     
@@ -195,7 +199,7 @@ include_once "./component/listProduct.php";
             <?php include_once "component/footer.php"; ?>
             <!--tygh_main_container-->
         </div>
-        <a href="#" id="scroll-up" class="hidden" style="display: none">
+        <a alt="" id="scroll-up" class="hidden" style="display: none">
             <i class="et-icon-scroll-up"></i>
         </a>
         <!--tygh_container-->
@@ -206,27 +210,20 @@ include_once "./component/listProduct.php";
     <script src="../layout/js/preload-base.js"></script>
     <script nomodule="" src="../layout/js/load.js"></script>
     <script type="module" src="../layout/js/load.esm/index.js"></script>
-    <iframe style="display: none"></iframe>
+    
     <script src="../layout/js/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous" data-no-defer=""></script>
     <script src="../layout/js/jquery-migrate-3.0.1.min.js"
         integrity="sha256-F0O1TmEa4I8N24nY0bya59eP6svWcshqX1uzwaWC4F4=" crossorigin="anonymous" data-no-defer="">
     </script>
-    <script data-no-defer=""></script>
-
-    <script type="text/javascript"></script>
-
     <script type="text/javascript" src="../layout/js/flipclock.min.js"></script>
     <script type="text/javascript" src="../layout/js/product_image_gallery.js"></script>
-    <script></script>
-    <script></script>
     <script type="text/javascript" src="../layout/js/owl.carousel.min.js"></script>
 
     <script type="text/javascript" src="../layout/js/tygh/exceptions.js"></script>
     <script type="text/javascript" src="../layout/js/et-product_image_gallery.js"></script>
     <script src="../layout/js/update.min.js"></script>
     <script src="../layout/js/index.js"></script>
-    <div class="hidden" title="undefined" id="undefined"></div>
     <script src="https://cdn-asset.optimonk.com/vendor/swiper.min.js"></script>
 </body>
 

@@ -27,17 +27,17 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                       <div id="breadcrumbs_10">
                         <div class="ty-breadcrumbs clearfix">
                           <a
-                            href="#"
+                            alt=""
                             class="ty-breadcrumbs__a"
                             >Trang chủ</a
                           ><i class="vs-icon-arrow-right"></i
                           ><a
-                            href="#"
+                            alt=""
                             class="ty-breadcrumbs__a"
                             >Sách Tiếng Việt</a
                           ><i class="vs-icon-arrow-right"></i
                           ><a
-                            href="#"
+                            alt=""
                             class="ty-breadcrumbs__a"
                             >Theo Thể Loại</a
                           ><i class="vs-icon-arrow-right"></i
@@ -114,7 +114,7 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                                                   class="cm-image-previewer cm-previewer ty-previewer"
                                                   data-ca-image-width="600"
                                                   data-ca-image-height="600"
-                                                  href="#"
+                                                  alt=""
                                                   title=""
                                                   ><img
                                                     class="ty-pict cm-image"
@@ -230,7 +230,7 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                                         $detalPc = $pc1->getapublishingCompany($dataaproduct->id_publishing_company);  ?>
                                         <span
                                           class="ty-control-group__item ty-company-name"
-                                          ><a href="#"><?php if($detalPc!=null) echo htmlentities($detalPc->name); ?></a></span
+                                          ><a alt=""><?php if($detalPc!=null) echo htmlentities($detalPc->name); ?></a></span
                                         >
                                       </div>
                                       <!--advanced_options_update_161920-->
@@ -378,7 +378,7 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
             <?php include_once "component/footer.php"; ?>
             <!--tygh_main_container-->
         </div>
-        <a href="#" id="scroll-up" class="hidden" style="display: none">
+        <a alt="" id="scroll-up" class="hidden" style="display: none">
             <i class="et-icon-scroll-up"></i>
         </a>
         <!--tygh_container-->
@@ -389,7 +389,7 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
     <script src="../layout/js/preload-base.js"></script>
     <script nomodule="" src="../layout/js/load.js"></script>
     <script type="module" src="../layout/js/load.esm/index.js"></script>
-    <iframe style="display: none"></iframe>
+    
     <script src="../layout/js/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous" data-no-defer=""></script>
     <script src="../layout/js/jquery-migrate-3.0.1.min.js"

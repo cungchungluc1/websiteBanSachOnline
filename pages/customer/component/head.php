@@ -26,18 +26,10 @@
     <!-- Global site tag (gtag.js)-->
     <script src="../layout/js/standjs.js" charset="UTF-8" crossorigin="*"></script>
 
-    <script src="../layout/js/twk-main.js" charset="UTF-8" crossorigin="*"></script>
-    <script src="../layout/js/twk-vendor.js" charset="UTF-8" crossorigin="*"></script>
-    <script src="../layout/js/twk-chunk-vendors.js" charset="UTF-8" crossorigin="*"></script>
-    <script src="../layout/js/twk-chunk-common.js" charset="UTF-8" crossorigin="*"></script>
-    <script src="../layout/js/twk-runtime.js" charset="UTF-8" crossorigin="*"></script>
-    <script src="../layout/js/twk-app.js" charset="UTF-8" crossorigin="*"></script>
-    <script src="../layout/js/sdk1.js" async="" crossorigin="anonymous"></script>
     <script async="" src="../layout/js/ematic.min.js"></script>
     <script type="text/javascript" async="" src="../layout/js/ec.js"></script>
     <script type="text/javascript" async="" src="../layout/js/recaptcha__vi.js" crossorigin="anonymous"
         integrity="sha384-BrOjPkGGxnPWI7NkOQAumTqm3e2HSQQ73VAU5ch0NeDt0Tk20JVtdTQXuvqRh4Rf"></script>
-    <script id="facebook-jssdk" async="" src="../layout/js/sdk.js"></script>
     <script type="text/javascript" async="" src="../layout/js/dc.js"></script>
     <script src="../layout/js/default.js" charset="UTF-8" crossorigin="*"></script>
     <script async="" src="../layout/js/analytics.js"></script>
@@ -48,13 +40,6 @@
     <script src="../layout/js/f.txt"></script>
     <script src="../layout/js/OneSignalPageSDKES6.js" async=""></script>
 
-    <script charset="utf-8" src="../layout/image/twk-chunk-2d0d2b7c.js"></script>
-    <script charset="utf-8" src="../layout/image/twk-chunk-2d224aff.js"></script>
-    <script charset="utf-8" src="../layout/image/twk-chunk-48f46bef.js"></script>
-    <script charset="utf-8" src="../layout/image/twk-chunk-4fe9d5dd.js"></script>
-    <script charset="utf-8" src="../layout/image/twk-chunk-2d0b9454.js"></script>
-    <script charset="utf-8" src="../layout/image/twk-chunk-f163fcd0.js"></script>
-    <script charset="utf-8" src="../layout/image/twk-chunk-35f53b3a.js"></script>
 
     <script src="../layout/js/emojione.min.js" type="text/javascript" async="" defer=""></script>
     <script src="../layout/js/emojione.min.js" type="text/javascript" async="" defer=""></script>

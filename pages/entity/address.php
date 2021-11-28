@@ -26,14 +26,7 @@ class address
         $query->bindParam(':tinh', $address->tinh, PDO::PARAM_STR);
         $query->bindParam(':is_defaul', $address->is_defaul, PDO::PARAM_STR);
         $query->execute();
-        $lastInsertId = $dbh->lastInsertId();
-        if ($lastInsertId) {
-            $msg = "Tạo thành công";
-            header('location:ok.php', true, 301);
-        } else {
-            $error = "Thêm thất bại. Hãy thử lại";
-            header('location:err.php', true, 301);
-        }
+        
     }
     function delete($id_address)
     {
@@ -76,6 +69,17 @@ class address
             return $query->fetchAll(PDO::FETCH_OBJ);
         return null;
     }
+    function getdefauladdress($id_user)
+    {
+        include "../../connection.php";
+        $sql = "SELECT DISTINCT * FROM `tbl_address_shipping` WHERE id_user =:id_user and is_defaul = 1";
+        $query = $dbh->prepare($sql);
+        $query->bindValue(':id_user', $id_user);
+        $query->execute();
+        if ($query->rowCount() > 0)
+            return $query->fetchAll(PDO::FETCH_OBJ)[0];
+        return null;
+    }
     function getaaddress($id_address)
     {
         include "../../connection.php";
@@ -84,7 +88,15 @@ class address
         $query->bindValue(':id_address', $id_address);
         $query->execute();
         if ($query->rowCount() > 0)
-            return $query->fetchAll(PDO::FETCH_OBJ);
+            return $query->fetchAll(PDO::FETCH_OBJ)[0];
         return null;
+    }
+    function updateNonDefaul($id_user)
+    {
+        include "../../connection.php";
+        $sql = "UPDATE `tbl_address_shipping` SET `is_defaul`= 0 WHERE `id_user`=:id_user";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':id_user', $id_user, PDO::PARAM_STR);
+        $query->execute();
     }
 }
