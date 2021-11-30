@@ -88,7 +88,7 @@ class User
 	function add($user)
 	{
 		include "../../connection.php";
-		$sql = "INSERT INTO `tbl_user`(`id_user`, `id_role`, `name`, `sex`, `email`, `phone`, `birthday`, `username`, `password`) VALUES (:id_user, :id_role, :name, :sex, :email, :phone, :birthday, :username, :password)";
+		$sql = "INSERT INTO `tbl_user`(`id_user`, `id_role`, `name`, `sex`, `email`, `phone`, `birthday`, `username`, `password`,codeSession) VALUES (:id_user, :id_role, :name, :sex, :email, :phone, :birthday, :username, :password,'')";
 		$query = $dbh->prepare($sql);
 		$query->bindParam(':id_user', $user->id_user, PDO::PARAM_STR);
 		$query->bindParam(':id_role', $user->id_role, PDO::PARAM_STR);
@@ -100,7 +100,6 @@ class User
 		$query->bindParam(':username', $user->username, PDO::PARAM_STR);
 		$query->bindParam(':password', $user->password, PDO::PARAM_STR);
 		$query->execute();
-		$lastInsertId = $dbh->lastInsertId();
 		header("location:../layout/page/login.php");
 	}
 	function delete($id)

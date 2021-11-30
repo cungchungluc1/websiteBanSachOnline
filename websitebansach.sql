@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2021 lúc 05:04 AM
+-- Thời gian đã tạo: Th10 30, 2021 lúc 05:37 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.3
 
@@ -35,8 +35,8 @@ CREATE TABLE `image` (
   `name` text DEFAULT NULL,
   `url` text DEFAULT NULL,
   `alt` text DEFAULT NULL,
-  `status` int(11) NOT NULL,
-  `tbl_table` text NOT NULL
+  `status` int(11) DEFAULT NULL,
+  `tbl_table` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -74,14 +74,14 @@ INSERT INTO `image` (`id`, `id_use`, `id_image`, `name`, `url`, `alt`, `status`,
 
 CREATE TABLE `product` (
   `id_product` text DEFAULT NULL,
-  `id_publishing_company` text NOT NULL,
-  `name` text NOT NULL,
-  `description` text NOT NULL,
-  `price` int(11) NOT NULL,
-  `sell` float NOT NULL,
-  `id_category` text NOT NULL,
-  `description_detail` text NOT NULL,
-  `date_publishing` date NOT NULL,
+  `id_publishing_company` text DEFAULT NULL,
+  `name` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `sell` float DEFAULT NULL,
+  `id_category` text DEFAULT NULL,
+  `description_detail` text DEFAULT NULL,
+  `date_publishing` date DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -111,15 +111,15 @@ INSERT INTO `product` (`id_product`, `id_publishing_company`, `name`, `descripti
 --
 
 CREATE TABLE `tbl_address_shipping` (
-  `id_address` text NOT NULL,
-  `id_user` text NOT NULL,
-  `name` text NOT NULL,
-  `phone` text NOT NULL,
-  `diachi` text NOT NULL,
-  `phuong` text NOT NULL,
-  `quan` text NOT NULL,
-  `tinh` text NOT NULL,
-  `is_defaul` int(11) NOT NULL
+  `id_address` text DEFAULT NULL,
+  `id_user` text DEFAULT NULL,
+  `name` text DEFAULT NULL,
+  `phone` text DEFAULT NULL,
+  `diachi` text DEFAULT NULL,
+  `phuong` text DEFAULT NULL,
+  `quan` text DEFAULT NULL,
+  `tinh` text DEFAULT NULL,
+  `is_defaul` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -137,11 +137,11 @@ INSERT INTO `tbl_address_shipping` (`id_address`, `id_user`, `name`, `phone`, `d
 --
 
 CREATE TABLE `tbl_add_vouncher` (
-  `id` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `id_vouncher` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `id_use` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `table_name` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `status` int(11) NOT NULL
+  `id` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `id_vouncher` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `id_use` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `table_name` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
@@ -164,10 +164,10 @@ INSERT INTO `tbl_add_vouncher` (`id`, `id_vouncher`, `id_use`, `table_name`, `st
 --
 
 CREATE TABLE `tbl_cart` (
-  `user_id` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `product_id` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `date_update` date NOT NULL
+  `user_id` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `product_id` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `date_update` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 -- --------------------------------------------------------
@@ -177,10 +177,10 @@ CREATE TABLE `tbl_cart` (
 --
 
 CREATE TABLE `tbl_category` (
-  `id_category` text NOT NULL,
-  `name` text NOT NULL,
-  `description` text NOT NULL,
-  `id_parten_category` text NOT NULL
+  `id_category` text DEFAULT NULL,
+  `name` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `id_parten_category` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -204,14 +204,14 @@ INSERT INTO `tbl_category` (`id_category`, `name`, `description`, `id_parten_cat
 --
 
 CREATE TABLE `tbl_order` (
-  `id_order` text NOT NULL,
-  `id_user` text NOT NULL,
-  `id_address` text NOT NULL,
-  `description` text NOT NULL,
-  `amount` int(11) NOT NULL,
-  `status` text NOT NULL,
-  `status_payment` text NOT NULL,
-  `date_added` date NOT NULL
+  `id_order` text DEFAULT NULL,
+  `id_user` text DEFAULT NULL,
+  `id_address` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `status` text DEFAULT NULL,
+  `status_payment` text DEFAULT NULL,
+  `date_added` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -228,12 +228,12 @@ INSERT INTO `tbl_order` (`id_order`, `id_user`, `id_address`, `description`, `am
 --
 
 CREATE TABLE `tbl_order_detail` (
-  `id_order_detail` text NOT NULL,
-  `id_product` text NOT NULL,
-  `description` text NOT NULL,
-  `price` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `total_price` int(11) NOT NULL
+  `id_order_detail` text DEFAULT NULL,
+  `id_product` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `total_price` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -257,12 +257,12 @@ INSERT INTO `tbl_order_detail` (`id_order_detail`, `id_product`, `description`, 
 --
 
 CREATE TABLE `tbl_publishing_company` (
-  `id_publishing_company` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `name` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `description` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `phone` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `address` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `email` text COLLATE utf8_vietnamese_ci NOT NULL
+  `id_publishing_company` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `name` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `description` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `phone` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `address` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `email` text COLLATE utf8_vietnamese_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
@@ -302,16 +302,16 @@ INSERT INTO `tbl_role` (`id_role`, `name`, `description`) VALUES
 --
 
 CREATE TABLE `tbl_user` (
-  `id_user` text NOT NULL,
-  `id_role` text NOT NULL,
-  `name` text NOT NULL,
-  `sex` text NOT NULL,
-  `email` text NOT NULL,
-  `phone` text NOT NULL,
-  `birthday` date NOT NULL,
-  `username` text NOT NULL,
-  `password` text NOT NULL,
-  `codeSession` text NOT NULL
+  `id_user` text DEFAULT NULL,
+  `id_role` text DEFAULT NULL,
+  `name` text DEFAULT NULL,
+  `sex` text DEFAULT NULL,
+  `email` text DEFAULT NULL,
+  `phone` text DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
+  `username` text DEFAULT NULL,
+  `password` text DEFAULT NULL,
+  `codeSession` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -320,7 +320,8 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`id_user`, `id_role`, `name`, `sex`, `email`, `phone`, `birthday`, `username`, `password`, `codeSession`) VALUES
 ('a1236', 'a1', 'tam', 'nu', 'avf.email', '09115689785', '1998-02-26', 'admin', '25d55ad283aa400af464c76d713c07ad', '6ab0bc6a8b780c92bf5e561de30e64f3'),
-('a12', 'a2', 'huynguyen', 'nam', 'xbcbsdbsab@sdfjs.dsfhsd', '623429837489', '2021-11-21', 'a', '25d55ad283aa400af464c76d713c07ad', '3713acf106414deb431ee5def08614a6');
+('a12', 'a2', 'huynguyen', 'nam', 'xbcbsdbsab@sdfjs.dsfhsd', '623429837489', '2021-11-21', 'a', '25d55ad283aa400af464c76d713c07ad', '3713acf106414deb431ee5def08614a6'),
+('0d20d6e20da48b6f1c87ab48369bfbd7', 'a2', 'huynguyen', NULL, 'huynguyen000@gmail.com', NULL, NULL, 'abc', '25d55ad283aa400af464c76d713c07ad', '');
 
 -- --------------------------------------------------------
 
@@ -329,10 +330,10 @@ INSERT INTO `tbl_user` (`id_user`, `id_role`, `name`, `sex`, `email`, `phone`, `
 --
 
 CREATE TABLE `tbl_use_vouncher` (
-  `id` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `id_vouncher` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `id_user` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `date_user` date NOT NULL
+  `id` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `id_vouncher` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `id_user` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `date_user` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 -- --------------------------------------------------------
@@ -342,13 +343,13 @@ CREATE TABLE `tbl_use_vouncher` (
 --
 
 CREATE TABLE `tbl_vouncher` (
-  `id_vouncher` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `name` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `description` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `code` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `sell` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `date_start` date NOT NULL,
-  `date_end` text COLLATE utf8_vietnamese_ci NOT NULL
+  `id_vouncher` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `name` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `description` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `code` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `sell` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `date_start` date DEFAULT NULL,
+  `date_end` text COLLATE utf8_vietnamese_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
