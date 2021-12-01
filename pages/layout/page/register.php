@@ -1,3 +1,14 @@
+<?php 
+session_start(); 
+
+if(isset($_SESSION['codeSession'])){
+    header("location:../../controller/checkLogin.php");
+    exit(0);
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -158,13 +169,13 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1" class="text-uppercase">Password</label>
-                            <input type="password" minlength="8" maxlength="50" class="form-control" name="password" placeholder=""
-                                required>
+                            <input type="password" minlength="8" maxlength="50" class="form-control" name="password"
+                                placeholder="" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputConfirmPassword1" class="text-uppercase">Confirm Password</label>
-                            <input type="password" minlength="8" maxlength="50" class="form-control" name="confirmpassword" placeholder=""
-                                required>
+                            <input type="password" minlength="8" maxlength="50" class="form-control"
+                                name="confirmpassword" placeholder="" required>
                         </div>
 
                         <div class="form-check">
@@ -172,7 +183,12 @@
                         </div>
                         <div class="form-check" style="margin-top: 30px;padding-left: 0;"><label
                                 class="form-check-label"></label><small>You have an account?</small><a
-                                href="login.php">Login</a></div>
+                                href="login.php">Login</a>
+                            <span style="margin-top: 30px;padding-left: 0;"><label
+                                    class="form-check-label"></label><small>Go to </small><a
+                                    href="../../customer/home.php">Home</a>
+                            </span>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -1,10 +1,16 @@
 <?php 
     session_start(); 
     include_once "../entity/cart.php";
+    
     include_once "../entity/user.php";
-    $id_code=$_SESSION["codeSession"];
-    $u = new User();
-    $data = $u->checkLogin($id_code);
+if(!isset($_SESSION["codeSession"]))
+    header("location:../layout/page/login.php");
+$id_code=$_SESSION["codeSession"];
+$use = new User();
+$data = $use->checkLogin($id_code);
+if($data == null)
+    header("location:../layout/page/login.php");
+
     $c = new cart();
     $c->delete($data->id_user);
     header("location:../customer/cart.php");

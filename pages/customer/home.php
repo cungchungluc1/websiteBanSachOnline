@@ -89,6 +89,7 @@ include_once "./component/listProduct.php";
                                         $id_code=$_SESSION["codeSession"];
                                         $u = new User();
                                         $dataUser = $u->checklogin($id_code);
+                                        if($dataUser!=null)
                                         $listVc=$v->getUseVouncher($dataUser->id_user);
                                         if($listVc!=null){
                                             include_once "../entity/image.php";
@@ -99,14 +100,16 @@ include_once "./component/listProduct.php";
                                             </h1>';
                                             foreach ($listVc as $item){
                                                 $imgs=$img->getaimage($item->id_vouncher);
+                                                if($imgs==null) $url_image = "";
+                                                else $url_image = $imgs->url;
                                                 echo '<div class="span4">
                                                 <div class="ty-mainbox-container clearfix space-bottom hidden-phone hidden-tablet">
                                                     <h1 class="ty-mainbox-title clearfix"></h1>
                                                     <div class="ty-mainbox-body clearfix">
                                                         <div class="center ty-banner__image-wrapper already-visible">
                                                             <img class="ty-pict cm-image" id="det_img_1830804603"
-                                                                src="'."../layout/".htmlentities($imgs->url).'" alt="" title="" /><noscript><img
-                                                                    class="cm-image" src="../layout/'.htmlentities($imgs->url).'" width="350"
+                                                                src="'."../layout/".htmlentities($url_image).'" alt="" title="" /><noscript><img
+                                                                    class="cm-image" src="../layout/'.htmlentities($url_image).'" width="350"
                                                                     height="176" alt="" title="" /></noscript>
                                                         </div>
                                                     </div>
@@ -147,6 +150,8 @@ include_once "./component/listProduct.php";
                                             if($listPC!=null)
                                             foreach ($listPC as $item) {
                                                 $imgs=$img->getaimage($item->id_publishing_company);
+                                                if($imgs==null) $url_image = "";
+                                                else $url_image = $imgs->url;
                                         ?>
                                         <div class="span2">
                                             <div class="row">
@@ -156,12 +161,12 @@ include_once "./component/listProduct.php";
                                                             <a href="./publishingCompany.php?id=<?php echo htmlentities($item->id_publishing_company); ?>"
                                                                 target="_blank">
                                                                 <img class="ty-pict cm-image" id="det_img_1843956858"
-                                                                    src="<?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/Icon_phan_loai_135x135px_hinh_that-01.png"; ?>"
+                                                                    src="<?php if($imgs!=null) echo "../layout/".htmlentities($url_image); else echo "../layout/image/Icon_phan_loai_135x135px_hinh_that-01.png"; ?>"
                                                                     alt="<?php echo htmlentities($data->name);?>" alt=""
                                                                     title=""
                                                                     style="width:135px; height:135px" /><noscript><img
                                                                         class="cm-image"
-                                                                        src="<?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/Icon_phan_loai_135x135px_hinh_that-01.png"; ?>"
+                                                                        src="<?php if($imgs!=null) echo "../layout/".htmlentities($url_image); else echo "../layout/image/Icon_phan_loai_135x135px_hinh_that-01.png"; ?>"
                                                                         alt="<?php echo htmlentities($data->name);?>"
                                                                         style="width:135px; height:135px" alt=""
                                                                         title="" /></noscript>
@@ -210,7 +215,7 @@ include_once "./component/listProduct.php";
     <script src="../layout/js/preload-base.js"></script>
     <script nomodule="" src="../layout/js/load.js"></script>
     <script type="module" src="../layout/js/load.esm/index.js"></script>
-    
+
     <script src="../layout/js/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous" data-no-defer=""></script>
     <script src="../layout/js/jquery-migrate-3.0.1.min.js"

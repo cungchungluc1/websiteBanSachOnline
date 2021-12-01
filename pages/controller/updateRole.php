@@ -1,13 +1,19 @@
 <?php
-include '../entity/user.php';
-if(!session_id())
-    session_start();
+session_start();
+include_once "../entity/user.php";
+if(!isset($_SESSION["codeSession"]))
+    header("location:../layout/page/login.php");
+$id_code=$_SESSION["codeSession"];
+$use = new User();
+$data = $use->checkLogin($id_code);
+if($data == null)
+    header("location:../layout/page/login.php");
+
 $id_user = "";
 $id_role = "";
 $id_user = ($_POST['id_user']);
 $id_role = ($_POST['id_role']);
 
-$use = new User();
 
 $codeSession = $_SESSION["codeSession"];
 $use->id_user = $id_user;

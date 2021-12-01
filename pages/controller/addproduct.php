@@ -3,7 +3,19 @@ include '../entity/product.php';
 include '../common/common.php';
 include '../common/upload.php';
 include '../entity/image.php';
+
 session_start();
+
+
+include_once "../entity/user.php";
+    if(!isset($_SESSION["codeSession"]))
+        header("location:../layout/page/login.php");
+    $id_code=$_SESSION["codeSession"];
+    $u = new User();
+    $dataUser = $u->checkLogin($id_code);
+    if($dataUser == null)
+        header("location:../layout/page/login.php");
+        
 $category = "";
 $productname = "";
 $productpublishing = "";

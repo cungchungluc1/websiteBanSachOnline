@@ -9,7 +9,16 @@ $password_new = md5($_POST['password_new']);
 $password_confirm = md5($_POST['password_confirm']);
 $codeSession = $_SESSION["codeSession"];
 
+include_once "../entity/user.php";
+if(!isset($_SESSION["codeSession"]))
+    header("location:../layout/page/login.php");
+$id_code=$_SESSION["codeSession"];
 $use = new User();
+$data = $use->checkLogin($id_code);
+if($data == null)
+    header("location:../layout/page/login.php");
+
+
 
 $u= $use->checklogin($codeSession);
 if($password_new == $password_confirm){

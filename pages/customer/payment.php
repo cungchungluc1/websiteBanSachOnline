@@ -1,4 +1,15 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+include_once "../entity/user.php";
+if(!isset($_SESSION["codeSession"]))
+    header("location:../layout/page/login.php");
+$id_code=$_SESSION["codeSession"];
+$use = new User();
+$data = $use->checkLogin($id_code);
+if($data == null)
+    header("location:../layout/page/login.php");
+
+?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0019)# -->
@@ -44,6 +55,7 @@
                     $dataUser = $u->checklogin($id_code);
                     include_once "../entity/address.php";
                     $address = new address();
+                    if($dataUser!=null)
                     $defaul_address=$address->getdefauladdress($dataUser->id_user);
                 }
                 if($defaul_address!=null){
@@ -329,6 +341,7 @@
             $data = $u->checkLogin($id_code);
             $c = new cart();
             $now = getdate();
+            if($data!=null)
             $listCart=$c->getallcart($data->id_user);
             }                              
             $total=0;

@@ -2,9 +2,13 @@
     session_start(); 
     include_once "../entity/cart.php";
     include_once "../entity/user.php";
+    if(!isset($_SESSION["codeSession"]))
+        header("location:../layout/page/login.php");
     $id_code=$_SESSION["codeSession"];
     $u = new User();
     $data = $u->checkLogin($id_code);
+    if($data == null)
+        header("location:../layout/page/login.php");
     $c = new cart();
     $now = getdate(); 
 	$ngaydathang = $now["year"] . "-" . $now["mon"] . "-" . $now["mday"]; 

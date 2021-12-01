@@ -17,11 +17,15 @@
                         include_once "../entity/image.php";
                         $img = new image();
                         $imgs=$img->getaimage($data->id_user);
+                        if($imgs==null) $url_image = "";
+                        else $url_image = $imgs->url;
                     ?>
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
-                                <img src=" <?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/cha15843577768538.png"; ?>" alt="<?php echo htmlentities($data->name);?>" alt="<?php echo htmlentities($data->name);?>">
+                                <img src=" <?php if($imgs!=null) echo "../layout/".htmlentities($url_image); else echo "../layout/image/cha15843577768538.png"; ?>"
+                                    alt="<?php echo htmlentities($data->name);?>"
+                                    alt="<?php echo htmlentities($data->name);?>">
                             </div>
                             <div class="content">
                                 <a class="js-acc-btn" alt=""><?php echo htmlentities($data->name);  ?></a>
@@ -30,7 +34,9 @@
                                 <div class="info clearfix">
                                     <div class="image">
                                         <a alt="">
-                                            <img src=" <?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/cha15843577768538.png"; ?>" alt="<?php echo htmlentities($data->name);?>" alt="<?php echo htmlentities($data->name);  ?>">
+                                            <img src=" <?php if($imgs!=null) echo "../layout/".htmlentities($url_image); else echo "../layout/image/cha15843577768538.png"; ?>"
+                                                alt="<?php echo htmlentities($data->name);?>"
+                                                alt="<?php echo htmlentities($data->name);  ?>">
                                         </a>
                                     </div>
                                     <div class="content">
@@ -53,7 +59,7 @@
 </header>
 
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
     $('#dataTable').DataTable();
-    } );
+});
 </script>

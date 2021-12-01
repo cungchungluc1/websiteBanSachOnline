@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="au theme template" />
-    
+
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
@@ -71,14 +71,19 @@
                                             include_once "../entity/image.php";
                                             $img = new image();
                                             $imgs=$img->getaimage($data->id_vouncher);
+                                            if($imgs==null) $url_image = "";
+                                            else $url_image = $imgs->url;
                                         ?>
-                                        <form autocomplete="off" action="../controller/updateVouncher.php" method="POST" enctype="multipart/form-data">
-                                            <input type="hidden" name="id_vouncher" class="form-control" value = "<?php echo htmlentities($data->id_vouncher); ?>" />                                            
+                                        <form autocomplete="off" action="../controller/updateVouncher.php" method="POST"
+                                            enctype="multipart/form-data">
+                                            <input type="hidden" name="id_vouncher" class="form-control"
+                                                value="<?php echo htmlentities($data->id_vouncher); ?>" />
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Vouncher
                                                     Name</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="name" class="form-control" value = "<?php echo htmlentities($data->name); ?>" />
+                                                    <input type="text" name="name" class="form-control"
+                                                        value="<?php echo htmlentities($data->name); ?>" />
                                                 </div>
                                             </div>
                                             <fieldset class="form-group">
@@ -94,36 +99,42 @@
                                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Vouncher
                                                     code</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="code" class="form-control"value = "<?php echo htmlentities($data->code); ?>" />
+                                                    <input type="text" name="code" class="form-control"
+                                                        value="<?php echo htmlentities($data->code); ?>" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Vouncher
                                                     sell</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="sell" class="form-control" value = "<?php echo htmlentities($data->sell); ?>" />
+                                                    <input type="text" name="sell" class="form-control"
+                                                        value="<?php echo htmlentities($data->sell); ?>" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Vouncher
-                                                date start</label>
+                                                    date start</label>
                                                 <div class="col-sm-9">
-                                                    <input type="date" name="date_start" class="form-control" value = "<?php echo htmlentities($data->date_start); ?>" />
+                                                    <input type="date" name="date_start" class="form-control"
+                                                        value="<?php echo htmlentities($data->date_start); ?>" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Vouncher
-                                                date end</label>
+                                                    date end</label>
                                                 <div class="col-sm-9">
-                                                    <input type="date" name="date_end" class="form-control" value = "<?php echo htmlentities($data->date_end); ?>"/>
+                                                    <input type="date" name="date_end" class="form-control"
+                                                        value="<?php echo htmlentities($data->date_end); ?>" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-sm-2 col-form-label">Product
                                                     Image</label>
                                                 <div class="col-sm-9">
-                                                    <img src="<?php if($imgs!=null) echo "../layout/".htmlentities($imgs->url); else echo "../layout/image/cha15843577768538.png"; ?>" style="height: 213px; width: auto;"/>
-                                                    <input class="form-control" type="file" name="fileToUpload" id="fileToUpload"/>
+                                                    <img src="<?php if($imgs!=null) echo "../layout/".htmlentities($url_image); else echo "../layout/image/cha15843577768538.png"; ?>"
+                                                        style="height: 213px; width: auto;" />
+                                                    <input class="form-control" type="file" name="fileToUpload"
+                                                        id="fileToUpload" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">

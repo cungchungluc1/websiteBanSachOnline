@@ -41,7 +41,7 @@ class Product
     function getaproduct($id_product)
     {
         include "../../connection.php";
-        $sql = "SELECT DISTINCT p.id_product, p.name, p.price, p.sell, p.description, p.description_detail, p.date_publishing,p.id_publishing_company, p.id_category,p.quantity, i.url, i.alt, i.status FROM product p LEFT JOIN image i on p.id_product = i.id_use WHERE id_product =:idproduct ORDER BY i.status DESC";
+        $sql = "SELECT DISTINCT p.id_product, p.name, p.price, p.sell, p.description, p.description_detail, p.date_publishing,p.id_publishing_company, p.id_category,p.quantity, i.url, i.alt, i.status FROM product p LEFT JOIN (SELECT * FROM image i1 Where i1.status = 1) as i ON p.id_product = i.id_use WHERE id_product =:idproduct ORDER BY i.status DESC";
         $query = $dbh->prepare($sql);
         $query->bindValue(':idproduct', $id_product);
         $query->execute();
@@ -53,7 +53,7 @@ class Product
     {
         
         include "../../connection.php";
-        $sql = "SELECT DISTINCT `id_product`, `id_publishing_company`, p.name, `description`, `price`, `sell`, `id_category`, `date_publishing`, `description_detail`,p.quantity FROM product p LEFT JOIN image i ON p.id_product = i.id_use";
+        $sql = "SELECT DISTINCT `id_product`, `id_publishing_company`, p.name, `description`, `price`, `sell`, `id_category`, `date_publishing`, `description_detail`,p.quantity FROM product p LEFT JOIN (SELECT * FROM image i1 Where i1.status = 1) as i ON p.id_product = i.id_use";
         $query = $dbh->prepare($sql);
         $query->execute();
         if ($query->rowCount() > 0)
@@ -63,7 +63,7 @@ class Product
     function getallproductwithcategory($id_category)
     {
         include "../../connection.php";
-        $sql = "SELECT DISTINCT `id_product`, `id_publishing_company`, p.name, `description`, `price`, `sell`, `id_category`, `date_publishing`, `description_detail`,p.quantity, i.url, i.alt FROM product p LEFT JOIN image i ON p.id_product = i.id_use WHERE id_category =:idcategory";
+        $sql = "SELECT DISTINCT `id_product`, `id_publishing_company`, p.name, `description`, `price`, `sell`, `id_category`, `date_publishing`, `description_detail`,p.quantity, i.url, i.alt FROM product p LEFT JOIN (SELECT * FROM image i1 Where i1.status = 1) as i ON p.id_product = i.id_use WHERE id_category =:idcategory";
         $query = $dbh->prepare($sql);
         $query->bindValue(':idcategory', $id_category);
         $query->execute();
@@ -74,7 +74,7 @@ class Product
     function getallproductwithParentCategory($id_category)
     {
         include "../../connection.php";
-        $sql = "SELECT DISTINCT `id_product`, `id_publishing_company`, p.name, p.`description`, `price`, `sell`, c.`id_category`, `date_publishing`, `description_detail`,p.quantity, i.url, i.alt FROM product p inner join (SELECT `id_category`, `name`, `description`, `id_parten_category` FROM `tbl_category` WHERE `id_category` =:id_category UNION SELECT `id_category`, `name`, `description`, `id_parten_category` FROM `tbl_category` WHERE `id_parten_category` =:id_parten_category) as c on p.id_category = c.id_category LEFT JOIN image i ON p.id_product = i.id_use";
+        $sql = "SELECT DISTINCT `id_product`, `id_publishing_company`, p.name, p.`description`, `price`, `sell`, c.`id_category`, `date_publishing`, `description_detail`,p.quantity, i.url, i.alt FROM product p inner join (SELECT `id_category`, `name`, `description`, `id_parten_category` FROM `tbl_category` WHERE `id_category` =:id_category UNION SELECT `id_category`, `name`, `description`, `id_parten_category` FROM `tbl_category` WHERE `id_parten_category` =:id_parten_category) as c on p.id_category = c.id_category LEFT JOIN (SELECT * FROM image i1 Where i1.status = 1) as i ON p.id_product = i.id_use";
         $query = $dbh->prepare($sql);
         $query->bindValue(':id_category', $id_category);
         $query->bindValue(':id_parten_category', $id_category);
@@ -86,7 +86,7 @@ class Product
     function getSearchListProductHtml($search)
     {
         include "../../connection.php";
-        $sql = "SELECT DISTINCT `id_product`, p.`id_publishing_company`, p.name, p.`description`, `price`, `sell`, c.`id_category`, `date_publishing`, `description_detail`,p.quantity, i.url, i.alt FROM product p LEFT JOIN `tbl_category` c on p.id_category = c.id_category LEFT JOIN tbl_publishing_company pc on pc.id_publishing_company = p.id_publishing_company  LEFT JOIN image i ON p.id_product = i.id_use WHERE p.name  like :search1  or c.name like :search2  or pc.name  like :search3 ";
+        $sql = "SELECT DISTINCT `id_product`, p.`id_publishing_company`, p.name, p.`description`, `price`, `sell`, c.`id_category`, `date_publishing`, `description_detail`,p.quantity, i.url, i.alt FROM product p LEFT JOIN `tbl_category` c on p.id_category = c.id_category LEFT JOIN tbl_publishing_company pc on pc.id_publishing_company = p.id_publishing_company  LEFT JOIN (SELECT * FROM image i1 Where i1.status = 1) as i ON p.id_product = i.id_use WHERE p.name  like :search1  or c.name like :search2  or pc.name  like :search3 ";
         $query = $dbh->prepare($sql);
         $query->bindValue(':search1', "%".$search."%");
         $query->bindValue(':search2', "%".$search."%");
@@ -99,7 +99,7 @@ class Product
     function getallproductwithpublishingcompany($id_publishing_company)
     {
         include "../../connection.php";
-        $sql = "SELECT DISTINCT `id_product`, p.`id_publishing_company`, p.name, p.`description`, `price`, `sell`, c.`id_category`, `date_publishing`, `description_detail`,p.quantity, i.url, i.alt FROM product p LEFT JOIN `tbl_category` c on p.id_category = c.id_category LEFT JOIN tbl_publishing_company pc on pc.id_publishing_company = p.id_publishing_company  LEFT JOIN image i ON p.id_product = i.id_use WHERE p.id_publishing_company =:idpublishingcompany";
+        $sql = "SELECT DISTINCT `id_product`, p.`id_publishing_company`, p.name, p.`description`, `price`, `sell`, c.`id_category`, `date_publishing`, `description_detail`,p.quantity, i.url, i.alt FROM product p LEFT JOIN `tbl_category` c on p.id_category = c.id_category LEFT JOIN tbl_publishing_company pc on pc.id_publishing_company = p.id_publishing_company  LEFT JOIN (SELECT * FROM image i1 Where i1.status = 1) as i ON p.id_product = i.id_use WHERE p.id_publishing_company =:idpublishingcompany";
         $query = $dbh->prepare($sql);
         $query->bindValue(':idpublishingcompany', $id_publishing_company);
         $query->execute();

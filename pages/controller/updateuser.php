@@ -1,9 +1,18 @@
 <?php
-include '../entity/user.php';
 include '../common/common.php';
 include '../common/upload.php';
 include '../entity/image.php';
 session_start();
+
+include_once "../entity/user.php";
+if(!isset($_SESSION["codeSession"]))
+    header("location:../layout/page/login.php");
+$id_code=$_SESSION["codeSession"];
+$use = new User();
+$u = $use->checkLogin($id_code);
+if($u == null)
+    header("location:../layout/page/login.php");
+
 $id_user = "";
 $id_role = "";
 $name = "";
@@ -22,9 +31,7 @@ $phone = $_POST['phone'];
 $birthday = ($_POST['birthday']);
 $codeSession = $_SESSION["codeSession"];
 
-$use = new User();
 
-$u= $use->checklogin($codeSession);
 
 $use->name = $name;
 $use->sex = $sex;

@@ -2,6 +2,24 @@
 include '../entity/user.php';
 include '../common/common.php';
 session_start();
+
+
+if(!isset($_SESSION["codeSession"])){
+    $id_code=$_SESSION["codeSession"];
+    $u = new User();
+    $data = $u->checkLogin($id_code);
+    if($data != null){
+        if ($data->id_role == "customer") {
+            header("location:../customer/home.php");
+            exit(0);
+        } else if ($data->id_role == "admin") {
+            header("location:../admin/home.php");
+            exit(0);
+        }
+    }
+}
+
+
 $name = "";
 $emailAddress = "";
 $password = "";

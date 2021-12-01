@@ -5,11 +5,16 @@ include '../entity/orderDetail.php';
 include_once "../entity/cart.php";
 include '../common/common.php';
 session_start();
-$id_code=$_SESSION["codeSession"];
-$u = new User();
+include_once "../entity/user.php";
+    if(!isset($_SESSION["codeSession"]))
+        header("location:../layout/page/login.php");
+    $id_code=$_SESSION["codeSession"];
+    $u = new User();
+    $dataUser = $u->checkLogin($id_code);
+    if($dataUser == null)
+        header("location:../layout/page/login.php");
 $id_address= "";
 
-$dataUser = $u->checklogin($id_code);
 $id_order= getNewId("order");
 $id_user= $dataUser->id_user;
 
