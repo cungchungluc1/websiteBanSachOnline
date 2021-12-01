@@ -7,14 +7,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="au theme template" />
-    
+
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
     <title>Dashboard</title>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" media="all" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet"
+        media="all" />
     <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet" media="all" />
 
     <!-- Fontfaces CSS-->
@@ -69,8 +70,9 @@
                             <div class="card-body">
                                 <div class="table-responsive" style="overflow-x: none !important">
                                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                        <form autocomplete="off" action="../controller/addVouncher.php" method="POST" enctype="multipart/form-data">
-                                            
+                                        <form autocomplete="off" action="../controller/addVouncher.php" method="POST"
+                                            enctype="multipart/form-data">
+
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Vouncher
                                                     Name</label>
@@ -103,14 +105,14 @@
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Voucher
-                                                date start</label>
+                                                    date start</label>
                                                 <div class="col-sm-9">
                                                     <input type="date" name="date_start" class="form-control" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Voucher
-                                                date end</label>
+                                                    date end</label>
                                                 <div class="col-sm-9">
                                                     <input type="date" name="date_end" class="form-control" />
                                                 </div>
@@ -119,7 +121,8 @@
                                                 <label for="inputPassword3" class="col-sm-2 col-form-label">Product
                                                     Image</label>
                                                 <div class="col-sm-9">
-                                                    <input class="form-control" type="file" name="fileToUpload" id="fileToUpload"/>
+                                                    <input class="form-control" type="file" name="fileToUpload"
+                                                        id="fileToUpload" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -144,86 +147,82 @@
 
                             <div class="card-body">
                                 <div class="table-responsive">
-                                <table id="dataTable"
-                                                    class="table table-bordered table-hover display dataTable no-footer"
-                                                    style="width: 100%" role="grid" aria-describedby="dataTable_info">
-                                                    <thead>
-                                                        <tr role="row">
-                                                            <th tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                                colspan="1" style="width: 45px">
-                                                                #
-                                                            </th>
-                                                            <th class="sorting_asc" tabindex="0"
-                                                                aria-controls="dataTable" rowspan="1" colspan="1"
-                                                                aria-sort="ascending"
-                                                                aria-label="Name: activate to sort column descending"
-                                                                style="width: 285px">
-                                                                name
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="dataTable"
-                                                                rowspan="1" colspan="1"
-                                                                aria-label="Position: activate to sort column ascending"
-                                                                style="width: 282px">
-                                                                Description
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="dataTable"
-                                                                rowspan="1" colspan="1"
-                                                                aria-label="Office: activate to sort column ascending"
-                                                                style="width: 135px">
-                                                                Code
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="dataTable"
-                                                                rowspan="1" colspan="1"
-                                                                aria-label="Office: activate to sort column ascending"
-                                                                style="width: 135px">
-                                                                Sell
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="dataTable"
-                                                                rowspan="1" colspan="1"
-                                                                aria-label="Office: activate to sort column ascending"
-                                                                style="width: 135px">
-                                                                Date start
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="dataTable"
-                                                                rowspan="1" colspan="1"
-                                                                aria-label="Office: activate to sort column ascending"
-                                                                style="width: 135px">
-                                                                Date end
-                                                            </th>
-                                                            <th tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                                colspan="1" style="width: 107px">
-                                                                Action
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
+                                    <table id="dataTable"
+                                        class="table table-bordered table-hover display dataTable no-footer"
+                                        style="width: 100%" role="grid" aria-describedby="dataTable_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                                    style="width: 45px">
+                                                    #
+                                                </th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable"
+                                                    rowspan="1" colspan="1" aria-sort="ascending"
+                                                    aria-label="Name: activate to sort column descending"
+                                                    style="width: 285px">
+                                                    name
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                    colspan="1" aria-label="Position: activate to sort column ascending"
+                                                    style="width: 282px">
+                                                    Description
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                    colspan="1" aria-label="Office: activate to sort column ascending"
+                                                    style="width: 135px">
+                                                    Code
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                    colspan="1" aria-label="Office: activate to sort column ascending"
+                                                    style="width: 135px">
+                                                    Sell
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                    colspan="1" aria-label="Office: activate to sort column ascending"
+                                                    style="width: 135px">
+                                                    Date start
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                    colspan="1" aria-label="Office: activate to sort column ascending"
+                                                    style="width: 135px">
+                                                    Date end
+                                                </th>
+                                                <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                                    style="width: 107px">
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
                                                         $v  = new vouncher();
                                                         $list = $v->getallvouncher();
                                                         $i = 1;
                                                         if($list!=null)
                                                         foreach ($list as $item) {
                                                         ?>
-                                                        <tr role="row" class="odd">
-                                                            <td class="sorting_1"><?php echo htmlentities($i++); ?></td>
-                                                            <td><?php echo htmlentities($item->name); ?></td>
-                                                            <td><?php echo htmlentities($item->description); ?></td>
-                                                            <td><?php echo htmlentities($item->code); ?></td>
-                                                            <td><?php echo htmlentities($item->sell); ?></td>
-                                                            <td><?php echo htmlentities($item->date_start); ?></td>
-                                                            <td><?php echo htmlentities($item->date_end); ?></td>
-                                                            <td><a
-                                                                    href="updateVouncher.php?id=<?php echo htmlentities($item->id_vouncher); ?>"><i
-                                                                        class="fas fa-edit"></i></a> <i
-                                                                    class="fas fa-remove"></i></td>
-                                                        </tr>
-                                                        <?php
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1"><?php echo htmlentities($i++); ?></td>
+                                                <td><?php echo htmlentities($item->name); ?></td>
+                                                <td><?php echo htmlentities($item->description); ?></td>
+                                                <td><?php echo htmlentities($item->code); ?></td>
+                                                <td><?php echo htmlentities($item->sell); ?></td>
+                                                <td><?php echo htmlentities($item->date_start); ?></td>
+                                                <td><?php echo htmlentities($item->date_end); ?></td>
+                                                <td><a
+                                                        href="updateVouncher.php?id=<?php echo htmlentities($item->id_vouncher); ?>"><i
+                                                            class="fas fa-edit"></i></a>
+                                                    <a
+                                                        href="../controller/delVouncher.php?id_vouncher=<?php echo htmlentities($item->id_vouncher); ?>"><i
+                                                            class="fas fa-remove"></i></a></td>
+                                            </tr>
+                                            <?php
                                                         }
                                                         ?>
 
 
-                                                    </tbody>
-                                                </table>
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <!-- end table-responsive-->
                             </div>

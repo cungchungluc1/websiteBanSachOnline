@@ -90,8 +90,10 @@ if($listCart!=null){
             $orderDetail->quantity = $item->quantity;
             $orderDetail->total_price = $item->quantity*$dataaproduct->price;
             $orderDetail->add($orderDetail);
+            $dataaproduct->quantity-= $item->quantity;
+            $pro->updateSub($dataaproduct);
         }
-        $c->delete($id_user);
+        $c->deleteAll($id_user);
         if($_POST['selected_payment_method']=="offline")
             header("location:../customer/home.php");
     }

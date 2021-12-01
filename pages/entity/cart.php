@@ -27,12 +27,22 @@ class cart
         $query->execute();
         header("location:../customer/cart.php");
     }
-    function delete($id_tbl_cart)
+    function delete($user_id,$product_id)
     {
         include "../../connection.php";
-        $sql = "DELETE FROM `tbl_cart` WHERE `user_id`=:user_id";
+        $sql = "DELETE FROM `tbl_cart` WHERE `user_id`=:user_id and product_id =:product_id";
         $query = $dbh->prepare($sql);
-        $query->bindValue(':user_id', $id_tbl_cart);
+        $query->bindValue(':user_id', $user_id);
+        $query->bindValue(':product_id', $product_id);
+        $query->execute();
+        header("location:../customer/cart.php");
+    }
+    function deleteAll($user_id)
+    {
+        include "../../connection.php";
+        $sql = "DELETE FROM `tbl_cart` WHERE `user_id`=:user_id ";
+        $query = $dbh->prepare($sql);
+        $query->bindValue(':user_id', $user_id);
         $query->execute();
         header("location:../customer/cart.php");
     }

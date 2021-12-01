@@ -866,7 +866,12 @@ a:focus {
 }
 a:active,
 a:hover {
-  outline: 0;
+  outline: 1;
+}
+.cm-tooltip.vs-button.vs-add-to-wishlist.cm-submit.red,
+.cm-tooltip.vs-button.vs-add-to-wishlist.cm-submit:hover{
+  outline: 1;
+  color: red;
 }
 h1 {
   font-size: 2em;

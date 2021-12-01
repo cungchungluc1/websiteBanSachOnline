@@ -23,13 +23,14 @@ class vouncher
         $query->execute();
         header('location:../admin/vouncher.php', true, 301);
     }
-    function delete($id_vouncher)
+    function delete($vouncher)
     {
         include "../../connection.php";
         $sql = "DELETE FROM `tbl_vouncher` WHERE id_vouncher =:id_vouncher  ";
         $query = $dbh->prepare($sql);
-        $query->bindValue(':id_vouncher', $id_vouncher);
+        $query->bindValue(':id_vouncher', $vouncher->id_vouncher);
         $query->execute();
+        header('location:../admin/vouncher.php', true, 301);
     }
     function update($vouncher)
     {
@@ -90,5 +91,13 @@ class vouncher
         $query->bindParam(':status', $status, PDO::PARAM_STR);
         $query->execute();
         header('location:../admin/vouncher.php', true, 301);
+    }
+    function deleteVouncher($id)
+    {
+        include "../../connection.php";
+        $sql = "DELETE FROM `tbl_add_vouncher` WHERE id =:id  ";
+        $query = $dbh->prepare($sql);
+        $query->bindValue(':id', $id);
+        $query->execute();
     }
 }

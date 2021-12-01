@@ -132,7 +132,7 @@
                                                 </td>
                                                 <td><a
                                                         href="updateuser.php?id=<?php echo htmlentities($item->id_user); ?>"><i
-                                                            class="fas fa-edit"></i></a> <i class="fas fa-remove"></i>
+                                                            class="fas fa-edit"></i></a>
                                                 </td>
                                             </tr>
                                             <?php

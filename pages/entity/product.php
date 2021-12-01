@@ -30,13 +30,14 @@ class Product
         $lastInsertId = $dbh->lastInsertId();
         header('location:../admin/manageproduct.php', true, 301);
     }
-    function delete($id)
+    function delete($pro)
     {
         include "../../connection.php";
         $sql = "DELETE FROM `product` WHERE  id_product =:id  ";
         $query = $dbh->prepare($sql);
-        $query->bindValue(':id', $id);
+        $query->bindValue(':id', $pro->id_product);
         $query->execute();
+        header('location:../admin/manageproduct.php', true, 301);
     }
     function getaproduct($id_product)
     {
@@ -96,6 +97,17 @@ class Product
             return $query->fetchAll(PDO::FETCH_OBJ);
         return null;
     }
+    function getListProductLike($id_user)
+    {
+        include "../../connection.php";
+        $sql = "SELECT DISTINCT p.`id_product`, p.`id_publishing_company`, p.name, p.`description`, `price`, `sell`, c.`id_category`, `date_publishing`, `description_detail`,p.quantity, i.url, i.alt FROM product p INNER JOIN tbl_like l on p.id_product = l.id_product LEFT JOIN `tbl_category` c on p.id_category = c.id_category LEFT JOIN tbl_publishing_company pc on pc.id_publishing_company = p.id_publishing_company  LEFT JOIN (SELECT * FROM image i1 Where i1.status = 1) as i ON p.id_product = i.id_use WHERE l.id_user =:id_user ";
+        $query = $dbh->prepare($sql);
+        $query->bindValue(':id_user', $id_user);
+        $query->execute();
+        if ($query->rowCount() > 0)
+            return $query->fetchAll(PDO::FETCH_OBJ);
+        return null;
+    }
     function getallproductwithpublishingcompany($id_publishing_company)
     {
         include "../../connection.php";
@@ -125,5 +137,14 @@ class Product
         $query->execute();
         $lastInsertId = $dbh->lastInsertId();
         header('location:../admin/manageproduct.php', true, 301);
+    }
+    function updateSub($product)
+    {
+        include "../../connection.php";
+        $sql = "UPDATE `product` SET  quantity=:quantity WHERE `id_product`=:id_product";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':id_product', $product->id_product, PDO::PARAM_STR);
+        $query->bindParam(':quantity', $product->quantity, PDO::PARAM_INT); 
+        $query->execute();
     }
 }

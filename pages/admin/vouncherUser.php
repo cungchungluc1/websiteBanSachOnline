@@ -6,14 +6,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="au theme template" />
-    
+
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
     <title>Dashboard</title>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" media="all" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet"
+        media="all" />
     <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet" media="all" />
 
     <!-- Fontfaces CSS-->
@@ -70,8 +71,8 @@
                             </div>
 
                             <div class="card-body">
-                            <form autocomplete="off" action="../controller/addVoucherUser.php" method="POST">
-                                            <?php
+                                <form autocomplete="off" action="../controller/addVoucherUser.php" method="POST">
+                                    <?php
                                                 include_once '../entity/user.php';
                                                 if(!session_id())
                                                     session_start();
@@ -83,63 +84,64 @@
                                                     $data = $u->getUser($id_code,$_GET['id']);
                                                 }
                                             ?>
-                                                
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-2 col-form-label">
-                                                    Name</label>
-                                                <div class="col-sm-9">
-                                                    <?php echo htmlentities($data->name); ?>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-2 col-form-label">
-                                                Sex</label>
-                                                <div class="col-sm-9">
-                                                    <?php echo htmlentities($data->sex); ?>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-2 col-form-label">
-                                                Email</label>
-                                                <div class="col-sm-9">
-                                                    <?php echo htmlentities($data->email); ?>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-2 col-form-label">
-                                                    Phone</label>
-                                                <div class="col-sm-9">
-                                                    <?php echo htmlentities($data->phone); ?>
-                                                </div>
-                                            </div>
-                                        
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Voucher</label>
-                                                <div class="col-sm-3">
-                                                    <input type="hidden" name="id_user" value="<?php echo htmlentities($data->id_user); ?>"/>
-                                                    <select id="inputState" name="id_vouncher" class="form-control">
-                                                        <option value="">Choose...</option>
-                                                        <?php
+
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-2 col-form-label">
+                                            Name</label>
+                                        <div class="col-sm-9">
+                                            <?php echo htmlentities($data->name); ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-2 col-form-label">
+                                            Sex</label>
+                                        <div class="col-sm-9">
+                                            <?php echo htmlentities($data->sex); ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-2 col-form-label">
+                                            Email</label>
+                                        <div class="col-sm-9">
+                                            <?php echo htmlentities($data->email); ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-2 col-form-label">
+                                            Phone</label>
+                                        <div class="col-sm-9">
+                                            <?php echo htmlentities($data->phone); ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Voucher</label>
+                                        <div class="col-sm-3">
+                                            <input type="hidden" name="id_user"
+                                                value="<?php echo htmlentities($data->id_user); ?>" />
+                                            <select id="inputState" name="id_vouncher" class="form-control">
+                                                <option value="">Choose...</option>
+                                                <?php
                                                         if($listV!=null)
                                                         foreach ($listV as $item) {
                                                         ?>
-                                                        <option value="<?php echo htmlentities($item->id_vouncher); ?>">
-                                                            <?php echo htmlentities($item->name); ?></option>
-                                                        <?php
+                                                <option value="<?php echo htmlentities($item->id_vouncher); ?>">
+                                                    <?php echo htmlentities($item->name); ?></option>
+                                                <?php
                                                         }
                                                         ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
-                                                <div class="col-sm-9">
-                                                    <button type="submit" class="btn btn-success btn-sm">
-                                                        <i class="fa fa-dot-circle-o"></i>Add
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </form>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
+                                        <div class="col-sm-9">
+                                            <button type="submit" class="btn btn-success btn-sm">
+                                                <i class="fa fa-dot-circle-o"></i>Add
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                                 <!-- end table-responsive-->
                             </div>
                             <!-- end card-body-->
@@ -151,58 +153,55 @@
 
                             <div class="card-body">
                                 <div class="table-responsive">
-                                <table id="dataTable"
-                                                    class="table table-bordered table-hover display dataTable no-footer"
-                                                    style="width: 100%" role="grid" aria-describedby="dataTable_info">
-                                                    <thead>
-                                                        <tr role="row">
-                                                            <th tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                                colspan="1" style="width: 45px">
-                                                                #
-                                                            </th>
-                                                            <th class="sorting_asc" tabindex="0"
-                                                                aria-controls="dataTable" rowspan="1" colspan="1"
-                                                                aria-sort="ascending"
-                                                                aria-label="Name: activate to sort column descending"
-                                                                style="width: 285px">
-                                                                Name Voucher
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="dataTable"
-                                                                rowspan="1" colspan="1"
-                                                                aria-label="Position: activate to sort column ascending"
-                                                                style="width: 282px">
-                                                                Status
-                                                            </th>
-                                                            <th tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                                colspan="1" style="width: 107px">
-                                                                Action
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
+                                    <table id="dataTable"
+                                        class="table table-bordered table-hover display dataTable no-footer"
+                                        style="width: 100%" role="grid" aria-describedby="dataTable_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                                    style="width: 45px">
+                                                    #
+                                                </th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable"
+                                                    rowspan="1" colspan="1" aria-sort="ascending"
+                                                    aria-label="Name: activate to sort column descending"
+                                                    style="width: 285px">
+                                                    Name Voucher
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                    colspan="1" aria-label="Position: activate to sort column ascending"
+                                                    style="width: 282px">
+                                                    Status
+                                                </th>
+                                                <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                                    style="width: 107px">
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
                                                         $listVs = $v->getUseVouncher($data->id_user);
                                                         $i = 1;
                                                         if($listVs!=null)
                                                         foreach ($listVs as $item) {
                                                         ?>
-                                                        <tr role="row" class="odd">
-                                                            <td class="sorting_1"><?php echo htmlentities($i++); ?></td>
-                                                            <td><?php echo htmlentities($item->name); ?></td>
-                                                            <td><?php echo htmlentities($item->status); ?></td>
-                                                            </td>
-                                                            <td><a
-                                                                    href="updatecategory.php?id=<?php echo htmlentities($item->id); ?>"><i
-                                                                        class="fas fa-edit"></i></a> <i
-                                                                    class="fas fa-remove"></i></td>
-                                                        </tr>
-                                                        <?php
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1"><?php echo htmlentities($i++); ?></td>
+                                                <td><?php echo htmlentities($item->name); ?></td>
+                                                <td><?php echo htmlentities($item->status); ?></td>
+                                                </td>
+                                                <td><a
+                                                        href="../controller/delVouncherUser.php?id=<?php echo htmlentities($item->id); ?>&id_pro=<?php echo htmlentities($_GET['id'])?>"><i
+                                                            class="fas fa-remove"></i></a></td>
+                                            </tr>
+                                            <?php
                                                         }
                                                         ?>
 
 
-                                                    </tbody>
-                                                </table>
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <!-- end table-responsive-->
                             </div>

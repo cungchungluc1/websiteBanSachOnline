@@ -12,7 +12,7 @@ if($data == null)
     header("location:../layout/page/login.php");
 
     $c = new cart();
-    $c->delete($data->id_user);
+    $c->deleteAll($data->id_user);
     header("location:../customer/cart.php");
     // echo $c->user_id."   /   ".$c->product_id."   /   ".$c->quantity;
 ?>

@@ -94,6 +94,9 @@ if($data == null)
                                                     <th class="ty-cart-content__title ty-right">
                                                         Tổng giá
                                                     </th>
+                                                    <th class="ty-cart-content__title ty-right">
+
+                                                    </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -220,6 +223,10 @@ if($data == null)
                                                                 class="price">đ</span></bdi>
                                                         <!--price_subtotal_update_4160822667-->
                                                     </td>
+                                                    <td><a
+                                                            href="../controller/delCartUser.php?id_product=<?php echo htmlentities($item->product_id); ?>"><i
+                                                                class="fas fa-remove" style="color:red;"></i></a>
+                                                    </td>
 
                                                 </tr>
                                                 <?php }}?>
@@ -243,7 +250,12 @@ if($data == null)
                                                     class="ty-gift-certificate-coupon ty-discount-coupon__control-group ty-input-append">
                                                     <label for="coupon_field" class="hidden cm-required">Mã giảm
                                                         giá</label>
-                                                    <?php 
+                                                    <select id="inputState" name="voucher"
+                                                        class="form-control ty-input-text cm-hint">
+                                                        <option value=""
+                                                            <?php if ($set_voucher == "") echo htmlentities('selected=""'); ?>>
+                                                            Thẻ quà tặng hoặc mã giảm giá</option>
+                                                        <?php 
                                     include_once "../entity/vouncher.php"; 
                                     include_once "../entity/user.php"; 
                                     $v=new vouncher();
@@ -257,11 +269,6 @@ if($data == null)
                                         if($dataUser!=null)
                                         $listVc=$v->getUseVouncher($dataUser->id_user);
                                         if($listVc!=null){
-                                            echo '<select id="inputState" name="voucher" class="form-control ty-input-text cm-hint">
-                                            <option value=""';
-                                            if ($set_voucher == "") 
-                                            echo htmlentities('selected=""'); 
-                                            echo '>Thẻ quà tặng hoặc mã giảm giá</option>';
                                             if($listCart!=null)
                                             foreach ($listVc as $item){
                                                 echo '<option value="'.htmlentities($item->id_vouncher).'"';
@@ -281,10 +288,11 @@ if($data == null)
                                               }
                                             }
                                               
-                                            echo '</select>';
+                                            
                                         }
                                     }    
                             ?>
+                                                    </select>
                                                     <button title="Áp dụng" class="ty-btn-go" type="submit">
                                                         Áp dụng
                                                     </button>

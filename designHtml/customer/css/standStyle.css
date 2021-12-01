@@ -866,7 +866,7 @@ a:focus {
 }
 a:active,
 a:hover {
-  outline: 0;
+  outline: 1;
 }
 h1 {
   font-size: 2em;

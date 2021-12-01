@@ -18,12 +18,12 @@ class category
         $lastInsertId = $dbh->lastInsertId();
         header('location:../admin/category.php', true, 301);
     }
-    function delete($id_category)
+    function delete($category)
     {
         include "../../connection.php";
         $sql = "DELETE FROM `tbl_category` WHERE  id_category =:id_category  ";
         $query = $dbh->prepare($sql);
-        $query->bindValue(':id_category', $id_category);
+        $query->bindValue(':id_category', $category->id_category);
         $query->execute();
         header('location:../admin/category.php', true, 301);
     }

@@ -41,6 +41,9 @@
     <script src="../layout/js/OneSignalPageSDKES6.js" async=""></script>
 
 
+    <link href="../layout/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all" />
+    <link href="../layout/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all" />
+
     <script src="../layout/js/emojione.min.js" type="text/javascript" async="" defer=""></script>
     <script src="../layout/js/emojione.min.js" type="text/javascript" async="" defer=""></script>
 </head>

@@ -2,13 +2,19 @@
     session_start(); 
     include_once "../entity/cart.php";
     include_once "../entity/user.php";
-    if(!isset($_SESSION["codeSession"]))
-        header("location:../layout/page/login.php");
+    if(!isset($_SESSION["codeSession"])){
+        echo '<script> alert("Bạn cần phải đăng nhập");
+                window.location.replace("../layout/page/login.php");
+                </script>';
+    }
     $id_code=$_SESSION["codeSession"];
     $u = new User();
     $data = $u->checkLogin($id_code);
-    if($data == null)
-        header("location:../layout/page/login.php");
+    if($data == null){
+        echo '<script> alert("Bạn cần phải đăng nhập");
+                window.location.replace("../layout/page/login.php");
+                </script>';
+    }
     $c = new cart();
     $now = getdate(); 
 	$ngaydathang = $now["year"] . "-" . $now["mon"] . "-" . $now["mday"]; 
