@@ -47,6 +47,27 @@ class User
 		}else header("location:../layout/page/logout.php");
 		
 	}
+	function getUserFB($id_user){
+		include "../../connection.php";
+		$sql = "SELECT `id_user`, `id_role`, `name`, `sex`, `email`, `phone`, `birthday`, `username`, `password`, `codeSession` FROM `tbl_user` WHERE id_user=:id_user";
+		$query = $dbh->prepare($sql);
+		$query->bindValue(':id_user', $id_user);
+		$query->execute();
+		if ($query->rowCount() > 0)
+			return $query->fetchAll(PDO::FETCH_OBJ)[0];
+		return null;
+	}
+
+	function loginWithFB($user){
+		$data = $this->getUserFB($user->id_user);
+		if($data!= null){
+			$this->updateCode($user);
+		}else {
+			$this->add($user);
+			$this->updateCode($user);
+		}
+		
+	}
 
 	function login($username, $password)
 	{

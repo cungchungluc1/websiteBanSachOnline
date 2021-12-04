@@ -4,6 +4,11 @@ function getNewId($table)
     $id = md5("time=" . getdate()[0] . ";table=" . $table);
     return $id;
 }
+function getNewFBId($table)
+{
+    $id = md5("table=" . $table);
+    return $id;
+}
 function get_client_ip() {
     $ipaddress = '';
     if (isset($_SERVER['HTTP_CLIENT_IP']))
