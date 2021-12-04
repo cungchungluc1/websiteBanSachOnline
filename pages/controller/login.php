@@ -1,4 +1,14 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login With Facebook</title>
+</head>
+
+<body>
+    <?php
 
 require_once '../src/Facebook/autoload.php';
 session_start();
@@ -16,4 +26,8 @@ $permissions = array(
 );
 $loginUrl = $helper->getLoginUrl('http://localhost:18080/websitebansachonline/pages/controller/fb-callback.php', $permissions);
 
-echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';?>
+echo '<script>window.location.replace("'.$loginUrl.'")</script>';
+?>
+</body>
+
+</html>
