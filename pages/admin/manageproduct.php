@@ -75,6 +75,7 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Image</th>
                                                 <th>Product Name</th>
                                                 <th>Category</th>
                                                 <th>Publishing Company</th>
@@ -88,16 +89,37 @@
                                         <tbody>
                                             <?php
                                                         include_once "../entity/product.php";
+                                                        include '../entity/publishingCompany.php';
+                                                        include '../entity/category.php';
                                                         $cate  = new Product();
                                                         $i = 1;
                                                         $list = $cate->getallproduct();
+                                                        
+                                                        $pc = new publishingCompany();
+                                                        $ca  = new category();
+                                                        if($list!=null)
                                                         foreach ($list as $item) {
+                                                            $aPC = $pc->getapublishingCompany($item->id_publishing_company);
+                                                            $acate = $ca->getacategory($item->id_category);
+                                                            $namepc="";
+                                                            $nameCate="";
+                                                            if($aPC!=null){
+                                                                $namepc=$aPC->name;
+                                                            }
+                                                            if($acate!=null){
+                                                                $nameCate=$acate->name;
+                                                            }
                                                         ?>
                                             <tr role="row" class="odd">
                                                 <td class="sorting_1"><?php echo htmlentities($i++); ?></td>
+                                                <td><?php echo '<img class="ty-pict cm-image"
+                                                        id="det_img_1746761672"
+                                                        src="../layout/'.htmlentities($item->url).'"
+                                                        alt="" title="" style="height: 50px; width: auto;" />'; ?>
+                                                </td>
                                                 <td><?php echo htmlentities($item->name); ?></td>
-                                                <td><?php echo htmlentities($item->id_category); ?></td>
-                                                <td><?php echo htmlentities($item->id_publishing_company); ?></td>
+                                                <td><?php echo htmlentities($nameCate); ?></td>
+                                                <td><?php echo htmlentities($namepc); ?></td>
                                                 <td><?php echo htmlentities($item->price); ?></td>
                                                 <td><?php echo htmlentities($item->quantity); ?></td>
                                                 <td><?php echo htmlentities($item->date_publishing); ?></td>
@@ -154,4 +176,3 @@
 </body>
 
 </html>
-<!-- end document-->

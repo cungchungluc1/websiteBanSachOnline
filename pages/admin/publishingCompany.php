@@ -7,14 +7,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="au theme template" />
-    
+
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
     <title>Dashboard</title>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" media="all" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet"
+        media="all" />
     <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet" media="all" />
 
     <!-- Fontfaces CSS-->
@@ -69,9 +70,11 @@
                             <div class="card-body">
                                 <div class="table-responsive" style="overflow-x: none !important">
                                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                        <form autocomplete="off" action="../controller/addPublishingCompany.php" method="POST"  enctype="multipart/form-data">
+                                        <form autocomplete="off" action="../controller/addPublishingCompany.php"
+                                            method="POST" enctype="multipart/form-data">
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Publishing Company
+                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Publishing
+                                                    Company
                                                     Name</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" name="name" class="form-control" />
@@ -81,18 +84,19 @@
                                                 <div class="row">
                                                     <label class="col-sm-2 col-form-label">Description</label>
                                                     <div class="col-sm-9">
-                                                    <textarea cols="80" id="editor1" name="description" rows="5"></textarea>
-                                                    <script>
-                                                    CKEDITOR.replace("editor1", {
-                                                        fullPage: true,
-                                                        extraPlugins: "docprops",
-                                                        // Disable content filtering because if you use full page mode, you probably
-                                                        // want to  freely enter any HTML content in source mode without any limitations.
-                                                        allowedContent: true,
-                                                        height: 220,
-                                                        removeButtons: "PasteFromWord",
-                                                    });
-                                                    </script>
+                                                        <textarea cols="80" id="editor1" name="description"
+                                                            rows="5"></textarea>
+                                                        <script>
+                                                        CKEDITOR.replace("editor1", {
+                                                            fullPage: true,
+                                                            extraPlugins: "docprops",
+                                                            // Disable content filtering because if you use full page mode, you probably
+                                                            // want to  freely enter any HTML content in source mode without any limitations.
+                                                            allowedContent: true,
+                                                            height: 220,
+                                                            removeButtons: "PasteFromWord",
+                                                        });
+                                                        </script>
                                                     </div>
                                                 </div>
                                             </fieldset>
@@ -117,7 +121,8 @@
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Image</label>
                                                 <div class="col-sm-9">
-                                                <input class="form-control" type="file" name="fileToUpload" id="fileToUpload"/>
+                                                    <input class="form-control" type="file" name="fileToUpload"
+                                                        id="fileToUpload" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -142,80 +147,55 @@
 
                             <div class="card-body">
                                 <div class="table-responsive">
-                                <table id="dataTable"
-                                                    class="table table-bordered table-hover display dataTable no-footer"
-                                                    style="width: 100%" role="grid" aria-describedby="dataTable_info">
-                                                    <thead>
-                                                        <tr role="row">
-                                                            <th tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                                colspan="1" style="width: 45px">
-                                                                #
-                                                            </th>
-                                                            <th class="sorting_asc" tabindex="0"
-                                                                aria-controls="dataTable" rowspan="1" colspan="1"
-                                                                aria-sort="ascending"
-                                                                aria-label="Name: activate to sort column descending"
-                                                                style="width: 285px">
-                                                                Name
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="dataTable"
-                                                                rowspan="1" colspan="1"
-                                                                aria-label="Position: activate to sort column ascending"
-                                                                style="width: 282px">
-                                                                Description
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="dataTable"
-                                                                rowspan="1" colspan="1"
-                                                                aria-label="Office: activate to sort column ascending"
-                                                                style="width: 135px">
-                                                                Phone
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="dataTable"
-                                                                rowspan="1" colspan="1"
-                                                                aria-label="Office: activate to sort column ascending"
-                                                                style="width: 135px">
-                                                                Address
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="dataTable"
-                                                                rowspan="1" colspan="1"
-                                                                aria-label="Office: activate to sort column ascending"
-                                                                style="width: 135px">
-                                                                Email
-                                                            </th>
-                                                            <th tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                                colspan="1" style="width: 107px">
-                                                                Action
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
+                                    <table id="dataTable"
+                                        class="table table-bordered table-hover display dataTable no-footer" role="grid"
+                                        aria-describedby="dataTable_info">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Image</th>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Phone</th>
+                                                <th>Address</th>
+                                                <th>Email</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
                                                         $pc  = new publishingCompany();
                                                         $list = $pc->getallpublishingCompany();
                                                         $i = 1;
                                                         if($list!=null)
                                                         foreach ($list as $item) {
                                                         ?>
-                                                        <tr role="row" class="odd">
-                                                            <td class="sorting_1"><?php echo htmlentities($i++); ?></td>
-                                                            <td><?php echo htmlentities($item->name); ?></td>
-                                                            <td><?php echo ($item->description); ?></td>
-                                                            <td><?php echo htmlentities($item->phone); ?>
-                                                            <td><?php echo htmlentities($item->address); ?>
-                                                            <td><?php echo htmlentities($item->email); ?>
-                                                            </td>
-                                                            <td><a
-                                                                    href="updatePublishingCompany.php?id=<?php echo htmlentities($item->id_publishing_company); ?>"><i
-                                                                        class="fas fa-edit"></i></a> <i
-                                                                    class="fas fa-remove"></i></td>
-                                                        </tr>
-                                                        <?php
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1"><?php echo htmlentities($i++); ?></td>
+                                                <td><?php echo '<img class="ty-pict cm-image"
+                                                                    id="det_img_1746761672"
+                                                                    src="../layout/'.htmlentities($item->url).'"
+                                                                    alt="" title="" style="height: 50px; width: auto;" />'; ?>
+                                                </td>
+                                                <td><?php echo htmlentities($item->name); ?></td>
+                                                <td><?php echo ($item->description); ?></td>
+                                                <td><?php echo htmlentities($item->phone); ?>
+                                                <td><?php echo htmlentities($item->address); ?>
+                                                <td><?php echo htmlentities($item->email); ?>
+                                                </td>
+                                                <td><a
+                                                        href="updatePublishingCompany.php?id=<?php echo htmlentities($item->id_publishing_company); ?>"><i
+                                                            class="fas fa-edit"></i></a> <i class="fas fa-remove"></i>
+                                                </td>
+                                            </tr>
+                                            <?php
                                                         }
                                                         ?>
 
 
-                                                    </tbody>
-                                                </table>
+                                        </tbody>
+                                    </table>
+
                                 </div>
                                 <!-- end table-responsive-->
                             </div>

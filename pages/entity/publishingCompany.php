@@ -57,7 +57,7 @@ class publishingCompany
     function getallpublishingCompany()
     {
         include "../../connection.php";
-        $sql = "SELECT DISTINCT `id_publishing_company`, `name`, `description`, `phone`, `address`, `email` FROM `tbl_publishing_company` ";
+        $sql = "SELECT DISTINCT `id_publishing_company`, p.`name`, `description`, `phone`, `address`, `email`, i.url, i.alt FROM `tbl_publishing_company` p  LEFT JOIN (SELECT * FROM image i1 Where i1.status = 1) as i ON p.id_publishing_company = i.id_use";
         $query = $dbh->prepare($sql);
         $query->execute();
         if ($query->rowCount() > 0)

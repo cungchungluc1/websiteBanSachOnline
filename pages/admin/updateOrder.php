@@ -141,6 +141,63 @@
                             </div>
                             <!-- end card-body-->
                         </div>
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h3>Order Detail</h3>
+
+                            </div>
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="dataTable"
+                                        class="table table-bordered table-hover display dataTable no-footer" role="grid"
+                                        aria-describedby="dataTable_info">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Image</th>
+                                                <th>Product Name</th>
+                                                <th>Quantity</th>
+                                                <th>price</th>
+                                                <th>Amount</th>
+                                                <th>Publishing Company</th>
+                                                <th>Category</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                        include_once "../entity/orderDetail.php";
+                                                        $cate  = new orderDetail();
+                                                        $i = 1;
+                                                        $list = $cate->getallorderwithorderDetail($_GET["id"]);
+                                                        if($list!=null)
+                                                        foreach ($list as $item) {
+                                                        ?>
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1"><?php echo htmlentities($i++); ?></td>
+                                                <td><?php echo '<img class="ty-pict cm-image"
+                                                        id="det_img_1746761672"
+                                                        src="../layout/'.htmlentities($item->url).'"
+                                                        alt="" title="" style="height: 50px; width: auto;" />'; ?>
+                                                </td>
+                                                <td><?php echo htmlentities($item->name); ?></td>
+                                                <td><?php echo htmlentities($item->quantity); ?></td>
+                                                <td><?php echo htmlentities($item->price); ?></td>
+                                                <td><?php echo htmlentities($item->total_price); ?></td>
+                                                <td><?php echo htmlentities($item->id_publishing_company); ?></td>
+                                                <td><?php echo htmlentities($item->id_category); ?></td>
+                                            </tr>
+                                            <?php
+                                                        }
+                                                        ?>
+
+                                        </tbody>
+                                    </table>
+                                    <!-- end table-responsive-->
+                                </div>
+                            </div>
+                            <!-- end card-body-->
+                        </div>
                     </div>
                 </div>
             </div>

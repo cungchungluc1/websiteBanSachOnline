@@ -52,46 +52,52 @@ if($data == null)
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Date order</th>
-                                                <th>Full Name</th>
-                                                <th>Phone</th>
-                                                <th>Address</th>
+                                                <th>Image</th>
+                                                <th>Product Name</th>
+                                                <th>Publishing Company</th>
+                                                <th>Category</th>
+                                                <th>Quantity</th>
+                                                <th>price</th>
                                                 <th>Amount</th>
-                                                <th>Status</th>
-                                                <th>Status payment</th>
-                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $id_user=null;
-                                            if(session_id()){
-                                                include_once "../entity/user.php";
-                                                $id_code=$_SESSION["codeSession"];
-                                                $u = new User();
-                                                $dataUser = $u->checklogin($id_code);
-                                                $id_user=$dataUser->id_user;
-                                            }
-                                            include_once "../entity/order.php";
-                                            $cate  = new order();
-                                            $i = 1;
-                                            $list = $cate->getallorderuser($id_user);
-                                            if($list!=null)
-                                            foreach ($list as $item) {
-                                            ?>
+                                                        include_once "../entity/orderDetail.php";
+                                                        $cate  = new orderDetail();
+                                                        $i = 1;
+                                                        $list = $cate->getallorderwithorderDetail($_GET["id"]);
+                                                        include '../entity/publishingCompany.php';
+                                                        $pc = new publishingCompany();
+                                                        $ca  = new category();
+                                                        
+                                                        if($list!=null)
+                                                        foreach ($list as $item) {
+                                                            $aPC = $pc->getapublishingCompany($item->id_publishing_company);
+                                                            $acate = $ca->getacategory($item->id_category);
+                                                            $namepc="";
+                                                            $nameCate="";
+                                                            if($aPC!=null){
+                                                                $namepc=$aPC->name;
+                                                            }
+                                                            if($acate!=null){
+                                                                $nameCate=$acate->name;
+                                                            }
+                                                            
+                                                        ?>
                                             <tr role="row" class="odd">
                                                 <td class="sorting_1"><?php echo htmlentities($i++); ?></td>
-                                                <td><?php echo htmlentities($item->date_added); ?></td>
-                                                <td><?php echo htmlentities($item->name); ?></td>
-                                                <td><?php echo htmlentities($item->phone); ?></td>
-                                                <td><?php echo htmlentities($item->diachi); ?></td>
-                                                <td><?php echo htmlentities($item->amount); ?></td>
-                                                <td><?php echo htmlentities($item->status); ?></td>
-                                                <td><?php echo htmlentities($item->status_payment); ?></td>
-                                                <td><a
-                                                        href="myOrderDetail.php?id=<?php echo htmlentities($item->id_order); ?>"><i
-                                                            class="fas fa-edit"></i></a>
+                                                <td><?php echo '<img class="ty-pict cm-image"
+                                                        id="det_img_1746761672"
+                                                        src="../layout/'.htmlentities($item->url).'"
+                                                        alt="" title="" style="height: 50px; width: auto;" />'; ?>
                                                 </td>
+                                                <td><?php echo htmlentities($item->name); ?></td>
+                                                <td><?php echo htmlentities($namepc); ?></td>
+                                                <td><?php echo htmlentities($nameCate); ?></td>
+                                                <td><?php echo htmlentities($item->quantity); ?></td>
+                                                <td><?php echo htmlentities($item->price); ?></td>
+                                                <td><?php echo htmlentities($item->total_price); ?></td>
                                             </tr>
                                             <?php
                                                         }

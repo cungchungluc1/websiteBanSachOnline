@@ -37,7 +37,6 @@ class category
         $query->bindParam(':description', $category->description, PDO::PARAM_STR);
         $query->bindParam(':id_parten_category', $category->id_parten_category, PDO::PARAM_STR);
         $query->execute();
-        $lastInsertId = $dbh->lastInsertId();
         header('location:../admin/category.php', true, 301);
     }
     function getacategory($id_category)

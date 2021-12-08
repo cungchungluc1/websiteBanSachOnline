@@ -83,6 +83,9 @@
                                                     #
                                                 </th>
                                                 <th>
+                                                    Image
+                                                </th>
+                                                <th>
                                                     Name
                                                 </th>
                                                 <th>
@@ -120,6 +123,11 @@
                                                         ?>
                                             <tr role="row" class="odd">
                                                 <td class="sorting_1"><?php echo htmlentities($i++); ?></td>
+                                                <td><?php echo '<img class="ty-pict cm-image"
+                                                        id="det_img_1746761672"
+                                                        src="../layout/'.htmlentities($item->url).'"
+                                                        alt="" title="" style="height: 50px; width: auto;" />'; ?>
+                                                </td>
                                                 <td><?php echo htmlentities($item->name); ?></td>
                                                 <td><?php echo htmlentities($item->sex); ?></td>
                                                 <td><?php echo htmlentities($item->email); ?></td>

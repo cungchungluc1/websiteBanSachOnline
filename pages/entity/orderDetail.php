@@ -36,21 +36,10 @@ class orderDetail{
             $query->bindParam(':quantity',$orderDetail->quantity,PDO::PARAM_STR);
             $query->bindParam(':total_price',$orderDetail->total_price,PDO::PARAM_STR);
             $query->execute();
-            $lastInsertId = $dbh->lastInsertId();
-            if($lastInsertId)
-                {
-                    $msg="Tạo thành công";
-                    header('location:ok.php',true,301);
-                }
-                else 
-                {
-                    $error="Thêm thất bại. Hãy thử lại";
-                    header('location:err.php',true,301);
-                }
         } 
         function getallorderwithorderDetail($id_order_detail) {
             include "../../connection.php";
-            $sql = "SELECT DISTINCT * FROM `tbl_order_detail` WHERE id_order_detail =:id_order_detail";
+            $sql = "SELECT o.`id_order_detail`, o.`id_product`,o.`price`, o.`quantity`, o.`total_price`, p.id_publishing_company, p.id_category, p.name, i.url, i.alt, i.status FROM `tbl_order_detail` o INNER JOIN product p ON p.id_product=o.id_product  LEFT JOIN (SELECT * FROM image i1 Where i1.status = 1) as i ON i.id_use = o.id_product  WHERE id_order_detail =:id_order_detail";
             $query = $dbh->prepare($sql);
             $query-> bindValue(':id_order_detail', $id_order_detail);
             $query->execute();

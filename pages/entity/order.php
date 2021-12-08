@@ -68,6 +68,16 @@ class order{
             return $query->fetchAll(PDO::FETCH_OBJ);
             return null;
         }
+        function getallorderuser($id_user) {
+            include "../../connection.php";
+            $sql = "SELECT DISTINCT `id_order`, `status_payment`, a.name, a.phone,a.diachi, `amount`, `status`, `date_added` FROM `tbl_order`o INNER JOIN tbl_address_shipping a on a.id_address=o.`id_address` WHERE a.id_user=:id_user";
+            $query = $dbh->prepare($sql);
+            $query->bindParam(':id_user',$id_user,PDO::PARAM_STR);
+            $query->execute();
+            if($query->rowCount() > 0) 
+            return $query->fetchAll(PDO::FETCH_OBJ);
+            return null;
+        }
         function getallordertoday() {
             include "../../connection.php";
             $now = getdate(); 

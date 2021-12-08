@@ -149,46 +149,34 @@
                                 <div class="table-responsive">
                                     <table id="dataTable"
                                         class="table table-bordered table-hover display dataTable no-footer"
-                                        style="width: 100%" role="grid" aria-describedby="dataTable_info">
+                                        style="width: 100%">
                                         <thead>
-                                            <tr role="row">
-                                                <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                                    style="width: 45px">
+                                            <tr>
+                                                <th>
                                                     #
                                                 </th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable"
-                                                    rowspan="1" colspan="1" aria-sort="ascending"
-                                                    aria-label="Name: activate to sort column descending"
-                                                    style="width: 285px">
+                                                <th>
+                                                    Image
+                                                </th>
+                                                <th>
                                                     name
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                    colspan="1" aria-label="Position: activate to sort column ascending"
-                                                    style="width: 282px">
+                                                <th>
                                                     Description
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                    colspan="1" aria-label="Office: activate to sort column ascending"
-                                                    style="width: 135px">
+                                                <th>
                                                     Code
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                    colspan="1" aria-label="Office: activate to sort column ascending"
-                                                    style="width: 135px">
+                                                <th>
                                                     Sell
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                    colspan="1" aria-label="Office: activate to sort column ascending"
-                                                    style="width: 135px">
+                                                <th>
                                                     Date start
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                    colspan="1" aria-label="Office: activate to sort column ascending"
-                                                    style="width: 135px">
+                                                <th>
                                                     Date end
                                                 </th>
-                                                <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                                    style="width: 107px">
+                                                <th>
                                                     Action
                                                 </th>
                                             </tr>
@@ -203,6 +191,11 @@
                                                         ?>
                                             <tr role="row" class="odd">
                                                 <td class="sorting_1"><?php echo htmlentities($i++); ?></td>
+                                                <td><?php echo '<img class="ty-pict cm-image"
+                                                        id="det_img_1746761672"
+                                                        src="../layout/'.htmlentities($item->url).'"
+                                                        alt="" title="" style="height: 50px; width: auto;" />'; ?>
+                                                </td>
                                                 <td><?php echo htmlentities($item->name); ?></td>
                                                 <td><?php echo htmlentities($item->description); ?></td>
                                                 <td><?php echo htmlentities($item->code); ?></td>

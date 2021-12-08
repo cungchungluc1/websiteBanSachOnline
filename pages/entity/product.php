@@ -54,7 +54,7 @@ class Product
     {
         
         include "../../connection.php";
-        $sql = "SELECT DISTINCT `id_product`, `id_publishing_company`, p.name, `description`, `price`, `sell`, `id_category`, `date_publishing`, `description_detail`,p.quantity FROM product p LEFT JOIN (SELECT * FROM image i1 Where i1.status = 1) as i ON p.id_product = i.id_use";
+        $sql = "SELECT DISTINCT `id_product`, `id_publishing_company`, p.name, `description`, `price`, `sell`, `id_category`, `date_publishing`, `description_detail`,p.quantity, i.url, i.alt  FROM product p LEFT JOIN (SELECT * FROM image i1 Where i1.status = 1) as i ON p.id_product = i.id_use";
         $query = $dbh->prepare($sql);
         $query->execute();
         if ($query->rowCount() > 0)

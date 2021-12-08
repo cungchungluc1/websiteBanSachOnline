@@ -98,7 +98,7 @@ class User
 		$data = $this->checklogin($codeSession);
 		if($data->id_role == 'admin'){
 			include "../../connection.php";
-			$sql = "SELECT DISTINCT `id_user`, r.name as role, u.name, `sex`, `email`, `phone` FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role ";
+			$sql = "SELECT DISTINCT `id_user`, r.name as role, u.name, `sex`, `email`, `phone`, i.url, i.alt FROM tbl_user u INNER JOIN tbl_role r ON r.id_role = u.id_role  LEFT JOIN (SELECT * FROM image i1 Where i1.status = 1) as i ON u.id_user = i.id_use";
 			$query = $dbh->prepare($sql);
 			$query->execute();
 			if ($query->rowCount() > 0)

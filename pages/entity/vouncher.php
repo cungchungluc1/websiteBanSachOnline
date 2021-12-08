@@ -41,7 +41,7 @@ class vouncher
         $query->bindParam(':name', $vouncher->name, PDO::PARAM_STR);
         $query->bindParam(':description', $vouncher->description, PDO::PARAM_STR);
         $query->bindParam(':code', $vouncher->code, PDO::PARAM_STR);
-        $query->bindParam(':sell', $vouncher->name, PDO::PARAM_STR);
+        $query->bindParam(':sell', $vouncher->sell, PDO::PARAM_STR);
         $query->bindParam(':date_start', $vouncher->date_start, PDO::PARAM_STR);
         $query->bindParam(':date_end', $vouncher->date_end, PDO::PARAM_STR);
         $query->execute();
@@ -50,7 +50,7 @@ class vouncher
     function getallvouncher()
     {
         include "../../connection.php";
-        $sql = "SELECT DISTINCT `id_vouncher`, `name`, `description`, `code`, `sell`, `date_start`, `date_end` FROM `tbl_vouncher` ";
+        $sql = "SELECT DISTINCT `id_vouncher`, p.`name`, `description`, `code`, `sell`, `date_start`, `date_end`, i.url, i.alt FROM `tbl_vouncher` p  LEFT JOIN (SELECT * FROM image i1 Where i1.status = 1) as i ON p.id_vouncher = i.id_use";
         $query = $dbh->prepare($sql);
         $query->execute();
         if ($query->rowCount() > 0)
