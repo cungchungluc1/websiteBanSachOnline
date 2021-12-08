@@ -82,7 +82,7 @@ class order{
             include "../../connection.php";
             $now = getdate(); 
             $ngaydathang = $now["year"] . "-" . $now["mon"] . "-" . $now["mday"]; 
-            $sql = "SELECT DISTINCT `id_order`, u.name, `id_address`, `amount`, `status`,status_payment, `date_added` FROM `tbl_order` o INNER JOIN tbl_user u ON o.id_user = u.id_user WHERE status = 'Đã Đặt' and  date_added ='".$ngaydathang."'";
+            $sql = "SELECT DISTINCT `id_order`, u.name, `id_address`, `amount`, `status`,status_payment, `date_added` FROM `tbl_order` o INNER JOIN tbl_user u ON o.id_user = u.id_user WHERE status = 'Đã Đặt'  ORDER BY date_added Desc";
             $query = $dbh->prepare($sql);
             $query->execute();
             if($query->rowCount() > 0) 
