@@ -192,15 +192,36 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                                                                         for="qty_count_161920">Số lượng:</label>
                                                                     <div
                                                                         class="ty-center ty-value-changer cm-value-changer">
-                                                                        <a
-                                                                            class="cm-increase ty-value-changer__increase">+</a>
+                                                                        <a class="cm-increase ty-value-changer__increase"
+                                                                            id="asc">+</a>
                                                                         <input type="text" size="5"
                                                                             class="ty-value-changer__input cm-amount"
-                                                                            id="qty_count_161920"
-                                                                            name="product_quantity" value="1"
-                                                                            data-ca-min-qty="1" />
-                                                                        <a
-                                                                            class="cm-decrease ty-value-changer__decrease">−</a>
+                                                                            id="quantity" name="product_quantity"
+                                                                            value="1" data-ca-min-qty="1" />
+                                                                        <a class="cm-decrease ty-value-changer__decrease"
+                                                                            id="desc">−</a>
+                                                                        <script>
+                                                                        $("#asc").on('click', function() {
+                                                                            let max = Number( <?php echo htmlentities($dataaproduct->quantity); ?> );
+                                                                            let a = 0;
+                                                                            a += Number($("#quantity").val()) +
+                                                                                1;
+                                                                            if (a > max) {
+                                                                                a = max;
+                                                                                alert("Đã nhập vượt quá số lượng sản phẩm ");
+                                                                            }
+                                                                            $("#quantity").val(a);
+                                                                            
+                                                                        });
+                                                                        
+                                                                        $("#desc").on('click', function() {
+                                                                            let a = 0;
+                                                                            a = Number($("#quantity").val()) -
+                                                                                1;
+                                                                            if (a < 1) a = 1;
+                                                                            $("#quantity").val(a);
+                                                                        });
+                                                                        </script>
                                                                     </div>
                                                                 </div>
                                                                 <!--qty_update_161920-->
