@@ -194,10 +194,10 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                                                                         class="ty-center ty-value-changer cm-value-changer">
                                                                         <a class="cm-increase ty-value-changer__increase"
                                                                             id="asc">+</a>
-                                                                        <input type="text" size="5"
+                                                                        <input type="number" size="5"
                                                                             class="ty-value-changer__input cm-amount"
                                                                             id="quantity" name="product_quantity"
-                                                                            value="1" data-ca-min-qty="1" />
+                                                                            value="1" min="1" max="<?php echo htmlentities($dataaproduct->quantity); ?>" />
                                                                         <a class="cm-decrease ty-value-changer__decrease"
                                                                             id="desc">−</a>
                                                                         <script>
