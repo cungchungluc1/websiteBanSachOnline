@@ -31,13 +31,13 @@
     <script type="text/javascript" async="" src="../layout/js/recaptcha__vi.js" crossorigin="anonymous"
         integrity="sha384-BrOjPkGGxnPWI7NkOQAumTqm3e2HSQQ73VAU5ch0NeDt0Tk20JVtdTQXuvqRh4Rf"></script>
     <script type="text/javascript" async="" src="../layout/js/dc.js"></script>
-    <script src="../layout/js/default.js" charset="UTF-8" crossorigin="*"></script>
+    <!-- <script src="../layout/js/default.js" charset="UTF-8" crossorigin="*"></script> -->
     <script async="" src="../layout/js/analytics.js"></script>
     <script async="" src="../layout/js/fbevents.js"></script>
     <script type="text/javascript" async="" src="../layout/js/analytics.js"></script>
     <script async="async" src="../layout/js/js.js"></script>
 
-    <script src="../layout/js/f.txt"></script>
+    <!-- <script src="../layout/js/f.txt"></script> -->
     <script src="../layout/js/OneSignalPageSDKES6.js" async=""></script>
 
 

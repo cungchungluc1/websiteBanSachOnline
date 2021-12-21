@@ -345,7 +345,7 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
     <script src="../layout/js/update.min.js"></script>
     <script src="../layout/js/index.js"></script>
     <div class="hidden" title="undefined" id="undefined"></div>
-    <script src="https://cdn-asset.optimonk.com/vendor/swiper.min.js"></script>
+    
 
 
 

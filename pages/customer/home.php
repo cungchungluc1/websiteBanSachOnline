@@ -229,7 +229,7 @@ include_once "./component/listProduct.php";
     <script type="text/javascript" src="../layout/js/et-product_image_gallery.js"></script>
     <script src="../layout/js/update.min.js"></script>
     <script src="../layout/js/index.js"></script>
-    <script src="https://cdn-asset.optimonk.com/vendor/swiper.min.js"></script>
+    
 </body>
 
 </html>
