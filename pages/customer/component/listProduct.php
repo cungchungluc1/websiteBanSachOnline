@@ -74,14 +74,19 @@ function getListProductHtmlwithcategory($id, $limit){
                                          $i =0; }
                                          echo '<div class="owl-item active" style="width: 298px">
                                             <div class="jscroll-item vs-grid et-grid">
-                                                <input type="hidden" name="sb__stickers_output_side"
-                                                    value="L" />
+                                                
                                                 <div class="ty-center scroll-image" style="height: 213px;">
                                                     <a href="./product.php?id='.htmlentities($item->id_product).'">
                                                         <img class="ty-pict cm-image"
                                                             id="det_img_1746761672"
                                                             src="../layout/'.htmlentities($item->url).'"
                                                             alt="" title="" style="height: 213px; width: auto;" />
+                                                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=http://localhost:18080/websitebansachonline/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
+                                                            style = " 
+                                                            position:relative; 
+                                                            top:-80px; 
+                                                            left:75px; 
+                                                            z-index:3;"/>
                                                     </a>
                                                 </div>
                                                 <div class="center compact">
@@ -90,13 +95,7 @@ function getListProductHtmlwithcategory($id, $limit){
                                                             name="product_form_375000scr_375000158939"
                                                             enctype="multipart/form-data"
                                                             class="cm-disable-empty-files cm-ajax cm-ajax-full-render cm-ajax-status-middle cm-processed-form">
-                                                            <input type="hidden" name="result_ids"
-                                                                value="cart_status*,wish_list*,checkout*,account_info*" />
-                                                            <input type="hidden" name="redirect_url"
-                                                                value="index.php?sl=vi" />
-                                                            <input type="hidden"
-                                                                name="product_data[scr_375000158939][product_id]"
-                                                                value="158939" />
+                                                            
                                                             <div class="title-price-wrapper">
                                                                 <bdi>
                                                                     <a href="./product.php?id='.htmlentities($item->id_product).'"
@@ -110,12 +109,7 @@ function getListProductHtmlwithcategory($id, $limit){
                                                                             <span
                                                                                 class="cm-reload-375000scr_375000158939 ty-price-update"
                                                                                 id="price_update_375000scr_375000158939">
-                                                                                <input type="hidden"
-                                                                                    name="appearance[show_price_values]"
-                                                                                    value="1" />
-                                                                                <input type="hidden"
-                                                                                    name="appearance[show_price]"
-                                                                                    value="1" />
+                                                                                
                                                                                 <span class="ty-price"
                                                                                     id="line_discounted_price_375000scr_375000158939"><bdi><span
                                                                                             id="sec_discounted_price_375000scr_375000158939"
@@ -130,6 +124,7 @@ function getListProductHtmlwithcategory($id, $limit){
                                                                                 id="old_price_update_375000scr_375000158939">
                                                                                 <!--old_price_update_375000scr_375000158939-->
                                                                             </span>
+                                                                           
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -248,14 +243,19 @@ function getListProductHtmlwithParentCategory($id, $limit){
                                          $i =0; }
                                          echo '<div class="owl-item active" style="width: 298px">
                                             <div class="jscroll-item vs-grid et-grid">
-                                                <input type="hidden" name="sb__stickers_output_side"
-                                                    value="L" />
+                                                
                                                 <div class="ty-center scroll-image" style="height: 213px;">
                                                     <a href="./product.php?id='.htmlentities($item->id_product).'">
                                                         <img class="ty-pict cm-image"
                                                             id="det_img_1746761672"
                                                             src="../layout/'.htmlentities($item->url).'"
                                                             alt="" title="" style="height: 213px; width: auto;" />
+                                                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=http://localhost:18080/websitebansachonline/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
+                                                            style = " 
+                                                            position:relative; 
+                                                            top:-80px; 
+                                                            left:75px; 
+                                                            z-index:3;"/>
                                                     </a>
                                                 </div>
                                                 <div class="center compact">
@@ -264,13 +264,7 @@ function getListProductHtmlwithParentCategory($id, $limit){
                                                             name="product_form_375000scr_375000158939"
                                                             enctype="multipart/form-data"
                                                             class="cm-disable-empty-files cm-ajax cm-ajax-full-render cm-ajax-status-middle cm-processed-form">
-                                                            <input type="hidden" name="result_ids"
-                                                                value="cart_status*,wish_list*,checkout*,account_info*" />
-                                                            <input type="hidden" name="redirect_url"
-                                                                value="index.php?sl=vi" />
-                                                            <input type="hidden"
-                                                                name="product_data[scr_375000158939][product_id]"
-                                                                value="158939" />
+                                                            
                                                             <div class="title-price-wrapper">
                                                                 <bdi>
                                                                     <a href="./product.php?id='.htmlentities($item->id_product).'"
@@ -284,12 +278,7 @@ function getListProductHtmlwithParentCategory($id, $limit){
                                                                             <span
                                                                                 class="cm-reload-375000scr_375000158939 ty-price-update"
                                                                                 id="price_update_375000scr_375000158939">
-                                                                                <input type="hidden"
-                                                                                    name="appearance[show_price_values]"
-                                                                                    value="1" />
-                                                                                <input type="hidden"
-                                                                                    name="appearance[show_price]"
-                                                                                    value="1" />
+                                                                                
                                                                                 <span class="ty-price"
                                                                                     id="line_discounted_price_375000scr_375000158939"><bdi><span
                                                                                             id="sec_discounted_price_375000scr_375000158939"
@@ -304,6 +293,7 @@ function getListProductHtmlwithParentCategory($id, $limit){
                                                                                 id="old_price_update_375000scr_375000158939">
                                                                                 <!--old_price_update_375000scr_375000158939-->
                                                                             </span>
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -428,6 +418,12 @@ function getSearchListProductHtml($search){
                                                         id="det_img_1746761672"
                                                         src="../layout/'.htmlentities($item->url).'"
                                                         alt="" title="" style="height: 213px; width: auto;" />
+                                                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=http://localhost:18080/websitebansachonline/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
+                                                        style = " 
+                                                        position:relative; 
+                                                        top:-80px; 
+                                                        left:75px; 
+                                                        z-index:3;"/>
                                                 </a>
                                             </div>
                                             <div class="center compact">
@@ -594,14 +590,19 @@ function getallproductwithpublishingcompany($id, $limit){
                                          $i =0; }
                                          echo '<div class="owl-item active" style="width: 298px">
                                             <div class="jscroll-item vs-grid et-grid">
-                                                <input type="hidden" name="sb__stickers_output_side"
-                                                    value="L" />
+                                                
                                                 <div class="ty-center scroll-image" style="height: 213px;">
                                                     <a href="./product.php?id='.htmlentities($item->id_product).'">
                                                         <img class="ty-pict cm-image"
                                                             id="det_img_1746761672"
                                                             src="../layout/'.htmlentities($item->url).'"
                                                             alt="" title="" style="height: 213px; width: auto;" />
+                                                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=http://localhost:18080/websitebansachonline/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
+                                                            style = " 
+                                                            position:relative; 
+                                                            top:-80px; 
+                                                            left:75px; 
+                                                            z-index:3;"/>
                                                     </a>
                                                 </div>
                                                 <div class="center compact">
@@ -610,13 +611,7 @@ function getallproductwithpublishingcompany($id, $limit){
                                                             name="product_form_375000scr_375000158939"
                                                             enctype="multipart/form-data"
                                                             class="cm-disable-empty-files cm-ajax cm-ajax-full-render cm-ajax-status-middle cm-processed-form">
-                                                            <input type="hidden" name="result_ids"
-                                                                value="cart_status*,wish_list*,checkout*,account_info*" />
-                                                            <input type="hidden" name="redirect_url"
-                                                                value="index.php?sl=vi" />
-                                                            <input type="hidden"
-                                                                name="product_data[scr_375000158939][product_id]"
-                                                                value="158939" />
+                                                            
                                                             <div class="title-price-wrapper">
                                                                 <bdi>
                                                                     <a href="./product.php?id='.htmlentities($item->id_product).'"
@@ -630,12 +625,7 @@ function getallproductwithpublishingcompany($id, $limit){
                                                                             <span
                                                                                 class="cm-reload-375000scr_375000158939 ty-price-update"
                                                                                 id="price_update_375000scr_375000158939">
-                                                                                <input type="hidden"
-                                                                                    name="appearance[show_price_values]"
-                                                                                    value="1" />
-                                                                                <input type="hidden"
-                                                                                    name="appearance[show_price]"
-                                                                                    value="1" />
+                                                                                
                                                                                 <span class="ty-price"
                                                                                     id="line_discounted_price_375000scr_375000158939"><bdi><span
                                                                                             id="sec_discounted_price_375000scr_375000158939"
@@ -650,7 +640,7 @@ function getallproductwithpublishingcompany($id, $limit){
                                                                                 id="old_price_update_375000scr_375000158939">
                                                                                 <!--old_price_update_375000scr_375000158939-->
                                                                             </span>
-                                                                        </div>
+                                                                            </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -784,6 +774,12 @@ function getListProductLike(){
                                                         id="det_img_1746761672"
                                                         src="../layout/'.htmlentities($item->url).'"
                                                         alt="" title="" style="height: 213px; width: auto;" />
+                                                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=http://localhost:18080/websitebansachonline/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
+                                                        style = " 
+                                                        position:relative; 
+                                                        top:-80px; 
+                                                        left:75px; 
+                                                        z-index:3;"/>
                                                 </a>
                                             </div>
                                             <div class="center compact">

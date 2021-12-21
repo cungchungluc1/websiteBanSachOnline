@@ -1,6 +1,6 @@
 <div class="tygh-footer clearfix" id="tygh_footer">
                 <div class="container vs-footer-grid">
-                    <div class="row">
+                    <div class="row" style="display: contents;">
                         <div class="span16 footer-menu vs-full-width">
                             <div class="row">
                                 <div class="span4">

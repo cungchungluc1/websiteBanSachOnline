@@ -37,7 +37,7 @@
     <script type="text/javascript" async="" src="../layout/js/analytics.js"></script>
     <script async="async" src="../layout/js/js.js"></script>
 
-    <!-- <script src="../layout/js/f.txt"></script> -->
+    <script src="../layout/js/f.txt"></script>
     <script src="../layout/js/OneSignalPageSDKES6.js" async=""></script>
 
 

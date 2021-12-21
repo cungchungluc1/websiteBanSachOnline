@@ -84,7 +84,14 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                                                                                             src="<?php echo "../layout/".htmlentities($dataaproduct->url); ?>"
                                                                                             style="height: 500px;
                                                       max-width: 500px;
-                                                      width: auto;" data-src="" alt="" title="" /><svg
+                                                      width: auto;" data-src="" alt="" title="" />
+                                                      <img src="https://api.qrserver.com/v1/create-qr-code/?data=http://localhost:18080/websitebansachonline/pages/customer/product.php?id=<?php echo htmlentities($dataaproduct->id_product); ?>&amp;size=80x80" alt="" title="" 
+                                                            style = " 
+                                                            position:absolute; 
+                                                            top:0px;  
+                                                            left:0px;
+                                                            z-index:1000;"/>
+                                                      <svg
                                                                                             class="ty-pict__container"
                                                                                             aria-hidden="true"
                                                                                             width="500" height="500"
@@ -97,6 +104,7 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                                                       transform: translateX(-50%);
                                                       z-index: -1;
                                                     ">
+                                                    
                                                                                             <rect fill="transparent"
                                                                                                 width="500"
                                                                                                 height="500"></rect>
@@ -119,6 +127,7 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                                                     </div>
                                                     <div
                                                         class="prices-container price-wrap clearfix product-detail-price et-price">
+                                                        
                                                         <div class="product-prices clearfix">
                                                             <div class="actual-price">
                                                                 <span class="cm-reload-161920 ty-price-update"
@@ -148,6 +157,7 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    
                                                     <div class="et-info-wrapper clearfix">
                                                         <div class="advanced-options-wrapper clearfix">
                                                             <div class="cm-reload-161920"
