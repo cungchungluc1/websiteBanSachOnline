@@ -45,9 +45,9 @@ function getListProductHtmlwithcategory($id, $limit){
                         <div class="center ty-banner__image-wrapper">
                             <a alt="12-tua-sach-phuong-nam-book-dang-doc.html" target="_blank">
                                 <img class="ty-pict cm-image" id="det_img_198504092"
-                                    src="../layout/image/Sách_PNB_đoạt_giải_590x200_2.jpg" alt=""
+                                    src="../layout/image/S_PNB_DG_590x200_2.jpg" alt=""
                                     title="" /><noscript><img class="cm-image"
-                                        src="../layout/image/Sách_PNB_đoạt_giải_590x200_2.jpg"
+                                        src="../layout/image/S_PNB_DG_590x200_2.jpg"
                                         width="590" height="200" alt="" title="" /></noscript>
                             </a>
                         </div>
@@ -214,9 +214,9 @@ function getListProductHtmlwithParentCategory($id, $limit){
                         <div class="center ty-banner__image-wrapper">
                             <a alt="12-tua-sach-phuong-nam-book-dang-doc.html" target="_blank">
                                 <img class="ty-pict cm-image" id="det_img_198504092"
-                                    src="../layout/image/Sách_PNB_đoạt_giải_590x200_2.jpg" alt=""
+                                    src="../layout/image/S_PNB_DG_590x200_2.jpg" alt=""
                                     title="" /><noscript><img class="cm-image"
-                                        src="../layout/image/Sách_PNB_đoạt_giải_590x200_2.jpg"
+                                        src="../layout/image/S_PNB_DG_590x200_2.jpg"
                                         width="590" height="200" alt="" title="" /></noscript>
                             </a>
                         </div>
@@ -381,9 +381,9 @@ function getSearchListProductHtml($search){
                         <div class="center ty-banner__image-wrapper">
                             <a alt="12-tua-sach-phuong-nam-book-dang-doc.html" target="_blank">
                                 <img class="ty-pict cm-image" id="det_img_198504092"
-                                    src="../layout/image/Sách_PNB_đoạt_giải_590x200_2.jpg" alt=""
+                                    src="../layout/image/S_PNB_DG_590x200_2.jpg" alt=""
                                     title="" /><noscript><img class="cm-image"
-                                        src="../layout/image/Sách_PNB_đoạt_giải_590x200_2.jpg"
+                                        src="../layout/image/S_PNB_DG_590x200_2.jpg"
                                         width="590" height="200" alt="" title="" /></noscript>
                             </a>
                         </div>
@@ -561,9 +561,9 @@ function getallproductwithpublishingcompany($id, $limit){
                         <div class="center ty-banner__image-wrapper">
                             <a alt="12-tua-sach-phuong-nam-book-dang-doc.html" target="_blank">
                                 <img class="ty-pict cm-image" id="det_img_198504092"
-                                    src="../layout/image/Sách_PNB_đoạt_giải_590x200_2.jpg" alt=""
+                                    src="../layout/image/S_PNB_DG_590x200_2.jpg" alt=""
                                     title="" /><noscript><img class="cm-image"
-                                        src="../layout/image/Sách_PNB_đoạt_giải_590x200_2.jpg"
+                                        src="../layout/image/S_PNB_DG_590x200_2.jpg"
                                         width="590" height="200" alt="" title="" /></noscript>
                             </a>
                         </div>
@@ -737,9 +737,9 @@ function getListProductLike(){
                         <div class="center ty-banner__image-wrapper">
                             <a alt="12-tua-sach-phuong-nam-book-dang-doc.html" target="_blank">
                                 <img class="ty-pict cm-image" id="det_img_198504092"
-                                    src="../layout/image/Sách_PNB_đoạt_giải_590x200_2.jpg" alt=""
+                                    src="../layout/image/S_PNB_DG_590x200_2.jpg" alt=""
                                     title="" /><noscript><img class="cm-image"
-                                        src="../layout/image/Sách_PNB_đoạt_giải_590x200_2.jpg"
+                                        src="../layout/image/S_PNB_DG_590x200_2.jpg"
                                         width="590" height="200" alt="" title="" /></noscript>
                             </a>
                         </div>
