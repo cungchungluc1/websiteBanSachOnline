@@ -85,7 +85,7 @@ $dataaproduct = $pro->getaproduct($_GET['id']);
                                                                                             style="height: 500px;
                                                       max-width: 500px;
                                                       width: auto;" data-src="" alt="" title="" />
-                                                      <img src="https://api.qrserver.com/v1/create-qr-code/?data=http://localhost:18080/websitebansachonline/pages/customer/product.php?id=<?php echo htmlentities($dataaproduct->id_product); ?>&amp;size=80x80" alt="" title="" 
+                                                      <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://hoangvu47.000webhostapp.com/pages/customer/product.php?id=<?php echo htmlentities($dataaproduct->id_product); ?>&amp;size=80x80" alt="" title="" 
                                                             style = " 
                                                             position:absolute; 
                                                             top:0px;  

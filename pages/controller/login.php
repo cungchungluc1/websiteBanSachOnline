@@ -24,7 +24,7 @@ $helper = $fb->getRedirectLoginHelper();
 $permissions = array(
   'email'
 );
-$loginUrl = $helper->getLoginUrl('http://localhost:18080/websitebansachonline/pages/controller/fb-callback.php', $permissions);
+$loginUrl = $helper->getLoginUrl('https://hoangvu47.000webhostapp.com/pages/controller/fb-callback.php', $permissions);
 
 echo '<script>window.location.replace("'.$loginUrl.'")</script>';
 ?>

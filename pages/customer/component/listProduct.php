@@ -81,7 +81,7 @@ function getListProductHtmlwithcategory($id, $limit){
                                                             id="det_img_1746761672"
                                                             src="../layout/'.htmlentities($item->url).'"
                                                             alt="" title="" style="height: 213px; width: auto;" />
-                                                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=http://localhost:18080/websitebansachonline/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
+                                                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://hoangvu47.000webhostapp.com/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
                                                             style = " 
                                                             position:relative; 
                                                             top:-80px; 
@@ -250,7 +250,7 @@ function getListProductHtmlwithParentCategory($id, $limit){
                                                             id="det_img_1746761672"
                                                             src="../layout/'.htmlentities($item->url).'"
                                                             alt="" title="" style="height: 213px; width: auto;" />
-                                                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=http://localhost:18080/websitebansachonline/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
+                                                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://hoangvu47.000webhostapp.com/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
                                                             style = " 
                                                             position:relative; 
                                                             top:-80px; 
@@ -418,7 +418,7 @@ function getSearchListProductHtml($search){
                                                         id="det_img_1746761672"
                                                         src="../layout/'.htmlentities($item->url).'"
                                                         alt="" title="" style="height: 213px; width: auto;" />
-                                                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=http://localhost:18080/websitebansachonline/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
+                                                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://hoangvu47.000webhostapp.com/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
                                                         style = " 
                                                         position:relative; 
                                                         top:-80px; 
@@ -597,7 +597,7 @@ function getallproductwithpublishingcompany($id, $limit){
                                                             id="det_img_1746761672"
                                                             src="../layout/'.htmlentities($item->url).'"
                                                             alt="" title="" style="height: 213px; width: auto;" />
-                                                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=http://localhost:18080/websitebansachonline/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
+                                                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://hoangvu47.000webhostapp.com/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
                                                             style = " 
                                                             position:relative; 
                                                             top:-80px; 
@@ -774,7 +774,7 @@ function getListProductLike(){
                                                         id="det_img_1746761672"
                                                         src="../layout/'.htmlentities($item->url).'"
                                                         alt="" title="" style="height: 213px; width: auto;" />
-                                                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=http://localhost:18080/websitebansachonline/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
+                                                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://hoangvu47.000webhostapp.com/pages/customer/product.php?id='.htmlentities($item->id_product).'&amp;size=80x80" alt="" title="" 
                                                         style = " 
                                                         position:relative; 
                                                         top:-80px; 
