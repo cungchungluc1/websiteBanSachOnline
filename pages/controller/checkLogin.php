@@ -2,8 +2,11 @@
 include '../entity/user.php';
 include '../common/common.php';
 session_start();
+$id_code=null;
+if(session_id() && isset($_SESSION["codeSession"])) {
+    $id_code=$_SESSION["codeSession"];
+}
 
-$id_code=$_SESSION["codeSession"];
 $users = new User();
 if($users->checkLogin($id_code)->id_role == "admin" || $users->checkLogin($id_code)->id_role == "customer"){
     if ($users->checkLogin($id_code)->id_role == "customer") {
