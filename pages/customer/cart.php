@@ -146,7 +146,7 @@ if($data == null)
                                                             title="Loại bỏ"><i class="vs-icon-delete"></i></a>
                                                         <div class="ty-cart-content__sku ty-sku cm-hidden-wrapper"
                                                             id="sku_4160822667">
-                                                            Barcode:
+                                                            ID Product:
                                                             <span class="cm-reload-4160822667"
                                                                 id="product_code_update_4160822667"><?php echo htmlentities($dataaproduct->id_product); ?></span>
                                                         </div>
