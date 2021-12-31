@@ -8719,9 +8719,7 @@ a.ty-quick-view__title {
   text-decoration: none;
 }
 .ty-group-block {
-  padding: 10px;
-  border: 1px solid #a61c00;
-  border-radius: 3px;
+  /* padding: 10px; */
 }
 .ty-group-block__arrow {
   position: relative;
@@ -20053,10 +20051,7 @@ a.reset-filters:hover {
   font-family: Arial, Helvetica, sans-serif, sans-serif;
   color: #434343;
 }
-.vs-cart-page .ty-mainbox-cart__body .ty-table .ty-group-block {
-  border-color: #ffa08d;
-  background-color: #ffad9c;
-}
+
 .vs-cart-page .ty-mainbox-cart__body .ty-table .ty-group-block .ty-caret-outer {
   border-bottom-color: #ffa08d;
 }

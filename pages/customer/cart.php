@@ -152,11 +152,7 @@ if($data == null)
                                                         </div>
                                                         <div id="options_4160822667"
                                                             class="ty-product-options ty-group-block">
-                                                            <div class="ty-group-block__arrow">
-                                                                <span class="ty-caret-info"><span
-                                                                        class="ty-caret-outer"></span><span
-                                                                        class="ty-caret-inner"></span></span>
-                                                            </div>
+                                                            
                                                             <bdi>
                                                                 <div class="cm-reload-4160822667"
                                                                     id="product_info_update_4160822667">
