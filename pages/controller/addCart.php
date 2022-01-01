@@ -23,5 +23,6 @@
     $c->quantity=$_POST["product_quantity"];
     $c->date_update=$ngaydathang;
     $c->upsert($c);
+    
     // echo $c->user_id."   /   ".$c->product_id."   /   ".$c->quantity;
 ?>

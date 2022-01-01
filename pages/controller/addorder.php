@@ -94,12 +94,17 @@ if($listCart!=null){
             $pro->updateSub($dataaproduct);
         }
         $c->deleteAll($id_user);
-        if($_POST['selected_payment_method']=="offline")
-            header("location:../customer/home.php");
+        if($_POST['selected_payment_method']=="offline"){
+            echo '<script> alert("Bạn đã đặt hàng thành công!!!");
+                window.location.replace("../customer/home.php");
+                </script>';
+        }
     }
     if($_POST['selected_payment_method']=="online"){
         header("location:./payment/index.php");
     }
-    else header("location:../customer/home.php");
+    else echo '<script> alert("Bạn đã đặt hàng thành công!!!");
+    window.location.replace("../customer/home.php");
+    </script>';
 }
 ?>

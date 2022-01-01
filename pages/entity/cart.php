@@ -14,6 +14,9 @@ class cart
         }else{
             $this->add($tbl_cart);
         }
+        echo '<script> alert("Bạn đã thêm sản phẩm vào giỏ hàng!!!");
+                window.location.replace("../customer/cart.php");
+                </script>';
     }
     function add($tbl_cart)
     {
@@ -25,7 +28,6 @@ class cart
         $query->bindParam(':quantity', $tbl_cart->quantity, PDO::PARAM_STR);
         $query->bindParam(':date_update', $tbl_cart->date_update, PDO::PARAM_STR);
         $query->execute();
-        header("location:../customer/cart.php");
     }
     function delete($user_id,$product_id)
     {
@@ -44,7 +46,7 @@ class cart
         $query = $dbh->prepare($sql);
         $query->bindValue(':user_id', $user_id);
         $query->execute();
-        header("location:../customer/cart.php");
+        // header("location:../customer/cart.php");
     }
     function update($tbl_cart)
     {
@@ -56,7 +58,6 @@ class cart
         $query->bindParam(':quantity', $tbl_cart->quantity, PDO::PARAM_STR);
         $query->bindParam(':date_update', $tbl_cart->date_update, PDO::PARAM_STR);
         $query->execute();
-        header("location:../customer/cart.php");
     }
     function getallcart($id_user)
     {
